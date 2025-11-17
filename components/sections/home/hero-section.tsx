@@ -205,11 +205,6 @@ export function HeroSection() {
                   icon={service.icon}
                   title={service.title}
                   description={service.description}
-                  style={
-                    {
-                      animationDelay: `${400 + index * 100}ms`,
-                    } as React.CSSProperties
-                  }
                 />
               ))}
             </div>
