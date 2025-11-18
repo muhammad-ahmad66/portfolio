@@ -65,7 +65,7 @@ export function ContactForm() {
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
     setError(null);
-    
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -80,10 +80,10 @@ export function ContactForm() {
       if (!response.ok) {
         throw new Error(result.error || "Failed to send message");
       }
-      
+
       setIsSuccess(true);
       reset();
-      
+
       setTimeout(() => {
         setIsSuccess(false);
       }, 5000);
@@ -166,9 +166,7 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-2">
-            Company Name
-          </label>
+          <label className="block text-sm font-medium mb-2">Company Name</label>
           <Input
             placeholder="Your Company"
             {...register("company")}
@@ -184,14 +182,18 @@ export function ContactForm() {
           </label>
           <Select
             value={projectType || undefined}
-            onValueChange={(value) => setValue("projectType", value, { shouldValidate: true })}
+            onValueChange={(value) =>
+              setValue("projectType", value, { shouldValidate: true })
+            }
           >
             <SelectTrigger error={errors.projectType?.message}>
               <SelectValue placeholder="Select project type" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="wordpress">WordPress Development</SelectItem>
-              <SelectItem value="nextjs">Next.js / React Application</SelectItem>
+              <SelectItem value="nextjs">
+                Next.js / React Application
+              </SelectItem>
               <SelectItem value="ecommerce">E-commerce Solution</SelectItem>
               <SelectItem value="redesign">Website Redesign</SelectItem>
               <SelectItem value="maintenance">Maintenance & Support</SelectItem>
@@ -201,10 +203,8 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-2">
-            Budget Range
-          </label>
-          <Select 
+          <label className="block text-sm font-medium mb-2">Budget Range</label>
+          <Select
             value={budget || undefined}
             onValueChange={(value) => setValue("budget", value)}
           >
@@ -224,10 +224,8 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-2">
-          Timeline
-        </label>
-        <Select 
+        <label className="block text-sm font-medium mb-2">Timeline</label>
+        <Select
           value={timeline || undefined}
           onValueChange={(value) => setValue("timeline", value)}
         >
@@ -253,8 +251,11 @@ export function ContactForm() {
             <Checkbox
               id="domainHosting"
               checked={domainHosting}
+              // onCheckedChange={(checked) =>
+              //   setValue("domainHosting", checked as boolean)
+              // }
               onCheckedChange={(checked) =>
-                setValue("domainHosting", checked as boolean)
+                setValue("domainHosting", checked === true)
               }
             />
             <label
@@ -268,8 +269,11 @@ export function ContactForm() {
             <Checkbox
               id="graphicWork"
               checked={graphicWork}
+              // onCheckedChange={(checked) =>
+              //   setValue("graphicWork", checked as boolean)
+              // }
               onCheckedChange={(checked) =>
-                setValue("graphicWork", checked as boolean)
+                setValue("graphicWork", checked === true)
               }
             />
             <label
@@ -322,4 +326,3 @@ export function ContactForm() {
     </form>
   );
 }
-
