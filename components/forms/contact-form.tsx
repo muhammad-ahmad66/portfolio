@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button-component";
-import { ArrowRight, Loader2, Send, CheckCircle2 } from "lucide-react";
+import { Loader2, Send, CheckCircle2 } from "lucide-react";
 import { Typography } from "@/components/ui/typography";
 
 const contactFormSchema = z.object({
@@ -69,24 +69,17 @@ export function ContactForm() {
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
       const result = await response.json();
-
-      if (!response.ok) {
+      if (!response.ok)
         throw new Error(result.error || "Failed to send message");
-      }
 
       setIsSuccess(true);
       reset();
-
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 5000);
+      setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
       console.error("Error submitting form:", error);
       setError(
@@ -138,7 +131,6 @@ export function ContactForm() {
             error={errors.name?.message}
           />
         </div>
-
         <div>
           <label className="block text-sm font-medium mb-2">
             Email Address <span className="text-red-500">*</span>
@@ -164,7 +156,6 @@ export function ContactForm() {
             error={errors.phone?.message}
           />
         </div>
-
         <div>
           <label className="block text-sm font-medium mb-2">Company Name</label>
           <Input
@@ -251,9 +242,6 @@ export function ContactForm() {
             <Checkbox
               id="domainHosting"
               checked={domainHosting}
-              // onCheckedChange={(checked) =>
-              //   setValue("domainHosting", checked as boolean)
-              // }
               onCheckedChange={(checked) =>
                 setValue("domainHosting", checked === true)
               }
@@ -269,9 +257,6 @@ export function ContactForm() {
             <Checkbox
               id="graphicWork"
               checked={graphicWork}
-              // onCheckedChange={(checked) =>
-              //   setValue("graphicWork", checked as boolean)
-              // }
               onCheckedChange={(checked) =>
                 setValue("graphicWork", checked === true)
               }
