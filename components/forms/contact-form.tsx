@@ -39,14 +39,8 @@ const contactFormSchema = z.object({
   projectType: z.string().min(1, "Please select a project type"),
   budget: z.string().optional(),
   timeline: z.string().optional(),
-  domainHosting: z
-    .boolean()
-    .optional()
-    .transform((val) => val ?? false),
-  graphicWork: z
-    .boolean()
-    .optional()
-    .transform((val) => val ?? false),
+  domainHosting: z.boolean().default(false),
+  graphicWork: z.boolean().default(false),
   message: z.string().min(10, "Please provide at least 10 characters"),
 });
 
