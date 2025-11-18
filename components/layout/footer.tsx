@@ -127,12 +127,6 @@ export function Footer() {
               Available for work
             </Typography>
           </div>
-          <BadgeButton
-            href={"mailto:"}
-            icon={socialLinks[0].icon}
-            label={socialLinks[0].name}
-            variant="minimal"
-          />
         </div>
       </div>
     </footer>

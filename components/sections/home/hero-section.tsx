@@ -1,18 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button-component";
 import { Typography } from "@/components/ui/typography";
 import { IconList } from "@/components/ui/icon-list";
-import { ServiceCard } from "@/components/cards/service-card";
 import { BadgeButton } from "@/components/ui/badge-button";
 import {
   ArrowRight,
   Sparkles,
-  Globe,
-  ShoppingCart,
-  Zap,
-  Settings,
+  Award,
+  Layers,
+  Rocket,
 } from "lucide-react";
 import {
   SiWordpress,
@@ -50,32 +49,24 @@ export function HeroSection() {
   }, []);
 
   const trustIndicators = [
-    { text: "5+ Years Experience" },
-    { text: "50+ Projects Delivered" },
-    { text: "100% Client Satisfaction" },
+    {
+      icon: <Award className="w-4 h-4 text-primary-500" />,
+      text: "5+ years shipping web platforms",
+    },
+    {
+      icon: <Layers className="w-4 h-4 text-primary-500" />,
+      text: "50+ multi-platform builds",
+    },
+    {
+      icon: <Rocket className="w-4 h-4 text-primary-500" />,
+      text: "100% launch readiness score",
+    },
   ];
 
-  const services = [
-    {
-      icon: <Globe className="w-6 h-6" />,
-      title: "WordPress Development",
-      description: "Custom themes & plugins",
-    },
-    {
-      icon: <ShoppingCart className="w-6 h-6" />,
-      title: "E-commerce Solutions",
-      description: "WooCommerce & custom stores",
-    },
-    {
-      icon: <Zap className="w-6 h-6" />,
-      title: "Custom Web Applications",
-      description: "Modern & scalable apps",
-    },
-    {
-      icon: <Settings className="w-6 h-6" />,
-      title: "Performance Optimization",
-      description: "Speed & SEO improvements",
-    },
+  const focusPoints = [
+    "Fractional partner for startups & studios",
+    "WordPress + Next.js ecosystems",
+    "Calm delivery, async friendly",
   ];
 
   const wordpressTech = [
@@ -94,16 +85,16 @@ export function HeroSection() {
   ];
 
   const devTech = [
-    { label: "Next.js", icon: <SiNextdotjs className="w-5 h-5" /> },
-    { label: "TypeScript", icon: <SiTypescript className="w-5 h-5" /> },
     { label: "React", icon: <SiReact className="w-5 h-5" /> },
     { label: "Redux", icon: <SiRedux className="w-5 h-5" /> },
+    { label: "Next.js", icon: <SiNextdotjs className="w-5 h-5" /> },
+    { label: "TypeScript", icon: <SiTypescript className="w-5 h-5" /> },
+    { label: "SCSS", icon: <SiSass className="w-5 h-5" /> },
     { label: "Tailwind", icon: <SiTailwindcss className="w-5 h-5" /> },
     { label: "MUI", icon: <SiMui className="w-5 h-5" /> },
     { label: "Node.js", icon: <SiNodedotjs className="w-5 h-5" /> },
     { label: "Express", icon: <SiExpress className="w-5 h-5" /> },
     { label: "MongoDB", icon: <SiMongodb className="w-5 h-5" /> },
-    { label: "SCSS", icon: <SiSass className="w-5 h-5" /> },
   ];
 
   return (
@@ -127,7 +118,7 @@ export function HeroSection() {
 
       {/* Content Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
           {/* Left Column */}
           <div className="space-y-8">
             <BadgeHeading
@@ -143,20 +134,32 @@ export function HeroSection() {
               }`}
             >
               <Typography variant="h1" className="leading-tight">
-                Build{" "}
-                <span className="relative inline-block">
+                Build calm,
+                <span className="relative inline-block px-2">
                   <span className="relative z-10 bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
-                    Powerful
+                    high-performing
                   </span>
-                  <span className="absolute bottom-2 left-0 right-0 h-3 bg-primary-500/10 -rotate-1" />
-                </span>{" "}
-                Websites That Drive Results
+                  <span className="absolute bottom-1 left-1/4 right-1/4 h-2 bg-primary-500/15 rounded-full blur-sm" />
+                </span>
+                experiences that convert.
               </Typography>
 
               <Typography variant="lead" className="max-w-xl">
-                Transform your vision into reality with custom web solutions
-                that are fast, scalable, and built to convert.
+                Fractional partner for founders and teams who need modern
+                WordPress + Next.js ecosystems, thoughtful brand systems, and
+                clear communication every step of the way.
               </Typography>
+
+              <div className="grid sm:grid-cols-3 gap-3">
+                {focusPoints.map((point) => (
+                  <div
+                    key={point}
+                    className="rounded-2xl border border-border/60 bg-card/70 px-4 py-3 text-sm text-muted-foreground"
+                  >
+                    {point}
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div
@@ -186,11 +189,13 @@ export function HeroSection() {
                   : "opacity-0 translate-y-4"
               }`}
             >
-              <IconList items={trustIndicators} variant="check" />
+              <IconList items={trustIndicators} variant="custom" />
             </div>
+
+            
           </div>
 
-          {/* Right Column - Service Cards */}
+          {/* Right Column */}
           <div
             className={`relative transition-all duration-700 delay-400 ${
               isVisible
@@ -198,15 +203,51 @@ export function HeroSection() {
                 : "opacity-0 translate-x-8"
             }`}
           >
-            <div className="grid grid-cols-2 gap-4 relative z-10">
-              {services.map((service, index) => (
-                <ServiceCard
-                  key={service.title}
-                  icon={service.icon}
-                  title={service.title}
-                  description={service.description}
-                />
-              ))}
+            <div className="relative">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="col-span-2 relative rounded-[36px] overflow-hidden border border-border/70 bg-card/80 aspect-[4/3] shadow-2xl group">
+                  <Image
+                    src="/images/my-development-workspace-landscape.webp"
+                    alt="Modern workspace"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+
+                <div className="relative rounded-[30px] overflow-hidden border border-border shadow-2xl group h-64">
+                  <Image
+                    src="/images/my-development-workspace-potrait.webp"
+                    alt="Studio portrait"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+
+                <div className="relative rounded-[30px] overflow-hidden border border-border shadow-2xl group h-64">
+                  <Image
+                    src="/images/project-design-visual-landscape.webp"
+                    alt="Design board"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+              </div>
+
+              <div className="absolute -bottom-8 lg:-bottom-10 left-6 right-6 rounded-3xl border border-border/70 bg-background/90 backdrop-blur-xl shadow-lg p-5 flex flex-col gap-2">
+                <p className="text-xs uppercase tracking-[0.35em] text-muted-foreground">
+                  Currently crafting
+                </p>
+                <p className="text-sm font-semibold text-foreground">
+                  WordPress + Next.js membership experience
+                </p>
+                <span className="text-xs text-muted-foreground">
+                  Live design systems, async sprints, performance budgets locked in.
+                </span>
+              </div>
             </div>
           </div>
         </div>
