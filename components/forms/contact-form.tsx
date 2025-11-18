@@ -18,6 +18,19 @@ import { Button } from "@/components/ui/button-component";
 import { Loader2, Send, CheckCircle2 } from "lucide-react";
 import { Typography } from "@/components/ui/typography";
 
+// const contactFormSchema = z.object({
+//   name: z.string().min(2, "Name must be at least 2 characters"),
+//   email: z.string().email("Please enter a valid email address"),
+//   phone: z.string().min(10, "Please enter a valid phone number"),
+//   company: z.string().optional(),
+//   projectType: z.string().min(1, "Please select a project type"),
+//   budget: z.string().optional(),
+//   timeline: z.string().optional(),
+//   domainHosting: z.boolean().default(false),
+//   graphicWork: z.boolean().default(false),
+//   message: z.string().min(10, "Please provide at least 10 characters"),
+// });
+
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
@@ -26,8 +39,14 @@ const contactFormSchema = z.object({
   projectType: z.string().min(1, "Please select a project type"),
   budget: z.string().optional(),
   timeline: z.string().optional(),
-  domainHosting: z.boolean().default(false),
-  graphicWork: z.boolean().default(false),
+  domainHosting: z
+    .boolean()
+    .optional()
+    .transform((val) => val ?? false),
+  graphicWork: z
+    .boolean()
+    .optional()
+    .transform((val) => val ?? false),
   message: z.string().min(10, "Please provide at least 10 characters"),
 });
 
