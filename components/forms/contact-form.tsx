@@ -31,6 +31,9 @@ import { Typography } from "@/components/ui/typography";
 //   message: z.string().min(10, "Please provide at least 10 characters"),
 // });
 
+// FILE: components/forms/contact-form.tsx
+// Replace the contactFormSchema with this:
+
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
@@ -39,8 +42,8 @@ const contactFormSchema = z.object({
   projectType: z.string().min(1, "Please select a project type"),
   budget: z.string().optional(),
   timeline: z.string().optional(),
-  domainHosting: z.boolean().default(false),
-  graphicWork: z.boolean().default(false),
+  domainHosting: z.boolean(), // Remove .default(false)
+  graphicWork: z.boolean(), // Remove .default(false)
   message: z.string().min(10, "Please provide at least 10 characters"),
 });
 
