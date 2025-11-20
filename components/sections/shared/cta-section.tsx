@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Typography } from "@/components/ui/typography";
 import { Button } from "@/components/ui/button-component";
 import { BadgeHeading } from "@/components/ui/badge-heading";
@@ -52,22 +53,31 @@ export function CtaSection() {
           </div>
 
           <div className="flex flex-col items-center gap-4 w-full max-w-xs">
-            <Button
-              variant="primary"
-              size="lg"
-              className="group w-full shadow-lg hover:shadow-xl"
+            <Link href="/contact" className="w-full">
+              <Button
+                variant="primary"
+                size="lg"
+                className="group w-full shadow-lg hover:shadow-xl"
+              >
+                <span>Contact Us</span>
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+            <a
+              href="https://wa.me/923129819819"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
             >
-              <span>Start the conversation</span>
-              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="lg"
-              className="w-full flex items-center justify-center gap-2"
-            >
-              <MessageCircle className="w-5 h-5" />
-              <span>Drop a Loom intro</span>
-            </Button>
+              <Button
+                variant="ghost"
+                size="lg"
+                className="w-full flex items-center justify-center gap-2"
+              >
+                <MessageCircle className="w-5 h-5" />
+                <span>WhatsApp Us</span>
+              </Button>
+            </a>
           </div>
         </div>
       </div>

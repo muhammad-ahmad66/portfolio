@@ -24,6 +24,7 @@ export function Header() {
     { name: "Work", href: "/work" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
+    { name: "CV", href: "/cv" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -60,9 +61,11 @@ export function Header() {
 
             {/* CTA Button - Desktop */}
             <div className="hidden md:block">
-              <Button variant="outline" size="md">
-                Let's Talk
-              </Button>
+              <a href="/contact">
+                <Button variant="outline" size="md">
+                  Let's Talk
+                </Button>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -102,9 +105,11 @@ export function Header() {
           ))}
 
           <div className="pt-4">
-            <Button variant="primary" size="lg" className="w-full">
-              Let's Talk
-            </Button>
+            <a href="/contact" className="w-full block">
+              <Button variant="primary" size="lg" className="w-full">
+                Let's Talk
+              </Button>
+            </a>
           </div>
         </div>
       </div>

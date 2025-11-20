@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { BadgeHeading } from "@/components/ui/badge-heading";
-import { Typography } from "@/components/ui/typography";
-import { ServiceCard } from "@/components/cards/home/service-card";
-import { IconList } from "@/components/ui/icon-list";
-import { Button } from "@/components/ui/button-component";
+import { useEffect, useState } from 'react';
+import { BadgeHeading } from '@/components/ui/badge-heading';
+import { Typography } from '@/components/ui/typography';
+import { ServiceCard } from '@/components/cards/home/service-card';
+import { IconList } from '@/components/ui/icon-list';
+import { Button } from '@/components/ui/button-component';
 import {
   ArrowRight,
   Code2,
@@ -16,51 +16,51 @@ import {
   ShoppingCart,
   Sparkles,
   Wrench,
-} from "lucide-react";
+} from 'lucide-react';
 
 const services = [
   {
     icon: <Code2 className="w-6 h-6" />,
-    title: "Custom Web Apps",
-    description: "Next.js & React solutions tailored to your workflows.",
+    title: 'Custom Web Apps',
+    description: 'Next.js & React solutions tailored to your workflows.',
   },
   {
     icon: <ShoppingCart className="w-6 h-6" />,
-    title: "E-commerce Builds",
-    description: "WooCommerce stores engineered to convert and scale.",
+    title: 'E-commerce Builds',
+    description: 'WooCommerce stores engineered to convert and scale.',
   },
   {
     icon: <Palette className="w-6 h-6" />,
-    title: "Brand Websites",
-    description: "Marketing experiences with pixel-perfect execution.",
+    title: 'Brand Websites',
+    description: 'Marketing experiences with pixel-perfect execution.',
   },
   {
     icon: <ShieldCheck className="w-6 h-6" />,
-    title: "Site Rescues",
-    description: "Audits, hardening, and fixes for underperforming builds.",
+    title: 'Site Rescues',
+    description: 'Audits, hardening, and fixes for underperforming builds.',
   },
   {
     icon: <LayoutPanelTop className="w-6 h-6" />,
-    title: "Headless CMS",
-    description: "Composable architectures powered by WordPress or Sanity.",
+    title: 'Headless CMS',
+    description: 'Composable architectures powered by WordPress or Sanity.',
   },
   {
     icon: <Wrench className="w-6 h-6" />,
-    title: "Ongoing Care",
-    description: "Retainers for growth experiments and product support.",
+    title: 'Ongoing Care',
+    description: 'Retainers for growth experiments and product support.',
   },
 ];
 
 const processHighlights = [
-  { text: "Discovery & Strategy Sessions" },
-  { text: "Weekly async progress drops" },
-  { text: "Launch, QA & performance reports" },
+  { text: 'Discovery & Strategy Sessions' },
+  { text: 'Weekly async progress drops' },
+  { text: 'Launch, QA & performance reports' },
 ];
 
 const valueProps = [
-  { label: "Avg. time-to-value", value: "3 — 4 weeks" },
-  { label: "Retention rate", value: "92% renew" },
-  { label: "Launch confidence", value: "Zero surprise releases" },
+  { label: 'Avg. time-to-value', value: '3 — 4 weeks' },
+  { label: 'Retention rate', value: '92% renew' },
+  { label: 'Launch confidence', value: 'Zero surprise releases' },
 ];
 
 export function ServicesSection() {
@@ -77,15 +77,15 @@ export function ServicesSection() {
           className="absolute inset-0 opacity-30 dark:opacity-20 transition-opacity duration-1000"
           style={{
             background:
-              "radial-gradient(circle at 30% 20%, rgba(99,102,241,0.12), transparent 55%)",
+              'radial-gradient(circle at 30% 20%, rgba(99,102,241,0.12), transparent 55%)',
           }}
         />
         <div
           className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]"
           style={{
             backgroundImage:
-              "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
+              'linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)',
+            backgroundSize: '40px 40px',
           }}
         />
       </div>
@@ -93,7 +93,7 @@ export function ServicesSection() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
         <div
           className={`text-center space-y-4 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
           <BadgeHeading
@@ -114,8 +114,8 @@ export function ServicesSection() {
           <div
             className={`grid sm:grid-cols-2 gap-4 transition-all duration-700 ${
               isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-6'
             }`}
           >
             {services.map((service) => (
@@ -132,8 +132,8 @@ export function ServicesSection() {
           <div
             className={`p-8 rounded-3xl border border-border bg-card/80 backdrop-blur-xl shadow-2xl space-y-6 transition-all duration-700 delay-150 ${
               isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-6'
             }`}
           >
             <div className="flex items-center gap-3">
@@ -171,11 +171,7 @@ export function ServicesSection() {
                 </div>
               </div>
 
-              <Button
-                variant="primary"
-                size="lg"
-                className="w-full group"
-              >
+              <Button variant="primary" size="lg" className="w-full group">
                 <span>Book a free strategy call</span>
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
@@ -185,7 +181,7 @@ export function ServicesSection() {
 
         <div
           className={`rounded-3xl border border-border/60 bg-card/70 px-6 py-6 flex flex-wrap gap-6 justify-between transition-all duration-700 delay-200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
           {valueProps.map((item) => (
@@ -206,4 +202,3 @@ export function ServicesSection() {
     </section>
   );
 }
-

@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useEffect, useMemo, useState } from "react";
-import { BadgeHeading } from "@/components/ui/badge-heading";
-import { Typography } from "@/components/ui/typography";
-import { IconList } from "@/components/ui/icon-list";
-import { Button } from "@/components/ui/button-component";
+import { useEffect, useMemo, useState } from 'react';
+import { BadgeHeading } from '@/components/ui/badge-heading';
+import { Typography } from '@/components/ui/typography';
+import { IconList } from '@/components/ui/icon-list';
+import { Button } from '@/components/ui/button-component';
 import {
   Compass,
   Layers,
@@ -12,69 +12,71 @@ import {
   Rocket,
   ClipboardCheck,
   Sparkles,
-} from "lucide-react";
+  ArrowRight,
+} from 'lucide-react';
+import Link from 'next/link';
 
 const processSteps = [
   {
-    phase: "01",
-    title: "Discover & Align",
+    phase: '01',
+    title: 'Discover & Align',
     description:
-      "Stakeholder sessions, success metrics, and a shared scorecard for the build.",
+      'Stakeholder sessions, success metrics, and a shared scorecard for the build.',
     artifacts: [
-      "Stakeholder workshops",
-      "Experience audit",
-      "Success metrics blueprint",
+      'Stakeholder workshops',
+      'Experience audit',
+      'Success metrics blueprint',
     ],
     icon: <Compass className="w-5 h-5" />,
   },
   {
-    phase: "02",
-    title: "Experience Systems",
+    phase: '02',
+    title: 'Experience Systems',
     description:
-      "Flows, component systems, and content models that keep every release consistent.",
+      'Flows, component systems, and content models that keep every release consistent.',
     artifacts: [
-      "Interactive wireflows",
-      "Component architecture",
-      "Content model mapping",
+      'Interactive wireflows',
+      'Component architecture',
+      'Content model mapping',
     ],
     icon: <Layers className="w-5 h-5" />,
   },
   {
-    phase: "03",
-    title: "Build & Integrations",
+    phase: '03',
+    title: 'Build & Integrations',
     description:
-      "Premium front-end craft paired with dependable integrations, with visual QA on each milestone.",
+      'Premium front-end craft paired with dependable integrations, with visual QA on each milestone.',
     artifacts: [
-      "Edge-ready codebase",
-      "Performance guardrails",
-      "CMS + API integrations",
+      'Edge-ready codebase',
+      'Performance guardrails',
+      'CMS + API integrations',
     ],
     icon: <Brain className="w-5 h-5" />,
   },
   {
-    phase: "04",
-    title: "Launch & Optimization",
+    phase: '04',
+    title: 'Launch & Optimization',
     description:
-      "We choreograph the release, track impact, and keep testing so momentum never stalls.",
+      'We choreograph the release, track impact, and keep testing so momentum never stalls.',
     artifacts: [
-      "Launch playbook",
-      "Analytics instrumentation",
-      "Roadmap for iteration",
+      'Launch playbook',
+      'Analytics instrumentation',
+      'Roadmap for iteration',
     ],
     icon: <Rocket className="w-5 h-5" />,
   },
 ];
 
 const operatingPrinciples = [
-  { text: "Asynchronous weekly show & tell updates" },
-  { text: "Source files, docs, and tooling are client-owned" },
-  { text: "Performance budgets agreed before build" },
+  { text: 'Asynchronous weekly show & tell updates' },
+  { text: 'Source files, docs, and tooling are client-owned' },
+  { text: 'Performance budgets agreed before build' },
 ];
 
 const valueProps = [
-  { label: "Avg. phase length", value: "2.5 weeks" },
-  { label: "Touchpoints / week", value: "2 async drops" },
-  { label: "Launch confidence", value: "99.8% uptime" },
+  { label: 'Avg. phase length', value: '2.5 weeks' },
+  { label: 'Touchpoints / week', value: '2 async drops' },
+  { label: 'Launch confidence', value: '99.8% uptime' },
 ];
 
 export function ProcessSection() {
@@ -100,15 +102,15 @@ export function ProcessSection() {
           className="absolute inset-0 opacity-30 dark:opacity-20 transition-opacity duration-1000"
           style={{
             background:
-              "radial-gradient(circle at 70% 10%, rgba(14,165,233,0.15), transparent 55%)",
+              'radial-gradient(circle at 70% 10%, rgba(14,165,233,0.15), transparent 55%)',
           }}
         />
         <div
           className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]"
           style={{
             backgroundImage:
-              "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
-            backgroundSize: "46px 46px",
+              'linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)',
+            backgroundSize: '46px 46px',
           }}
         />
       </div>
@@ -152,8 +154,8 @@ export function ProcessSection() {
                   onFocus={() => setActiveStep(index)}
                   className={`text-left rounded-3xl border px-6 py-5 transition-all duration-300 ${
                     isActive
-                      ? "border-primary-500/60 shadow-lg shadow-primary-500/10 bg-card"
-                      : "border-border bg-card/60 hover:border-border/40"
+                      ? 'border-primary-500/60 shadow-lg shadow-primary-500/10 bg-card'
+                      : 'border-border bg-card/60 hover:border-border/40'
                   }`}
                 >
                   <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.35em] text-muted-foreground">
@@ -175,8 +177,8 @@ export function ProcessSection() {
                         key={tag}
                         className={`px-3 py-1 rounded-full text-xs font-semibold tracking-wide ${
                           isActive
-                            ? "bg-primary-500/10 text-primary-500"
-                            : "bg-muted text-muted-foreground/80"
+                            ? 'bg-primary-500/10 text-primary-500'
+                            : 'bg-muted text-muted-foreground/80'
                         }`}
                       >
                         {tag}
@@ -209,7 +211,10 @@ export function ProcessSection() {
             </div>
 
             <div className="space-y-3">
-              <Typography variant="small" className="uppercase tracking-[0.25em]">
+              <Typography
+                variant="small"
+                className="uppercase tracking-[0.25em]"
+              >
                 Deliverables
               </Typography>
               <ul className="space-y-2">
@@ -230,15 +235,18 @@ export function ProcessSection() {
                 variant="small"
                 className="uppercase tracking-[0.3em] text-primary-500"
               >
-                Transparency layer
+                Project Communication
               </Typography>
               <p className="text-base text-muted-foreground">
                 We share progress via Loom, Figma, and Notion updates twice a
                 week, so you never have to guess what is shipping next.
               </p>
-              <Button variant="ghost" size="sm" className="gap-2">
-                Download full playbook
-              </Button>
+              <Link href="/contact">
+                <Button variant="ghost" size="sm" className="gap-2">
+                  Get Started
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -262,4 +270,3 @@ export function ProcessSection() {
     </section>
   );
 }
-

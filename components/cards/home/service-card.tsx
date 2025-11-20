@@ -1,8 +1,9 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import { ArrowRight } from "lucide-react";
-import { IconBox } from "@/components/ui/icon-box";
+import * as React from 'react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import { IconBox } from '@/components/ui/icon-box';
 
 interface ServiceCardProps {
   icon?: React.ReactNode;
@@ -17,11 +18,13 @@ export function ServiceCard({
   title,
   description,
   onClick,
-  className = "",
+  className = '',
 }: ServiceCardProps) {
-  return (
+  const content = (
     <div
-      className={`group relative p-6 rounded-2xl border border-border bg-card/50 backdrop-blur-sm hover:bg-card hover:border-primary-500/30 hover:shadow-lg transition-all duration-300 cursor-default ${className}`}
+      className={`group relative p-6 rounded-2xl border border-border bg-card/50 backdrop-blur-sm hover:bg-card hover:border-primary-500/30 hover:shadow-lg transition-all duration-300 ${
+        onClick ? 'cursor-pointer' : 'cursor-pointer'
+      } ${className}`}
       onClick={onClick}
     >
       {/* Gradient on Hover */}
@@ -43,5 +46,16 @@ export function ServiceCard({
         <ArrowRight className="w-4 h-4 text-primary-500" />
       </div>
     </div>
+  );
+
+  // If onClick is provided, return as clickable div, otherwise wrap in Link
+  if (onClick) {
+    return content;
+  }
+
+  return (
+    <Link href="/contact" className="block">
+      {content}
+    </Link>
   );
 }

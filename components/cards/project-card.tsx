@@ -41,7 +41,7 @@ export function ProjectCard({
           </div>
         )}
 
-        <div className="relative h-[420px] overflow-hidden rounded-2xl">
+        <div className="relative h-[300px] overflow-hidden rounded-2xl">
           <Image
             src={imageSrc}
             alt={title}
@@ -56,7 +56,7 @@ export function ProjectCard({
             }}
             style={{
               transform: isHovered
-                ? `translateY(-${Math.max(imageHeight - 420, 0)}px)`
+                ? `translateY(-${Math.max(imageHeight - 300, 0)}px)`
                 : "translateY(0)",
               transition: isHovered ? "transform 8s ease-in-out" : "transform 0.6s ease-out",
             }}

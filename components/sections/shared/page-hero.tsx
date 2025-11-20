@@ -182,7 +182,7 @@ export function PageHero({
 
           {indicators && indicators.length > 0 && (
             <div
-              className={`transition-all duration-700 delay-400 ${
+              className={`flex justify-center transition-all duration-700 delay-400 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"

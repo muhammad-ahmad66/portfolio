@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button-component";
 import { Typography } from "@/components/ui/typography";
 import { IconList } from "@/components/ui/icon-list";
@@ -13,22 +14,8 @@ import {
   Layers,
   Rocket,
 } from "lucide-react";
-import {
-  SiWordpress,
-  SiWoocommerce,
-  SiElementor,
-  SiNextdotjs,
-  SiTypescript,
-  SiReact,
-  SiRedux,
-  SiTailwindcss,
-  SiMui,
-  SiNodedotjs,
-  SiExpress,
-  SiMongodb,
-  SiSass,
-} from "react-icons/si";
 import { BadgeHeading } from "@/components/ui/badge-heading";
+import { wordpressTech, devTech } from "@/data/tech-stack";
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -69,33 +56,6 @@ export function HeroSection() {
     "Calm delivery, async friendly",
   ];
 
-  const wordpressTech = [
-    {
-      label: "WordPress",
-      icon: <SiWordpress className="w-5 h-5" />,
-    },
-    {
-      label: "WooCommerce",
-      icon: <SiWoocommerce className="w-5 h-5" />,
-    },
-    {
-      label: "Elementor",
-      icon: <SiElementor className="w-5 h-5" />,
-    },
-  ];
-
-  const devTech = [
-    { label: "React", icon: <SiReact className="w-5 h-5" /> },
-    { label: "Redux", icon: <SiRedux className="w-5 h-5" /> },
-    { label: "Next.js", icon: <SiNextdotjs className="w-5 h-5" /> },
-    { label: "TypeScript", icon: <SiTypescript className="w-5 h-5" /> },
-    { label: "SCSS", icon: <SiSass className="w-5 h-5" /> },
-    { label: "Tailwind", icon: <SiTailwindcss className="w-5 h-5" /> },
-    { label: "MUI", icon: <SiMui className="w-5 h-5" /> },
-    { label: "Node.js", icon: <SiNodedotjs className="w-5 h-5" /> },
-    { label: "Express", icon: <SiExpress className="w-5 h-5" /> },
-    { label: "MongoDB", icon: <SiMongodb className="w-5 h-5" /> },
-  ];
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -169,21 +129,26 @@ export function HeroSection() {
                   : "opacity-0 translate-y-4"
               }`}
             >
-              <Button
-                variant="primary"
-                size="lg"
-                className="group shadow-lg hover:shadow-xl"
-              >
-                <span>Start Your Project</span>
-                <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button variant="ghost" size="lg">
-                View Case Studies
-              </Button>
+              <Link href="/contact">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="group shadow-lg hover:shadow-xl"
+                >
+                  <span>Start Your Project</span>
+                  <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
+              <Link href="/portfolio">
+                <Button variant="ghost" size="lg" className="group">
+                  <span>View Portfolio</span>
+                  <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
             </div>
 
             <div
-              className={`transition-all duration-700 delay-300 ${
+              className={`flex justify-center transition-all duration-700 delay-300 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"

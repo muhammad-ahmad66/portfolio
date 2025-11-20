@@ -16,10 +16,6 @@ export default function WorkPage() {
         title="Portfolio of"
         titleHighlight="digital excellence"
         description="Explore a curated collection of projects showcasing my expertise in WordPress development, custom web applications, and modern digital solutions. Each project represents a unique challenge solved with creativity and technical precision."
-        primaryAction={{
-          label: "View All Projects",
-          href: "#projects",
-        }}
         indicators={[
           {
             icon: <Briefcase className="w-4 h-4 text-primary-500" />,

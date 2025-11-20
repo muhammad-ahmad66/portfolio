@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { BadgeHeading } from "@/components/ui/badge-heading";
 import { Typography } from "@/components/ui/typography";
 import { Button } from "@/components/ui/button-component";
@@ -141,14 +142,28 @@ export function AboutSection() {
               </Typography>
             </div>
 
-            <Button
-              variant="primary"
-              size="lg"
-              className="group inline-flex items-center gap-2 shadow-md hover:shadow-xl"
-            >
-              <span>Book a discovery call</span>
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link href="/contact">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="group inline-flex items-center gap-2 shadow-md hover:shadow-xl w-full sm:w-auto"
+                >
+                  <span>Contact Me</span>
+                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
+              <Link href="/cv">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="group inline-flex items-center gap-2 w-full sm:w-auto"
+                >
+                  <span>View CV</span>
+                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
+            </div>
           </div>
 
           <div
@@ -195,7 +210,10 @@ export function AboutSection() {
               />
             </div>
 
-            <div className="col-span-2 rounded-[32px] border border-border/70 bg-background/70 backdrop-blur-lg p-6 flex flex-col sm:flex-row items-center gap-4">
+            <Link
+              href="/contact"
+              className="col-span-2 rounded-[32px] border border-border/70 bg-background/70 backdrop-blur-lg p-6 flex flex-col sm:flex-row items-center gap-4 hover:border-primary-500/50 transition-all duration-300 group"
+            >
               <div className="relative">
                 <div
                   className="w-16 h-16 rounded-full border-2 border-primary-500 flex items-center justify-center animate-spin"
@@ -214,11 +232,10 @@ export function AboutSection() {
                   Async updates via Loom, Notion, and Slack—twice a week.
                 </p>
               </div>
-              <button className="group relative w-14 h-14 rounded-full border border-border flex items-center justify-center hover:border-primary-500 transition-colors">
+              <div className="w-14 h-14 rounded-full border border-border flex items-center justify-center group-hover:border-primary-500 transition-colors">
                 <MessageCircle className="w-5 h-5 text-muted-foreground group-hover:text-primary-500 transition-colors" />
-                <span className="sr-only">Contact</span>
-              </button>
-            </div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
