@@ -17,7 +17,7 @@ import {
   portfolioItems,
   categoryColors,
   type PortfolioCategory,
-} from '@/data/portfolio';
+} from '@/data/work/portfolio';
 
 export function PortfolioWindow() {
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);

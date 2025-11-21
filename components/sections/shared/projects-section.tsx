@@ -5,8 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Typography } from '@/components/ui/typography';
 import { Button } from '@/components/ui/button-component';
-import { featuredProjects } from '@/data/featured-projects';
-import { categoryColors, type PortfolioCategory } from '@/data/portfolio';
+import { featuredProjects } from '@/data/work/featured-projects';
+import { categoryColors, type PortfolioCategory } from '@/data/work/portfolio';
 import {
   ArrowRight,
   Sparkles,

@@ -1,0 +1,68 @@
+// src/data/contact/contact-info.ts
+
+import {
+  Mail,
+  MessageCircle,
+  Github,
+  Linkedin,
+  Phone,
+  MapPin,
+} from 'lucide-react';
+import { ContactMethod } from '@/types/contact';
+
+export const contactInfo: ContactMethod[] = [
+  {
+    icon: <Mail className="w-5 h-5" />,
+    label: 'Email',
+    value: 'muhammadugv66@gmail.com',
+    href: 'mailto:muhammadugv66@gmail.com',
+    color: 'text-blue-500',
+    bgColor: 'bg-blue-500/10',
+    description: 'Send me an email anytime',
+  },
+  {
+    icon: <MessageCircle className="w-5 h-5" />,
+    label: 'WhatsApp',
+    value: '+92 312 9818199',
+    href: 'https://wa.me/923129818199',
+    color: 'text-green-500',
+    bgColor: 'bg-green-500/10',
+    description: 'Chat with me on WhatsApp',
+  },
+  {
+    icon: <Phone className="w-5 h-5" />,
+    label: 'Phone',
+    value: '+92 312 9818199',
+    href: 'tel:+923129818199',
+    color: 'text-purple-500',
+    bgColor: 'bg-purple-500/10',
+    description: 'Call me directly',
+  },
+  {
+    icon: <Github className="w-5 h-5" />,
+    label: 'GitHub',
+    value: 'muhammad-ahmad66',
+    href: 'https://github.com/muhammad-ahmad66',
+    color: 'text-gray-500',
+    bgColor: 'bg-gray-500/10',
+    description: 'Check out my code',
+  },
+  {
+    icon: <Linkedin className="w-5 h-5" />,
+    label: 'LinkedIn',
+    value: 'M. Ahmad',
+    href: 'https://www.linkedin.com/in/m-ahmad66/',
+    color: 'text-blue-600',
+    bgColor: 'bg-blue-600/10',
+    description: 'Connect professionally',
+  },
+  {
+    icon: <MapPin className="w-5 h-5" />,
+    label: 'Location',
+    value: 'Rawalpindi, Pakistan',
+    href: 'https://maps.google.com/?q=Rawalpindi,Pakistan',
+    color: 'text-red-500',
+    bgColor: 'bg-red-500/10',
+    description: 'View on map',
+  },
+];

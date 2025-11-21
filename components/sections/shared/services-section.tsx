@@ -7,98 +7,12 @@ import { Typography } from '@/components/ui/typography';
 import { ServiceCard } from '@/components/cards/home/service-card';
 import { IconList } from '@/components/ui/icon-list';
 import { Button } from '@/components/ui/button-component';
+import { ArrowRight, LineChart, Sparkles } from 'lucide-react';
 import {
-  ArrowRight,
-  Code2,
-  LayoutPanelTop,
-  LineChart,
-  MonitorSmartphone,
-  Palette,
-  Puzzle,
-  Server,
-  ShieldCheck,
-  ShoppingCart,
-  Sparkles,
-  TrendingUp,
-  Wrench,
-} from 'lucide-react';
-
-const serviceCatalog = [
-  {
-    icon: <Code2 className="w-6 h-6" />,
-    title: 'Custom Web Apps',
-    description: 'Next.js & React solutions tailored to your workflows.',
-    features: ['Next.js / React', 'API integrations', 'Dashboard UI'],
-  },
-  {
-    icon: <ShoppingCart className="w-6 h-6" />,
-    title: 'E-commerce Builds',
-    description: 'WooCommerce stores engineered to convert and scale.',
-    features: ['WooCommerce', 'Subscriptions', 'Headless commerce'],
-  },
-  {
-    icon: <Palette className="w-6 h-6" />,
-    title: 'Brand Websites',
-    description: 'Marketing experiences with pixel-perfect execution.',
-    features: ['Design systems', 'CMS driven', 'Motion & micro copy'],
-  },
-  {
-    icon: <ShieldCheck className="w-6 h-6" />,
-    title: 'Site Rescues',
-    description: 'Audits, hardening, and fixes for underperforming builds.',
-    features: ['Core web vitals', 'Security review', 'Refactoring'],
-  },
-  {
-    icon: <LayoutPanelTop className="w-6 h-6" />,
-    title: 'Headless CMS',
-    description: 'Composable architectures powered by WordPress or Sanity.',
-    features: ['WordPress + Next.js', 'Sanity / Contentful', 'GraphQL'],
-  },
-  {
-    icon: <Wrench className="w-6 h-6" />,
-    title: 'Ongoing Care',
-    description: 'Retainers for growth experiments and product support.',
-    features: ['Product sprints', 'Launch support', 'Team enablement'],
-  },
-  {
-    icon: <Server className="w-6 h-6" />,
-    title: 'Infrastructure & DevOps',
-    description: 'Scalable hosting setups with automated workflows.',
-    features: ['Vercel / AWS', 'CI/CD pipelines', 'Monitoring'],
-  },
-  {
-    icon: <MonitorSmartphone className="w-6 h-6" />,
-    title: 'Mobile-Ready Experiences',
-    description: 'Responsive PWAs and mobile-first interfaces.',
-    features: ['PWA setup', 'Offline states', 'Accessibility'],
-  },
-  {
-    icon: <TrendingUp className="w-6 h-6" />,
-    title: 'Growth & CRO',
-    description: 'Experimentation frameworks that move key metrics.',
-    features: ['Landing tests', 'Analytics wiring', 'CRM automations'],
-  },
-  {
-    icon: <Puzzle className="w-6 h-6" />,
-    title: 'Integrations & Automation',
-    description: 'Connect your stack with custom middleware.',
-    features: ['Zapier / Make', 'Custom APIs', 'Webhook orchestration'],
-  },
-];
-
-const defaultServices = serviceCatalog.slice(0, 6);
-
-const processHighlights = [
-  { text: 'Discovery & Strategy Sessions' },
-  { text: 'Weekly async progress drops' },
-  { text: 'Launch, QA & performance reports' },
-];
-
-const valueProps = [
-  { label: 'Avg. time-to-value', value: '3 — 4 weeks' },
-  { label: 'Retention rate', value: '92% renew' },
-  { label: 'Launch confidence', value: 'Zero surprise releases' },
-];
+  serviceCatalog,
+  defaultServices,
+} from '../../../data/services/serviceCatalog';
+import { processHighlights, valueProps } from '../../../data/services/processHighlights';
 
 interface ServicesSectionProps {
   variant?: 'default' | 'expanded';
@@ -235,7 +149,7 @@ export function ServicesSection({
                   </a>
                 </div>
 
-                <a href="/contact" className="w-full block">
+                <a href="/services" className="w-full block">
                   <Button variant="outline" size="lg" className="w-full group">
                     <span>View Our Services</span>
                     <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />

@@ -1,44 +1,9 @@
-"use client";
+'use client';
 
-import { Mail, MessageCircle, Github, Linkedin, ExternalLink } from "lucide-react";
-import { Typography } from "@/components/ui/typography";
-import { Button } from "@/components/ui/button-component";
-import Link from "next/link";
-
-const contactInfo = [
-  {
-    icon: <Mail className="w-5 h-5" />,
-    label: "Email",
-    value: "muhammadugv66@gmail.com",
-    href: "mailto:muhammadugv66@gmail.com",
-    color: "text-blue-500",
-    bgColor: "bg-blue-500/10",
-  },
-  {
-    icon: <MessageCircle className="w-5 h-5" />,
-    label: "WhatsApp",
-    value: "+92 312 9818199",
-    href: "https://wa.me/923129818199",
-    color: "text-green-500",
-    bgColor: "bg-green-500/10",
-  },
-  {
-    icon: <Github className="w-5 h-5" />,
-    label: "GitHub",
-    value: "muhammad-ahmad66",
-    href: "https://github.com/muhammad-ahmad66",
-    color: "text-gray-500",
-    bgColor: "bg-gray-500/10",
-  },
-  {
-    icon: <Linkedin className="w-5 h-5" />,
-    label: "LinkedIn",
-    value: "M. Ahmad",
-    href: "https://www.linkedin.com/in/m-ahmad66/",
-    color: "text-blue-600",
-    bgColor: "bg-blue-600/10",
-  },
-];
+import { MessageCircle, ExternalLink } from 'lucide-react';
+import { Typography } from '@/components/ui/typography';
+import Link from 'next/link';
+import { contactInfo } from '@/data/contact/contact-info';
 
 export function ContactInfoSection() {
   return (
@@ -46,7 +11,8 @@ export function ContactInfoSection() {
       <div className="space-y-2">
         <Typography variant="h3">Contact Information</Typography>
         <Typography variant="p" className="text-muted-foreground">
-          Reach out through any of these channels. I typically respond within 24 hours.
+          Reach out through any of these channels. I typically respond within 24
+          hours.
         </Typography>
       </div>
 
@@ -55,8 +21,12 @@ export function ContactInfoSection() {
           <Link
             key={index}
             href={contact.href}
-            target={contact.href.startsWith("http") ? "_blank" : undefined}
-            rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            target={contact.href.startsWith('http') ? '_blank' : undefined}
+            rel={
+              contact.href.startsWith('http')
+                ? 'noopener noreferrer'
+                : undefined
+            }
             className="group"
           >
             <div className="rounded-2xl border border-border/60 bg-background/50 p-6 hover:border-primary-500/50 hover:bg-card/80 transition-all duration-300 space-y-3">
@@ -97,11 +67,11 @@ export function ContactInfoSection() {
             </div>
           </div>
           <Typography variant="p" className="text-sm text-muted-foreground">
-            For urgent matters, WhatsApp is the fastest way to reach me. For detailed project discussions, email works best.
+            For urgent matters, WhatsApp is the fastest way to reach me. For
+            detailed project discussions, email works best.
           </Typography>
         </div>
       </div>
     </div>
   );
 }
-

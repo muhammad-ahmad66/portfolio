@@ -1,31 +1,13 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { BadgeHeading } from "@/components/ui/badge-heading";
-import { Typography } from "@/components/ui/typography";
-import { Button } from "@/components/ui/button-component";
-import {
-  ArrowRight,
-  Briefcase,
-  Globe,
-  MessageCircle,
-  Sparkles,
-} from "lucide-react";
-
-const highlights = [
-  {
-    icon: <Briefcase className="w-4 h-4" />,
-    label: "Freelance + Private",
-    description: "5 years shipping web products across both worlds.",
-  },
-  {
-    icon: <Globe className="w-4 h-4" />,
-    label: "Global Teams",
-    description: "Collaborated with founders across 6 time zones.",
-  },
-];
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { BadgeHeading } from '@/components/ui/badge-heading';
+import { Typography } from '@/components/ui/typography';
+import { Button } from '@/components/ui/button-component';
+import { ArrowRight, MessageCircle, Sparkles } from 'lucide-react';
+import { highlights } from '@/data/about/highlights';
 
 export function AboutSection() {
   const [isVisible] = useState(true);
@@ -46,15 +28,15 @@ export function AboutSection() {
           className="absolute inset-0 opacity-[0.1]"
           style={{
             background:
-              "radial-gradient(circle at 70% 30%, rgba(236,72,153,0.18), transparent 60%)",
+              'radial-gradient(circle at 70% 30%, rgba(236,72,153,0.18), transparent 60%)',
           }}
         />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage:
-              "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
-            backgroundSize: "44px 44px",
+              'linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)',
+            backgroundSize: '44px 44px',
           }}
         />
       </div>
@@ -62,13 +44,14 @@ export function AboutSection() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 space-y-12">
         <div
           className={`space-y-4 text-center sm:text-left transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
           }`}
         >
           <BadgeHeading
             label="About Me"
             icon={<Sparkles className="w-4 h-4 text-primary-500" />}
-          />
+          />{' '}
+          <h3>hello</h3>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <Typography variant="h2" className="leading-tight">
               Crafting calm, high-performing digital experiences.
@@ -101,8 +84,8 @@ export function AboutSection() {
           <div
             className={`space-y-8 transition-all duration-700 delay-100 ${
               isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-4'
             }`}
           >
             <div className="grid sm:grid-cols-2 gap-4">
@@ -111,8 +94,8 @@ export function AboutSection() {
                   key={item.label}
                   className={`rounded-2xl border px-5 py-4 bg-card/70 backdrop-blur-sm transition-all duration-300 ${
                     activeHighlight === index
-                      ? "border-primary-500/50 shadow-lg shadow-primary-500/10"
-                      : "border-border/70"
+                      ? 'border-primary-500/50 shadow-lg shadow-primary-500/10'
+                      : 'border-border/70'
                   }`}
                 >
                   <div className="flex items-center gap-3 text-sm font-semibold text-foreground">
@@ -169,8 +152,8 @@ export function AboutSection() {
           <div
             className={`relative grid grid-cols-2 gap-4 transition-all duration-700 delay-150 ${
               isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-4'
             }`}
           >
             <div className="col-span-2 rounded-[32px] border border-border/70 bg-card/80 p-6 flex items-center gap-4 shadow-lg">
@@ -217,7 +200,7 @@ export function AboutSection() {
               <div className="relative">
                 <div
                   className="w-16 h-16 rounded-full border-2 border-primary-500 flex items-center justify-center animate-spin"
-                  style={{ animationDuration: "6s" }}
+                  style={{ animationDuration: '6s' }}
                 >
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-white text-sm font-semibold">
                     Hi
@@ -245,4 +228,3 @@ export function AboutSection() {
     </section>
   );
 }
-

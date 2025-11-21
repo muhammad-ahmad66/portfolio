@@ -1,49 +1,15 @@
-"use client";
+'use client';
 
-import { Github, Linkedin, MessageCircle, Mail } from "lucide-react";
-import { Logo } from "@/components/ui/logo";
-import { TextButton } from "@/components/ui/text-button";
-import { BadgeButton } from "@/components/ui/badge-button";
-import { Typography } from "@/components/ui/typography";
+import { Logo } from '@/components/ui/logo';
+import { TextButton } from '@/components/ui/text-button';
+import { BadgeButton } from '@/components/ui/badge-button';
+import { Typography } from '@/components/ui/typography';
+import { navLinks } from '@/data/links/nav-links';
+import { socialLinks } from '@/data/links/social-links';
+import { legalLinks } from '@/data/links/legal-links';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-
-  const navLinks = [
-    { name: "Work", href: "/work" },
-    { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "CV", href: "/cv" },
-    { name: "Contact", href: "/contact" },
-  ];
-
-  const socialLinks = [
-    {
-      name: "GitHub",
-      href: "https://github.com/muhammad-ahmad66",
-      icon: <Github className="w-5 h-5" />,
-    },
-    {
-      name: "LinkedIn",
-      href: "https://linkedin.com/in/m-ahmad66",
-      icon: <Linkedin className="w-5 h-5" />,
-    },
-    {
-      name: "WhatsApp",
-      href: "https://wa.me/923129819819",
-      icon: <MessageCircle className="w-5 h-5" />,
-    },
-    {
-      name: "Email",
-      href: "mailto:muhammadugv66@gmail.com",
-      icon: <Mail className="w-5 h-5" />,
-    },
-  ];
-
-  const legalLinks = [
-    { name: "Privacy", href: "/privacy" },
-    { name: "Terms", href: "/terms" },
-  ];
 
   return (
     <footer className="relative border-t border-border/50">

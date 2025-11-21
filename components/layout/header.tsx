@@ -1,11 +1,12 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { Logo } from "@/components/ui/logo";
-import { Button } from "@/components/ui/button-component";
-import { TextButton } from "@/components/ui/text-button";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import { Logo } from '@/components/ui/logo';
+import { Button } from '@/components/ui/button-component';
+import { TextButton } from '@/components/ui/text-button';
+import { ThemeToggle } from '@/components/theme-toggle';
+import { navLinks } from '@/data/links/nav-links';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,29 +17,23 @@ export function Header() {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { name: "Work", href: "/work" },
-    { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "CV", href: "/cv" },
-    { name: "Contact", href: "/contact" },
-  ];
+  const navItems = navLinks;
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/40"
-          : "bg-transparent"
+          ? 'bg-background/80 backdrop-blur-xl border-b border-border/40'
+          : 'bg-transparent'
       }`}
       style={{
         boxShadow: isScrolled
-          ? "0 1px 3px 0 rgb(0 0 0 / 0.02), 0 1px 2px -1px rgb(0 0 0 / 0.02)"
-          : "none",
+          ? '0 1px 3px 0 rgb(0 0 0 / 0.02), 0 1px 2px -1px rgb(0 0 0 / 0.02)'
+          : 'none',
       }}
     >
       <nav className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -63,7 +58,7 @@ export function Header() {
             <div className="hidden md:block">
               <a href="/contact">
                 <Button variant="outline" size="md">
-                  Let's Talk
+                  Let&apos;s Talk
                 </Button>
               </a>
             </div>
@@ -88,8 +83,8 @@ export function Header() {
       <div
         className={`md:hidden transition-all duration-300 ease-in-out ${
           isMobileMenuOpen
-            ? "max-h-96 opacity-100"
-            : "max-h-0 opacity-0 pointer-events-none"
+            ? 'max-h-96 opacity-100'
+            : 'max-h-0 opacity-0 pointer-events-none'
         } overflow-hidden bg-background/95 backdrop-blur-xl border-b border-border/40`}
       >
         <div className="px-6 py-6 space-y-4">
@@ -107,7 +102,7 @@ export function Header() {
           <div className="pt-4">
             <a href="/contact" className="w-full block">
               <Button variant="primary" size="lg" className="w-full">
-                Let's Talk
+                Let&apos;s Talk
               </Button>
             </a>
           </div>

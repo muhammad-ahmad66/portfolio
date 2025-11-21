@@ -1,21 +1,16 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button-component";
-import { Typography } from "@/components/ui/typography";
-import { IconList } from "@/components/ui/icon-list";
-import { BadgeButton } from "@/components/ui/badge-button";
-import {
-  ArrowRight,
-  Sparkles,
-  Award,
-  Layers,
-  Rocket,
-} from "lucide-react";
-import { BadgeHeading } from "@/components/ui/badge-heading";
-import { wordpressTech, devTech } from "@/data/tech-stack";
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button-component';
+import { Typography } from '@/components/ui/typography';
+import { IconList } from '@/components/ui/icon-list';
+import { BadgeButton } from '@/components/ui/badge-button';
+import { ArrowRight, Sparkles } from 'lucide-react';
+import { BadgeHeading } from '@/components/ui/badge-heading';
+import { wordpressTech, devTech } from '@/data/home/tech-stack';
+import { trustIndicators } from '@/data/home/truest-indicators';
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -31,31 +26,15 @@ export function HeroSection() {
       });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const trustIndicators = [
-    {
-      icon: <Award className="w-4 h-4 text-primary-500" />,
-      text: "5+ years shipping web platforms",
-    },
-    {
-      icon: <Layers className="w-4 h-4 text-primary-500" />,
-      text: "50+ multi-platform builds",
-    },
-    {
-      icon: <Rocket className="w-4 h-4 text-primary-500" />,
-      text: "100% launch readiness score",
-    },
-  ];
-
   const focusPoints = [
-    "Fractional partner for startups & studios",
-    "WordPress + Next.js ecosystems",
-    "Calm delivery, async friendly",
+    'Fractional partner for startups & studios',
+    'WordPress + Next.js ecosystems',
+    'Calm delivery, async friendly',
   ];
-
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -71,7 +50,7 @@ export function HeroSection() {
           className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]"
           style={{
             backgroundImage: `linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
+            backgroundSize: '40px 40px',
           }}
         />
       </div>
@@ -89,8 +68,8 @@ export function HeroSection() {
             <div
               className={`space-y-4 transition-all duration-700 delay-100 ${
                 isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-4'
               }`}
             >
               <Typography variant="h1" className="leading-tight">
@@ -125,8 +104,8 @@ export function HeroSection() {
             <div
               className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 transition-all duration-700 delay-200 ${
                 isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-4'
               }`}
             >
               <Link href="/contact">
@@ -150,22 +129,20 @@ export function HeroSection() {
             <div
               className={`flex justify-center transition-all duration-700 delay-300 ${
                 isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-4'
               }`}
             >
               <IconList items={trustIndicators} variant="custom" />
             </div>
-
-            
           </div>
 
           {/* Right Column */}
           <div
             className={`relative transition-all duration-700 delay-400 ${
               isVisible
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 translate-x-8"
+                ? 'opacity-100 translate-x-0'
+                : 'opacity-0 translate-x-8'
             }`}
           >
             <div className="relative">
@@ -210,7 +187,8 @@ export function HeroSection() {
                   WordPress + Next.js membership experience
                 </p>
                 <span className="text-xs text-muted-foreground">
-                  Live design systems, async sprints, performance budgets locked in.
+                  Live design systems, async sprints, performance budgets locked
+                  in.
                 </span>
               </div>
             </div>
@@ -220,7 +198,7 @@ export function HeroSection() {
         {/* Tech Stack Section */}
         <div
           className={`mt-20 pt-12 border-t border-border/50 space-y-8 transition-all duration-700 delay-500 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
           {/* WordPress Technologies */}
