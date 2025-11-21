@@ -11,17 +11,30 @@ import { Button } from '@/components/ui/button-component';
 import { Loader2, Send, CheckCircle2 } from 'lucide-react';
 import { Typography } from '@/components/ui/typography';
 
+// const quickFormSchema = z.object({
+//   name: z.string().min(2, 'Name must be at least 2 characters'),
+//   email: z.string().email('Please enter a valid email'),
+//   phone: z.string().min(10, 'Please enter a valid phone number'),
+//   projectType: z.string().default('other'),
+//   message: z.string().min(10, 'Message must be at least 10 characters'),
+//   company: z.string().optional(),
+//   budget: z.string().optional(),
+//   timeline: z.string().optional(),
+//   domainHosting: z.boolean().default(false),
+//   graphicWork: z.boolean().default(false),
+// });
+
 const quickFormSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email'),
+  email: z.string().email('Please enter a valid email address'),
   phone: z.string().min(10, 'Please enter a valid phone number'),
-  projectType: z.string().default('other'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
   company: z.string().optional(),
+  projectType: z.string(), // Remove .min(1, "...") or .optional()
   budget: z.string().optional(),
   timeline: z.string().optional(),
-  domainHosting: z.boolean().default(false),
-  graphicWork: z.boolean().default(false),
+  domainHosting: z.boolean(), // Remove .default(false)
+  graphicWork: z.boolean(), // Remove .default(false)
+  message: z.string().min(10, 'Please provide at least 10 characters'),
 });
 
 type QuickFormValues = z.infer<typeof quickFormSchema>;

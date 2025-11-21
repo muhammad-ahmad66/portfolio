@@ -23,26 +23,13 @@ const contactFormSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
   phone: z.string().min(10, 'Please enter a valid phone number'),
   company: z.string().optional(),
-  projectType: z.string(), // Remove .min(1, "...") or .optional()
+  projectType: z.string().min(1, 'Please select a project type'),
   budget: z.string().optional(),
   timeline: z.string().optional(),
-  domainHosting: z.boolean(), // Remove .default(false)
-  graphicWork: z.boolean(), // Remove .default(false)
+  domainHosting: z.boolean(),
+  graphicWork: z.boolean(),
   message: z.string().min(10, 'Please provide at least 10 characters'),
 });
-
-// const contactFormSchema = z.object({
-//   name: z.string().min(2, 'Name must be at least 2 characters'),
-//   email: z.string().email('Please enter a valid email address'),
-//   phone: z.string().min(10, 'Please enter a valid phone number'),
-//   company: z.string().optional(),
-//   projectType: z.string().min(1, 'Please select a project type'),
-//   budget: z.string().optional(),
-//   timeline: z.string().optional(),
-//   domainHosting: z.boolean(),
-//   graphicWork: z.boolean(),
-//   message: z.string().min(10, 'Please provide at least 10 characters'),
-// });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
@@ -114,7 +101,7 @@ export function ContactForm() {
         <div className="space-y-2">
           <Typography variant="h3">Message Sent Successfully!</Typography>
           <Typography variant="p" className="text-muted-foreground">
-            I'll get back to you within 24 hours.
+            I&apos;ll get back to you within 24 hours.
           </Typography>
         </div>
       </div>

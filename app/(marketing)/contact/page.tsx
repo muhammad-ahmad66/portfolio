@@ -1,32 +1,32 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { PageHero } from "@/components/sections/shared/page-hero";
-import { ContactForm } from "@/components/forms/contact-form";
-import { ContactInfoSection } from "@/components/sections/shared/contact-info-section";
-import { MessageCircle } from "lucide-react";
+import Image from 'next/image';
+import { PageHero } from '@/components/sections/shared/page-hero';
+import { ContactForm } from '@/components/forms/contact-form';
+import { ContactInfoSection } from '@/components/sections/shared/contact-info-section';
+import { MessageCircle } from 'lucide-react';
 
 export default function ContactPage() {
   return (
     <>
       <PageHero
         badge={{
-          label: "Get in Touch",
+          label: 'Get in Touch',
           icon: <MessageCircle className="w-4 h-4 text-primary-500" />,
         }}
         title="Let's start a"
         titleHighlight="conversation"
         description="Ready to bring your vision to life? Whether you're looking for a custom web solution, need help with an existing project, or just want to discuss possibilities, I'd love to hear from you."
         primaryAction={{
-          label: "Send a Message",
+          label: 'Send a Message',
           onClick: () => {
-            window.location.href = "mailto:muhammadugv66@gmail.com";
+            window.location.href = 'mailto:muhammadugv66@gmail.com';
           },
         }}
         secondaryAction={{
-          label: "WhatsApp Me",
+          label: 'WhatsApp Me',
           onClick: () => {
-            window.open("https://wa.me/923129818199", "_blank");
+            window.open('https://wa.me/923129818199', '_blank');
           },
         }}
       />
@@ -37,15 +37,15 @@ export default function ContactPage() {
             className="absolute inset-0 opacity-[0.12]"
             style={{
               background:
-                "radial-gradient(circle at 10% 20%, rgba(236,72,153,0.12), transparent 55%)",
+                'radial-gradient(circle at 10% 20%, rgba(236,72,153,0.12), transparent 55%)',
             }}
           />
           <div
             className="absolute inset-0 opacity-[0.03]"
             style={{
               backgroundImage:
-                "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
-              backgroundSize: "48px 48px",
+                'linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)',
+              backgroundSize: '48px 48px',
             }}
           />
         </div>
