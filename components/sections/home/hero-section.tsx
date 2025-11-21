@@ -221,7 +221,7 @@ export function HeroSection() {
           {/* Modern Development Stack */}
           <div className="space-y-4">
             <Typography variant="small" className="text-center">
-              Modern Development Stack
+              Modern Tech and Tools
             </Typography>
             <div className="flex flex-wrap items-center justify-center gap-2">
               {devTech.map((tech) => (
