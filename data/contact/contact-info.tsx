@@ -1,5 +1,3 @@
-// src/data/contact/contact-info.ts
-
 import {
   Mail,
   MessageCircle,
@@ -7,6 +5,7 @@ import {
   Linkedin,
   Phone,
   MapPin,
+  Award,
 } from 'lucide-react';
 import { ContactMethod } from '@/types/contact';
 
@@ -37,6 +36,15 @@ export const contactInfo: ContactMethod[] = [
     color: 'text-purple-500',
     bgColor: 'bg-purple-500/10',
     description: 'Call me directly',
+  },
+  {
+    icon: <Award className="w-5 h-5" />,
+    label: 'Fiverr',
+    value: 'Level 2 Seller • 4.9★',
+    href: 'https://www.fiverr.com/muhammad_ugv',
+    color: 'text-green-600',
+    bgColor: 'bg-green-600/10',
+    description: 'Hire me on Fiverr',
   },
   {
     icon: <Github className="w-5 h-5" />,

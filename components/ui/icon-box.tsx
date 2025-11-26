@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import * as React from "react";
+import * as React from 'react';
 
 interface IconBoxProps {
   icon?: React.ReactNode;
   title: string;
   description?: string;
-  variant?: "gradient" | "solid" | "outline";
-  size?: "sm" | "md" | "lg";
+  variant?: 'gradient' | 'solid' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
   className?: string;
   onClick?: () => void;
 }
@@ -16,21 +16,21 @@ export function IconBox({
   icon,
   title,
   description,
-  variant = "gradient",
-  size = "md",
-  className = "",
+  variant = 'gradient',
+  size = 'md',
+  className = '',
   onClick,
 }: IconBoxProps) {
   const sizes = {
-    sm: "w-10 h-10",
-    md: "w-12 h-12",
-    lg: "w-16 h-16",
+    sm: 'w-10 h-10',
+    md: 'w-12 h-12',
+    lg: 'w-16 h-16',
   };
 
   const variants = {
-    gradient: "bg-gradient-to-br from-primary-500 to-secondary-500",
-    solid: "bg-primary-500",
-    outline: "border-2 border-primary-500",
+    gradient: 'bg-gradient-to-br from-primary-500 to-secondary-500',
+    solid: 'bg-primary-500',
+    outline: 'border-2 border-primary-500',
   };
 
   return (

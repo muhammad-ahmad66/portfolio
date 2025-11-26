@@ -1,4 +1,3 @@
-// src/components/contact/quick-contact-tab.tsx
 'use client';
 
 import { contactInfo } from '@/data/contact/contact-info';
@@ -11,7 +10,7 @@ export function QuickContactTab() {
     window.open(method.href, '_blank', 'noopener,noreferrer');
   };
 
-  // Filter out GitHub, LinkedIn, and Location
+  // Filter out GitHub, LinkedIn, and Location (keep Fiverr visible)
   const filteredContactInfo = contactInfo.filter(
     (method) => !['GitHub', 'LinkedIn', 'Location'].includes(method.label)
   );

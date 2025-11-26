@@ -57,7 +57,7 @@ export function PortfolioWindow() {
               Portfolio
             </div>
             <Typography variant="h2" className="text-foreground">
-              My Portfolio – Recent Work Highlights
+              My Portfolio - Recent Work Highlights
             </Typography>
             <Typography
               variant="lead"

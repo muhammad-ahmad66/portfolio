@@ -51,7 +51,6 @@ export function AboutSection() {
             label="About Me"
             icon={<Sparkles className="w-4 h-4 text-primary-500" />}
           />{' '}
-          <h3>hello</h3>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <Typography variant="h2" className="leading-tight">
               Crafting calm, high-performing digital experiences.

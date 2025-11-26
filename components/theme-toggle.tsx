@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import { Moon, Sun, Monitor } from "lucide-react";
-import { useTheme } from "next-themes";
+import * as React from 'react';
+import { Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -13,48 +13,27 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return (
-      <div className="flex gap-2 p-1 rounded-lg bg-muted">
-        <div className="w-9 h-9" />
-      </div>
-    );
+    return <div className="w-16 h-8 rounded-full bg-muted/50" />;
   }
 
   return (
-    <div className="flex gap-1 p-1 rounded-lg bg-muted/50 backdrop-blur-sm border border-border">
-      <button
-        onClick={() => setTheme("light")}
-        className={`p-2 rounded-md transition-all ${
-          theme === "light"
-            ? "bg-background text-foreground shadow-sm"
-            : "text-muted-foreground hover:text-foreground"
+    <button
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      className="group relative w-16 h-8 rounded-full bg-muted/50 border border-border transition-all duration-300 hover:border-foreground/20"
+      aria-label="Toggle theme"
+    >
+      {/* Sliding Circle */}
+      <div
+        className={`absolute top-1 w-6 h-6 rounded-full bg-background border border-border shadow-sm transition-all duration-300 flex items-center justify-center ${
+          theme === 'dark' ? 'left-9' : 'left-1'
         }`}
-        aria-label="Light mode"
       >
-        <Sun className="h-4 w-4" />
-      </button>
-      <button
-        onClick={() => setTheme("dark")}
-        className={`p-2 rounded-md transition-all ${
-          theme === "dark"
-            ? "bg-background text-foreground shadow-sm"
-            : "text-muted-foreground hover:text-foreground"
-        }`}
-        aria-label="Dark mode"
-      >
-        <Moon className="h-4 w-4" />
-      </button>
-      <button
-        onClick={() => setTheme("system")}
-        className={`p-2 rounded-md transition-all ${
-          theme === "system"
-            ? "bg-background text-foreground shadow-sm"
-            : "text-muted-foreground hover:text-foreground"
-        }`}
-        aria-label="System mode"
-      >
-        <Monitor className="h-4 w-4" />
-      </button>
-    </div>
+        {theme === 'dark' ? (
+          <Moon className="w-3.5 h-3.5 text-foreground" />
+        ) : (
+          <Sun className="w-3.5 h-3.5 text-foreground" />
+        )}
+      </div>
+    </button>
   );
 }

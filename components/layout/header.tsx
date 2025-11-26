@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Menu, X, MessageCircle } from 'lucide-react';
 import { Logo } from '@/components/ui/logo';
 import { Button } from '@/components/ui/button-component';
 import { TextButton } from '@/components/ui/text-button';
@@ -11,6 +11,7 @@ import { navLinks } from '@/data/links/nav-links';
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,10 +22,32 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node) &&
+        isMobileMenuOpen
+      ) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMobileMenuOpen]);
+
+  // Close mobile menu on navigation
+  const handleNavClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   const navItems = navLinks;
 
   return (
     <header
+      ref={mobileMenuRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? 'bg-background/80 backdrop-blur-xl border-b border-border/40'
@@ -57,9 +80,10 @@ export function Header() {
             {/* CTA Button - Desktop */}
             <div className="hidden md:block">
               <a href="/contact">
-                <Button variant="outline" size="md">
-                  Let&apos;s Talk
-                </Button>
+                <button className="group flex items-center gap-2 px-5 py-2.5 rounded-xl bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 font-medium text-sm shadow-sm hover:shadow-md">
+                  <MessageCircle className="w-4 h-4 transition-transform group-hover:scale-110" />
+                  <span>Let&apos;s Talk</span>
+                </button>
               </a>
             </div>
 
@@ -88,22 +112,24 @@ export function Header() {
         } overflow-hidden bg-background/95 backdrop-blur-xl border-b border-border/40`}
       >
         <div className="px-6 py-6 space-y-4">
-          {navItems.map((item, index) => (
-            <TextButton
-              key={item.name}
-              href={item.href}
-              variant="default"
-              className="block text-lg"
-            >
-              {item.name}
-            </TextButton>
+          {navItems.map((item) => (
+            <div key={item.name} onClick={handleNavClick}>
+              <TextButton
+                href={item.href}
+                variant="default"
+                className="block text-lg"
+              >
+                {item.name}
+              </TextButton>
+            </div>
           ))}
 
-          <div className="pt-4">
+          <div className="pt-4" onClick={handleNavClick}>
             <a href="/contact" className="w-full block">
-              <Button variant="primary" size="lg" className="w-full">
-                Let&apos;s Talk
-              </Button>
+              <button className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 font-medium shadow-md">
+                <MessageCircle className="w-5 h-5" />
+                <span>Let&apos;s Talk</span>
+              </button>
             </a>
           </div>
         </div>

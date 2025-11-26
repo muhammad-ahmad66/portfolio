@@ -1,4 +1,5 @@
 import { Github, Linkedin, MessageCircle, Mail } from 'lucide-react';
+import { TbBrandFiverr } from 'react-icons/tb';
 
 export const socialLinks = [
   {
@@ -21,4 +22,9 @@ export const socialLinks = [
     href: 'mailto:muhammadugv66@gmail.com',
     icon: <Mail className="w-5 h-5" />,
   },
+  // {
+  //   name: 'Fiverr',
+  //   href: 'https://www.fiverr.com/muhammad_ugv',
+  //   icon: <TbBrandFiverr />,
+  // },
 ];

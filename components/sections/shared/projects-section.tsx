@@ -91,7 +91,7 @@ export function ProjectsSection() {
         >
           {/* Left Column: 3 columns grid (2 rows on desktop) */}
           <div className="space-y-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
               {displayedProjects.map((project) => (
                 <FeaturedProjectCard key={project.id} project={project} />
               ))}
@@ -125,7 +125,7 @@ export function ProjectsSection() {
                     Ready to Start?
                   </Typography>
                   <p className="text-sm text-muted-foreground">
-                    Let's build something amazing together
+                    Let&apos;s build something amazing together
                   </p>
                 </div>
               </div>
@@ -173,6 +173,9 @@ interface FeaturedProjectCardProps {
   };
 }
 
+import { Eye } from 'lucide-react';
+import { Tooltip } from '@/components/ui/tooltip';
+
 function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -181,11 +184,12 @@ function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
       href={project.liveUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative rounded-2xl overflow-hidden border border-border bg-card hover:shadow-2xl transition-all duration-500 block"
+      className="group relative rounded-2xl overflow-hidden border border-border bg-card hover:shadow-xl transition-all duration-500 block"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative h-[300px] overflow-hidden">
+      {/* Image Section */}
+      <div className="relative h-[170px] md:h-[300px] overflow-hidden">
         <Image
           src={project.imageUrl}
           alt={project.imageAlt}
@@ -194,38 +198,41 @@ function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
             isHovered ? 'scale-105' : 'scale-100'
           }`}
         />
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" /> */}
-        {/* <div className="absolute inset-0 p-6 flex flex-col justify-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-          <div className="flex flex-wrap gap-1.5 mb-3">
-            {project.categories.map((category) => (
-              <span
-                key={category}
-                className={cn(
-                  'px-2 py-0.5 text-[10px] font-medium rounded-full border',
-                  categoryColors[category]
-                )}
-              >
-                {category}
-              </span>
-            ))}
-          </div>
-          <h3 className="text-xl font-bold text-white mb-4">{project.name}</h3>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 w-fit">
-            <span className="text-xs font-medium text-white">View Live</span>
-            <ExternalLink className="w-3 h-3 text-white" />
-          </div>
-        </div> */}
+
+        {/* Clean Minimal Eye Icon */}
+        <div
+          className="
+            absolute top-3 right-3
+            p-1 md:p-2 rounded-full
+            bg-black/40
+            text-white
+            backdrop-blur-[1px]
+            border border-white/10
+            flex items-center justify-center
+            shadow-sm
+            transition-all duration-300
+            group-hover:bg-black/60
+          "
+        >
+          {' '}
+          <Tooltip content="Live Preview" position="left">
+            <Eye className="w-4 h-4" />
+          </Tooltip>
+        </div>
       </div>
-      <div className="p-4 space-y-2">
-        <h3 className="text-lg font-semibold text-foreground mb-2">
+
+      {/* Text Content */}
+      <div className="p-2 pb-3 md:p-4 space-y-2">
+        <h3 className="text-sm md:text-lg font-semibold text-foreground">
           {project.name}
         </h3>
-        <div className="flex flex-wrap gap-1.5">
+
+        <div className="flex flex-wrap gap-1 md:gap-1.5">
           {project.categories.map((category) => (
             <span
               key={category}
               className={cn(
-                'px-2 py-0.5 text-[10px] font-medium rounded-full border',
+                'px-2 py-0.5 text-[8px] md:text-[10px] font-medium rounded-full border',
                 categoryColors[category]
               )}
             >
@@ -233,10 +240,6 @@ function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
             </span>
           ))}
         </div>
-        {/* <div className="inline-flex items-center gap-2 px-3 py-1.5 mt-6 rounded-full bg-gray-100 backdrop-blur-md border border-gray-200 w-fit">
-          <span className="text-xs font-medium text-">View Live</span>
-          <ExternalLink className="w-3 h-3 text-black" />
-        </div> */}
       </div>
     </a>
   );
