@@ -8,6 +8,7 @@ import { Typography } from '@/components/ui/typography';
 import { Button } from '@/components/ui/button-component';
 import { ArrowRight, MessageCircle, Sparkles } from 'lucide-react';
 import { highlights } from '@/data/about/highlights';
+import { GreetingCard } from '@/components/ui/greeting-card';
 
 export function AboutSection() {
   const [isVisible] = useState(true);
