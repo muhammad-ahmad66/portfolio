@@ -14,9 +14,9 @@ export default function ServicesPage() {
           label: "What I Offer",
           icon: <Sparkles className="w-4 h-4 text-primary-500" />,
         }}
-        title="Services that drive"
-        titleHighlight="real results"
-        description="From custom WordPress development to modern Next.js applications, I provide end-to-end solutions that combine technical excellence with strategic thinking."
+        title="Web Solutions That"
+        titleHighlight="Deliver Results"
+        description="From complete WordPress builds and E-commerce stores to modern Next.js applications, I craft websites that are fast, scalable, and visually engaging. Every project is designed to convert visitors, delight users, and achieve measurable outcomes."
         primaryAction={{
           label: "View All Services",
           href: "#services",
@@ -24,15 +24,15 @@ export default function ServicesPage() {
         indicators={[
           {
             icon: <Sparkles className="w-4 h-4 text-primary-500" />,
-            text: "WordPress Development",
+            text: "WordPress Development & Customization",
           },
           {
             icon: <Sparkles className="w-4 h-4 text-primary-500" />,
-            text: "E-commerce Solutions",
+            text: "E-commerce Stores & WooCommerce",
           },
           {
             icon: <Sparkles className="w-4 h-4 text-primary-500" />,
-            text: "Custom Web Applications",
+            text: "Next.js & React Web Applications",
           },
         ]}
       />
@@ -42,4 +42,3 @@ export default function ServicesPage() {
     </>
   );
 }
-

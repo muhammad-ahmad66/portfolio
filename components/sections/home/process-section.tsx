@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useMemo, useState } from 'react';
-import { BadgeHeading } from '@/components/ui/badge-heading';
-import { Typography } from '@/components/ui/typography';
-import { IconList } from '@/components/ui/icon-list';
-import { Button } from '@/components/ui/button-component';
+import { useEffect, useMemo, useState } from "react";
+import { BadgeHeading } from "@/components/ui/badge-heading";
+import { Typography } from "@/components/ui/typography";
+import { IconList } from "@/components/ui/icon-list";
+import { Button } from "@/components/ui/button-component";
 import {
   Compass,
   Layers,
@@ -13,13 +13,13 @@ import {
   ClipboardCheck,
   Sparkles,
   ArrowRight,
-} from 'lucide-react';
-import Link from 'next/link';
+} from "lucide-react";
+import Link from "next/link";
 import {
   processSteps,
   operatingPrinciples,
   valueProps,
-} from '@/data/shared/process-data';
+} from "@/data/shared/process-data";
 
 export function ProcessSection() {
   const [activeStep, setActiveStep] = useState(0);
@@ -38,21 +38,21 @@ export function ProcessSection() {
   );
 
   return (
-    <section className="relative overflow-hidden py-16">
+    <section className="relative overflow-hidden py-12 md:py-16">
       <div className="absolute inset-0 bg-background">
         <div
           className="absolute inset-0 opacity-30 dark:opacity-20 transition-opacity duration-1000"
           style={{
             background:
-              'radial-gradient(circle at 70% 10%, rgba(14,165,233,0.15), transparent 55%)',
+              "radial-gradient(circle at 70% 10%, rgba(14,165,233,0.15), transparent 55%)",
           }}
         />
         <div
           className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]"
           style={{
             backgroundImage:
-              'linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)',
-            backgroundSize: '46px 46px',
+              "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
+            backgroundSize: "46px 46px",
           }}
         />
       </div>
@@ -65,16 +65,19 @@ export function ProcessSection() {
               icon={<ClipboardCheck className="w-4 h-4 text-primary-500" />}
             />
             <Typography variant="h2" className="leading-tight">
-              Lightweight sprints. Premium craft.
+              A simple workflow built around clarity and quality.
             </Typography>
+
             <Typography variant="lead" className="text-muted-foreground">
-              Each phase feeds the next, so founders can follow progress at a
-              glance while the build keeps moving.
+              From first idea to final delivery, I keep the process transparent,
+              structured, and lightweight, so you always know what's happening
+              and what's next.
             </Typography>
+
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/70">
               <Sparkles className="w-4 h-4 text-primary-500" />
               <span className="text-sm font-medium text-muted-foreground">
-                Weekly visibility, zero guesswork.
+                Clear communication. Smooth progress. No confusion.
               </span>
             </div>
           </div>
@@ -96,8 +99,8 @@ export function ProcessSection() {
                   onFocus={() => setActiveStep(index)}
                   className={`text-left rounded-3xl border px-6 py-5 transition-all duration-300 ${
                     isActive
-                      ? 'border-primary-500/60 shadow-lg shadow-primary-500/10 bg-card'
-                      : 'border-border bg-card/60 hover:border-border/40'
+                      ? "border-primary-500/60 shadow-lg shadow-primary-500/10 bg-card"
+                      : "border-border bg-card/60 hover:border-border/40"
                   }`}
                 >
                   <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.35em] text-muted-foreground">
@@ -119,8 +122,8 @@ export function ProcessSection() {
                         key={tag}
                         className={`px-3 py-1 rounded-full text-xs font-semibold tracking-wide ${
                           isActive
-                            ? 'bg-primary-500/10 text-primary-500'
-                            : 'bg-muted text-muted-foreground/80'
+                            ? "bg-primary-500/10 text-primary-500"
+                            : "bg-muted text-muted-foreground/80"
                         }`}
                       >
                         {tag}
@@ -165,23 +168,24 @@ export function ProcessSection() {
                     key={artifact}
                     className="flex items-center gap-2 text-sm text-muted-foreground"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-secondary-500" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary-500" />
                     {artifact}
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="rounded-2xl border border-border/50 bg-background/60 p-6 space-y-4">
+            <div className="rounded-2xl border border-border/50 bg-background/60 p-6 space-y-2 md:space-y-4">
               <Typography
                 variant="small"
                 className="uppercase tracking-[0.3em] text-primary-500"
               >
                 Project Communication
               </Typography>
-              <p className="text-base text-muted-foreground">
-                We share progress via Loom, Figma, and Notion updates twice a
-                week, so you never have to guess what is shipping next.
+              <p className="text-sm text-muted-foreground pb-4">
+                I provide clear, regular updates via Loom, Figma, WhatsApp,
+                Slack, or Google Meet-typically twice a week-so you always know
+                the progress and next steps.
               </p>
               <Link href="/contact">
                 <Button variant="ghost" size="sm" className="gap-2">

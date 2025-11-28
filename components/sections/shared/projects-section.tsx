@@ -1,20 +1,21 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Typography } from '@/components/ui/typography';
-import { Button } from '@/components/ui/button-component';
-import { featuredProjects } from '@/data/work/featured-projects';
-import { categoryColors, type PortfolioCategory } from '@/data/work/portfolio';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Typography } from "@/components/ui/typography";
+import { Button } from "@/components/ui/button-component";
+import { featuredProjects } from "@/data/work/featured-projects";
+import { categoryColors, type PortfolioCategory } from "@/data/work/portfolio";
 import {
   ArrowRight,
   Sparkles,
   Mail,
   Briefcase,
   ExternalLink,
-} from 'lucide-react';
-import { cn } from '@/lib/utils';
+  ChevronsDown,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function ProjectsSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,21 +34,24 @@ export function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="relative overflow-hidden py-14 lg:py-20">
+    <section
+      id="projects"
+      className="relative overflow-hidden pt-9 pb-12 lg:py-20"
+    >
       <div className="absolute inset-0 bg-background">
         <div
           className="absolute inset-0 opacity-[0.12]"
           style={{
             background:
-              'radial-gradient(circle at 10% 20%, rgba(236,72,153,0.12), transparent 55%)',
+              "radial-gradient(circle at 10% 20%, rgba(236,72,153,0.12), transparent 55%)",
           }}
         />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage:
-              'linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)',
-            backgroundSize: '48px 48px',
+              "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
           }}
         />
       </div>
@@ -55,38 +59,32 @@ export function ProjectsSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div
-          className={`text-center mb-16 space-y-6 transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          className={`text-center mb-9 md:mb-16 space-y-3 md:space-y-6 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
           {/* Badge */}
-          <div className="flex justify-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-background/50 backdrop-blur-sm">
-              <Sparkles className="w-4 h-4 text-primary-500" />
-              <span className="text-sm font-medium text-muted-foreground">
-                Recent Work
-              </span>
-            </div>
-          </div>
+          <BadgeHeading
+            label="Recent Work"
+            icon={<Sparkles className="w-4 h-4 text-primary-500" />}
+          />
 
           {/* Title */}
-          <Typography variant="h2" className="leading-tight">
-            Featured{' '}
-            <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
-              Projects
-            </span>
+          <Typography variant="h2" className="font-semibold leading-tight">
+            Featured Projects
           </Typography>
 
           <Typography variant="lead" className="max-w-2xl mx-auto">
-            A collection of websites and applications I've built for clients
-            across various industries
+            A curated showcase of websites and web applications I&apos;ve
+            crafted for clients, demonstrating design quality, technical
+            excellence, and measurable results across multiple industries.
           </Typography>
         </div>
 
         {/* 4:2 Column Layout */}
         <div
           className={`grid lg:grid-cols-[2fr_1fr] gap-8 lg:gap-12 transition-all duration-700 delay-200 ${
-            isVisible ? 'opacity-100' : 'opacity-0'
+            isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
           {/* Left Column: 3 columns grid (2 rows on desktop) */}
@@ -107,7 +105,7 @@ export function ProjectsSection() {
                   className="group"
                 >
                   <span>Load More Projects</span>
-                  <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                  <ChevronsDown className="w-5 h-5 ml-2 transition-transform group-hover:translate-y-1" />
                 </Button>
               </div>
             )}
@@ -173,8 +171,9 @@ interface FeaturedProjectCardProps {
   };
 }
 
-import { Eye } from 'lucide-react';
-import { Tooltip } from '@/components/ui/tooltip';
+import { Eye } from "lucide-react";
+import { Tooltip } from "@/components/ui/tooltip";
+import { BadgeHeading } from "@/components/ui/badge-heading";
 
 function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
@@ -195,7 +194,7 @@ function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
           alt={project.imageAlt}
           fill
           className={`object-cover transition-transform duration-700 ${
-            isHovered ? 'scale-105' : 'scale-100'
+            isHovered ? "scale-105" : "scale-100"
           }`}
         />
 
@@ -214,7 +213,7 @@ function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
             group-hover:bg-black/60
           "
         >
-          {' '}
+          {" "}
           <Tooltip content="Live Preview" position="left">
             <Eye className="w-4 h-4" />
           </Tooltip>
@@ -232,7 +231,7 @@ function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
             <span
               key={category}
               className={cn(
-                'px-2 py-0.5 text-[8px] md:text-[10px] font-medium rounded-full border',
+                "px-2 py-0.5 text-[8px] md:text-[10px] font-medium rounded-full border",
                 categoryColors[category]
               )}
             >

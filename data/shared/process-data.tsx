@@ -1,66 +1,66 @@
-import { Compass, Layers, Brain, Rocket } from 'lucide-react';
+import { Compass, Layers, Brain, Rocket } from "lucide-react";
 
 const processSteps = [
   {
-    phase: '01',
-    title: 'Discover & Align',
+    phase: "01",
+    title: "Discover & Plan",
     description:
-      'Stakeholder sessions, success metrics, and a shared scorecard for the build.',
+      "We clarify project goals, user needs, and scope to ensure a smooth, focused development process.",
     artifacts: [
-      'Stakeholder workshops',
-      'Experience audit',
-      'Success metrics blueprint',
+      "Quick stakeholder alignment",
+      "Mini experience audit",
+      "Success metrics summary",
     ],
     icon: <Compass className="w-5 h-5" />,
   },
   {
-    phase: '02',
-    title: 'Experience Systems',
+    phase: "02",
+    title: "Design & Prototype",
     description:
-      'Flows, component systems, and content models that keep every release consistent.',
+      "We create clean layouts, simple component structures, and basic content flows for a cohesive user experience.",
     artifacts: [
-      'Interactive wireflows',
-      'Component architecture',
-      'Content model mapping',
+      "Wireframes & clickable prototypes",
+      "Component sketch library",
+      "Content structure outline",
     ],
     icon: <Layers className="w-5 h-5" />,
   },
   {
-    phase: '03',
-    title: 'Build & Integrations',
+    phase: "03",
+    title: "Build & Integrate",
     description:
-      'Premium front-end craft paired with dependable integrations, with visual QA on each milestone.',
+      "We develop the website or web app using reliable tools and integrate any required systems efficiently.",
     artifacts: [
-      'Edge-ready codebase',
-      'Performance guardrails',
-      'CMS + API integrations',
+      "Clean, maintainable code",
+      "Basic CMS or API integration",
+      "Performance check",
     ],
     icon: <Brain className="w-5 h-5" />,
   },
   {
-    phase: '04',
-    title: 'Launch & Optimization',
+    phase: "04",
+    title: "Launch & Iterate",
     description:
-      'We choreograph the release, track impact, and keep testing so momentum never stalls.',
+      "We launch the site, ensure everything works smoothly, and make small tweaks to optimize user experience.",
     artifacts: [
-      'Launch playbook',
-      'Analytics instrumentation',
-      'Roadmap for iteration',
+      "Launch checklist",
+      "Basic analytics setup",
+      "Iteration notes for future updates",
     ],
     icon: <Rocket className="w-5 h-5" />,
   },
 ];
 
 const operatingPrinciples = [
-  { text: 'Asynchronous weekly show & tell updates' },
-  { text: 'Source files, docs, and tooling are client-owned' },
-  { text: 'Performance budgets agreed before build' },
+  { text: "Regular short updates to keep clients informed" },
+  { text: "Clients own all source files and content" },
+  { text: "Performance and design standards set upfront" },
 ];
 
 const valueProps = [
-  { label: 'Avg. phase length', value: '2.5 weeks' },
-  { label: 'Touchpoints / week', value: '2 async drops' },
-  { label: 'Launch confidence', value: '99.8% uptime' },
+  { label: "Average phase length", value: "1–2 weeks" },
+  { label: "Client touchpoints", value: "2–3 short updates per week" },
+  { label: "Launch reliability", value: "Stable, smooth delivery" },
 ];
 
 // named export

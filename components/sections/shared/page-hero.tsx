@@ -82,18 +82,17 @@ export function PageHero({
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 py-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 py-9 md:py-20">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           {badge && (
             <div
               className={`transition-all duration-700 delay-100 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
               }`}
             >
-              <BadgeHeading
-                label={badge.label}
-                icon={badge.icon}
-              />
+              <BadgeHeading label={badge.label} icon={badge.icon} />
             </div>
           )}
 
@@ -104,15 +103,13 @@ export function PageHero({
                 : "opacity-0 translate-y-4"
             }`}
           >
-            <Typography variant="h1" className="leading-tight">
-              {title}{" "}
+            <Typography variant="h1" className="text-foreground leading-[1]">
+              <div className="font-bold text-zinc-600">{title}</div>
               {titleHighlight && (
-                <span className="relative inline-block">
-                  <span className="relative z-10 bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
-                    {titleHighlight}
-                  </span>
-                  <span className="absolute bottom-2 left-0 right-0 h-3 bg-primary-500/10 -rotate-1" />
-                </span>
+                <div className="font-extrabold text-primary-500 uppercase leading-[1.4] md:leading-[1.1] relative inline-block">
+                  {titleHighlight}
+                  {/* <span className="absolute bottom-2 left-0 right-0 h-3 bg-primary-500/10 -rotate-1" /> */}
+                </div>
               )}
             </Typography>
 
@@ -131,8 +128,8 @@ export function PageHero({
                   : "opacity-0 translate-y-4"
               }`}
             >
-              {primaryAction && (
-                primaryAction.href ? (
+              {primaryAction &&
+                (primaryAction.href ? (
                   <Link href={primaryAction.href}>
                     <Button
                       variant="primary"
@@ -154,10 +151,9 @@ export function PageHero({
                     <span>{primaryAction.label}</span>
                     <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                   </Button>
-                )
-              )}
-              {secondaryAction && (
-                secondaryAction.href ? (
+                ))}
+              {secondaryAction &&
+                (secondaryAction.href ? (
                   <Link href={secondaryAction.href}>
                     <Button
                       variant="ghost"
@@ -175,8 +171,7 @@ export function PageHero({
                   >
                     {secondaryAction.label}
                   </Button>
-                )
-              )}
+                ))}
             </div>
           )}
 
@@ -200,4 +195,3 @@ export function PageHero({
     </section>
   );
 }
-

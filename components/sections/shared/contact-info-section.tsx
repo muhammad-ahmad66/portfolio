@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { MessageCircle, ExternalLink } from 'lucide-react';
-import { Typography } from '@/components/ui/typography';
-import Link from 'next/link';
-import { contactInfo } from '@/data/contact/contact-info';
+import { MessageCircle, ExternalLink } from "lucide-react";
+import { Typography } from "@/components/ui/typography";
+import Link from "next/link";
+import { contactInfo } from "@/data/contact/contact-info";
 
 export function ContactInfoSection() {
   return (
@@ -17,7 +17,7 @@ export function ContactInfoSection() {
           variant="p"
           className="text-muted-foreground text-sm sm:text-base leading-relaxed"
         >
-          Reach out through any channel below. I typically respond within 24
+          Reach out through any channel below. I typically respond within 2
           hours.
         </Typography>
       </div>
@@ -28,10 +28,10 @@ export function ContactInfoSection() {
           <Link
             key={index}
             href={contact.href}
-            target={contact.href.startsWith('http') ? '_blank' : undefined}
+            target={contact.href.startsWith("http") ? "_blank" : undefined}
             rel={
-              contact.href.startsWith('http')
-                ? 'noopener noreferrer'
+              contact.href.startsWith("http")
+                ? "noopener noreferrer"
                 : undefined
             }
             className="group"
@@ -81,7 +81,7 @@ export function ContactInfoSection() {
                 Quick Response Time
               </p>
               <p className="text-xs text-muted-foreground">
-                Average response: 4–6 hours
+                Average response: 1-2 hours
               </p>
             </div>
           </div>

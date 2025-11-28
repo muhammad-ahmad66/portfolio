@@ -1,11 +1,11 @@
-'use client';
+"use client";
 export const processHighlights = [
-  { text: 'Discovery & Strategy Sessions' },
-  { text: 'Weekly async progress drops' },
-  { text: 'Launch, QA & performance reports' },
+  { text: "Kickoff & requirement analysis" },
+  { text: "Regular progress updates and reviews" },
+  { text: "Final launch, QA, and optimization reports" },
 ];
 export const valueProps = [
-  { label: 'Avg. time-to-value', value: '3 — 4 weeks' },
-  { label: 'Retention rate', value: '92% renew' },
-  { label: 'Launch confidence', value: 'Zero surprise releases' },
+  { label: "Avg. delivery time", value: "3 - 4 weeks" },
+  { label: "Client retention", value: "92% return for updates" },
+  { label: "Launch confidence", value: "Zero surprises, fully tested" },
 ];

@@ -1,9 +1,9 @@
 // src/components/contact/contact-window.tsx
-'use client';
+"use client";
 
-import { QuickContactTab } from './quick-contact-tab';
-import { ContactFormTab } from './contact-form-tab';
-import { ContactInfoTab } from './contact-info-tab';
+import { QuickContactTab } from "./quick-contact-tab";
+import { ContactFormTab } from "./contact-form-tab";
+import { ContactInfoTab } from "./contact-info-tab";
 import {
   X,
   Minimize2,
@@ -12,9 +12,9 @@ import {
   Mail,
   Info,
   ExternalLink,
-} from 'lucide-react';
-import { useState } from 'react';
-import { useContactWindowContext } from '@/app/contexts/contact-window-context';
+} from "lucide-react";
+import { useState } from "react";
+import { useContactWindowContext } from "@/app/contexts/contact-window-context";
 
 export function ContactWindow() {
   const { activeTab, changeTab, closeWindow, minimizeWindow, isMinimized } =
@@ -26,9 +26,9 @@ export function ContactWindow() {
   }
 
   const tabs = [
-    { id: 'quick' as const, label: 'Quick', icon: Zap },
-    { id: 'form' as const, label: 'Message', icon: Mail },
-    { id: 'info' as const, label: 'Info', icon: Info },
+    { id: "quick" as const, label: "Quick", icon: Zap },
+    { id: "form" as const, label: "Message", icon: Mail },
+    { id: "info" as const, label: "Info", icon: Info },
   ];
 
   return (
@@ -42,8 +42,8 @@ export function ContactWindow() {
       <div
         className={`fixed z-50 bg-background border border-border shadow-2xl rounded-2xl overflow-hidden transition-all duration-300 ${
           isFullscreen
-            ? 'inset-4'
-            : 'top-1/2 -translate-y-1/2 right-4 w-[440px] max-w-[calc(100vw-2rem)]'
+            ? "inset-4"
+            : "top-1/2 -translate-y-1/2 right-4 w-[440px] max-w-[calc(100vw-2rem)]"
         }`}
       >
         {/* Header */}
@@ -53,7 +53,7 @@ export function ContactWindow() {
             <button
               onClick={() => setIsFullscreen(!isFullscreen)}
               className="w-8 h-8 rounded-full bg-background/80 backdrop-blur-sm border border-border hover:bg-muted transition-colors flex items-center justify-center"
-              title={isFullscreen ? 'Restore' : 'Maximize'}
+              title={isFullscreen ? "Restore" : "Maximize"}
             >
               {isFullscreen ? (
                 <Minimize2 className="w-4 h-4" />
@@ -98,8 +98,8 @@ export function ContactWindow() {
                 onClick={() => changeTab(tab.id)}
                 className={`flex-1 px-4 py-3 text-sm font-medium transition-all relative ${
                   activeTab === tab.id
-                    ? 'text-primary-500 bg-background'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                    ? "text-primary-500 bg-background"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
                 <div className="flex items-center justify-center gap-2">
@@ -119,12 +119,12 @@ export function ContactWindow() {
         <div
           className="overflow-y-auto"
           style={{
-            maxHeight: isFullscreen ? 'calc(100vh - 10rem)' : '70vh',
+            maxHeight: isFullscreen ? "calc(100vh - 10rem)" : "70vh",
           }}
         >
-          {activeTab === 'quick' && <QuickContactTab />}
-          {activeTab === 'form' && <ContactFormTab />}
-          {activeTab === 'info' && <ContactInfoTab />}
+          {activeTab === "quick" && <QuickContactTab />}
+          {activeTab === "form" && <ContactFormTab />}
+          {activeTab === "info" && <ContactInfoTab />}
         </div>
 
         {/* Footer */}

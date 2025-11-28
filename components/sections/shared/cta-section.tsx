@@ -11,7 +11,7 @@ export function CtaSection() {
   const [isVisible] = useState(true);
 
   return (
-    <section className="relative overflow-hidden py-24">
+    <section className="relative overflow-hidden py-12 md:py-24">
       <div className="absolute inset-0 bg-background">
         <div
           className="absolute inset-0 opacity-[0.15]"
@@ -32,24 +32,28 @@ export function CtaSection() {
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-8">
         <div
-          className={`rounded-[40px] border border-border/60 bg-card/80 backdrop-blur-xl shadow-2xl p-8 sm:p-12 flex flex-col lg:flex-row gap-10 items-center transition-all duration-700 ${
+          className={`rounded-[40px] border border-border/60 bg-card/80 backdrop-blur-xl shadow-2xl p-8 sm:p-12 flex flex-col lg:flex-row gap-6 md:gap-10 items-center transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
           <div className="space-y-4 text-center lg:text-left flex-1">
-            <BadgeHeading
-              label="Fiction Section"
-              icon={<Sparkles className="w-4 h-4 text-primary-500" />}
-            />
-            <Typography variant="h3" className="leading-tight">
-              Ready to build something that feels effortless—and converts like
-              crazy?
-            </Typography>
-            <Typography variant="p" className="max-w-2xl mx-auto lg:mx-0">
-              Pair up with a fractional product partner who blends WordPress +
-              Next.js engineering, calm delivery, and async collaboration. Slots
-              open for Q1 builds.
-            </Typography>
+            <div className="space-y-2 md:space-y-4 text-center lg:text-left flex-1">
+              <BadgeHeading
+                label="Get Started"
+                icon={<Sparkles className="w-4 h-4 text-primary-500" />}
+              />
+              <Typography variant="h3" className="leading-tight">
+                Ready to launch a website that performs and delights users?
+              </Typography>
+              <Typography
+                variant="p"
+                className="text-sm md:text-base max-w-2xl mx-auto lg:mx-0"
+              >
+                Work with a fractional partner who combines WordPress and
+                Next.js expertise, smooth delivery, and clear, asynchronous
+                collaboration. Limited availability for new builds this quarter.
+              </Typography>
+            </div>
           </div>
 
           <div className="flex flex-col items-center gap-4 w-full max-w-xs">
@@ -84,4 +88,3 @@ export function CtaSection() {
     </section>
   );
 }
-

@@ -1,13 +1,16 @@
-import { BriefcaseBusiness, Globe } from 'lucide-react';
+import { BriefcaseBusiness, Globe } from "lucide-react";
+
 export const highlights = [
   {
     icon: <BriefcaseBusiness className="w-4 h-4" />,
-    label: 'Freelance + Private',
-    description: '5 years shipping web products across both worlds.',
+    label: "Freelance & Professional",
+    description:
+      "3+ years delivering high-quality web solutions for clients and companies alike.",
   },
   {
     icon: <Globe className="w-4 h-4" />,
-    label: 'Global Teams',
-    description: 'Collaborated with founders across 6 time zones.',
+    label: "Global Collaboration",
+    description:
+      "Worked with founders and teams across 6+ time zones to deliver seamless projects.",
   },
 ];

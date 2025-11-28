@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { Logo } from '@/components/ui/logo';
-import { TextButton } from '@/components/ui/text-button';
-import { BadgeButton } from '@/components/ui/badge-button';
-import { Typography } from '@/components/ui/typography';
-import { navLinks } from '@/data/links/nav-links';
-import { socialLinks } from '@/data/links/social-links';
-import { legalLinks } from '@/data/links/legal-links';
+import { Logo } from "@/components/ui/logo";
+import { TextButton } from "@/components/ui/text-button";
+import { BadgeButton } from "@/components/ui/badge-button";
+import { Typography } from "@/components/ui/typography";
+import { navLinks } from "@/data/links/nav-links";
+import { socialLinks } from "@/data/links/social-links";
+import { legalLinks } from "@/data/links/legal-links";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -15,18 +15,18 @@ export function Footer() {
     <footer className="relative border-t border-border/50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
+        <div className="py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-12">
           {/* Brand Section */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-2 md:space-y-6">
             <Logo />
 
-            <Typography variant="p" className="max-w-sm">
-              Crafting exceptional digital experiences through innovative design
-              and cutting-edge technology.
+            <Typography variant="p" className="max-w-sm pb-2 md:pb-0">
+              Building high-quality websites and web apps that combine clean
+              design, smooth performance, and measurable results.
             </Typography>
 
             <TextButton href="/contact" variant="arrow">
-              Start a project
+              Start a Project
             </TextButton>
           </div>
 
@@ -34,7 +34,7 @@ export function Footer() {
           <div className="lg:col-span-3">
             <Typography
               variant="h4"
-              className="text-sm font-semibold mb-6 text-foreground"
+              className="text-sm font-semibold mb-4 md:mb-6 text-foreground"
             >
               Navigation
             </Typography>
@@ -53,7 +53,7 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Typography
               variant="h4"
-              className="text-sm font-semibold mb-6 text-foreground"
+              className="text-sm font-semibold mb-4 md:mb-6 text-foreground"
             >
               Connect
             </Typography>

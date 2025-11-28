@@ -1,9 +1,9 @@
 // src/components/contact/contact-info-tab.tsx
-'use client';
+"use client";
 
-import { contactInfo } from '@/data/contact/contact-info';
-import { Clock, MapPin, Briefcase } from 'lucide-react';
-import { Typography } from '@/components/ui/typography';
+import { contactInfo } from "@/data/contact/contact-info";
+import { Clock, MapPin, Briefcase } from "lucide-react";
+import { Typography } from "@/components/ui/typography";
 
 export function ContactInfoTab() {
   return (
@@ -51,10 +51,10 @@ export function ContactInfoTab() {
           <div className="flex-1">
             <p className="text-sm font-semibold mb-1">Business Hours</p>
             <p className="text-xs text-muted-foreground">
-              Monday - Friday: 9:00 AM - 6:00 PM (PKT)
+              Monday - Friday: 10:00 AM - 11:00 PM (PKT)
             </p>
             <p className="text-xs text-muted-foreground">
-              Saturday: 10:00 AM - 4:00 PM (PKT)
+              Saturday: 11:00 AM - 10:00 PM (PKT)
             </p>
             <p className="text-xs text-muted-foreground">Sunday: Closed</p>
           </div>
@@ -67,7 +67,7 @@ export function ContactInfoTab() {
           <div className="flex-1">
             <p className="text-sm font-semibold mb-1">Location</p>
             <p className="text-xs text-muted-foreground">
-              Based in Rawalpindi, Pakistan
+              Based in Islamabad, Pakistan
             </p>
             <p className="text-xs text-muted-foreground">
               Available for remote work worldwide
@@ -97,15 +97,15 @@ export function ContactInfoTab() {
         <div className="space-y-2">
           <div className="flex items-center justify-between text-xs">
             <span className="text-muted-foreground">Email</span>
-            <span className="font-medium">2-4 hours</span>
+            <span className="font-medium">1 hour</span>
           </div>
           <div className="flex items-center justify-between text-xs">
             <span className="text-muted-foreground">WhatsApp</span>
-            <span className="font-medium">30 mins - 2 hours</span>
+            <span className="font-medium">Instant - 1 hours</span>
           </div>
           <div className="flex items-center justify-between text-xs">
-            <span className="text-muted-foreground">Phone</span>
-            <span className="font-medium">Instant</span>
+            <span className="text-muted-foreground">Fiverr</span>
+            <span className="font-medium">Instant - 30 mins</span>
           </div>
         </div>
       </div>

@@ -1,27 +1,35 @@
 // src/components/contact/contact-form-tab.tsx
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button-component';
-import { Loader2, Send, CheckCircle2 } from 'lucide-react';
-import { Typography } from '@/components/ui/typography';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Button } from "@/components/ui/button-component";
+import { Loader2, Send, CheckCircle2 } from "lucide-react";
+import { Typography } from "@/components/ui/typography";
+import { serviceCatalog } from "@/data/services/serviceCatalog";
 
 const quickFormSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  phone: z.string().min(10, 'Please enter a valid phone number'),
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Please enter a valid phone number"),
   company: z.string().optional(),
-  projectType: z.string(), // Remove .min(1, "...") or .optional()
+  projectType: z.string(),
   budget: z.string().optional(),
   timeline: z.string().optional(),
-  domainHosting: z.boolean(), // Remove .default(false)
-  graphicWork: z.boolean(), // Remove .default(false)
-  message: z.string().min(10, 'Please provide at least 10 characters'),
+  domainHosting: z.boolean(),
+  graphicWork: z.boolean(),
+  message: z.string().min(10, "Please provide at least 10 characters"),
 });
 
 type QuickFormValues = z.infer<typeof quickFormSchema>;
@@ -35,15 +43,19 @@ export function ContactFormTab() {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
+    watch,
     reset,
   } = useForm<QuickFormValues>({
     resolver: zodResolver(quickFormSchema),
     defaultValues: {
-      projectType: 'other',
+      projectType: "",
       domainHosting: false,
       graphicWork: false,
     },
   });
+
+  const projectType = watch("projectType");
 
   const onSubmit = async (data: QuickFormValues) => {
     setIsSubmitting(true);
@@ -53,31 +65,31 @@ export function ContactFormTab() {
       // Add default phone if not provided
       const formData = {
         ...data,
-        phone: data.phone || 'Not provided',
-        company: data.company || '',
-        budget: data.budget || '',
-        timeline: data.timeline || '',
+        phone: data.phone || "Not provided",
+        company: data.company || "",
+        budget: data.budget || "",
+        timeline: data.timeline || "",
       };
 
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       const result = await response.json();
       if (!response.ok)
-        throw new Error(result.error || 'Failed to send message');
+        throw new Error(result.error || "Failed to send message");
 
       setIsSuccess(true);
       reset();
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error("Error submitting form:", error);
       setError(
         error instanceof Error
           ? error.message
-          : 'Failed to send message. Please try again.'
+          : "Failed to send message. Please try again."
       );
     } finally {
       setIsSubmitting(false);
@@ -116,7 +128,7 @@ export function ContactFormTab() {
           </label>
           <Input
             placeholder="Your name"
-            {...register('name')}
+            {...register("name")}
             error={errors.name?.message}
           />
         </div>
@@ -128,7 +140,7 @@ export function ContactFormTab() {
           <Input
             type="email"
             placeholder="your@email.com"
-            {...register('email')}
+            {...register("email")}
             error={errors.email?.message}
           />
         </div>
@@ -138,11 +150,34 @@ export function ContactFormTab() {
           <Input
             type="tel"
             placeholder="+92 312 9818199"
-            {...register('phone')}
+            {...register("phone")}
             error={errors.phone?.message}
           />
           <p className="text-xs text-muted-foreground mt-1">
             Optional - helps us respond faster
+          </p>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-2">Project Type</label>
+          <Select
+            value={projectType || undefined}
+            onValueChange={(value) => setValue("projectType", value)}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Select project type" />
+            </SelectTrigger>
+            <SelectContent className="max-h-[300px] overflow-y-auto">
+              {serviceCatalog.map((service, index) => (
+                <SelectItem key={index} value={service.title}>
+                  {service.title}
+                </SelectItem>
+              ))}
+              <SelectItem value="Other">Other</SelectItem>
+            </SelectContent>
+          </Select>
+          <p className="text-xs text-muted-foreground mt-1">
+            Optional - helps us understand your needs
           </p>
         </div>
 
@@ -153,7 +188,7 @@ export function ContactFormTab() {
           <Textarea
             placeholder="Tell me about your project..."
             rows={4}
-            {...register('message')}
+            {...register("message")}
             error={errors.message?.message}
           />
         </div>

@@ -1,34 +1,35 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Button } from '@/components/ui/button-component';
-import { Loader2, Send, CheckCircle2 } from 'lucide-react';
-import { Typography } from '@/components/ui/typography';
+} from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button-component";
+import { Loader2, Send, CheckCircle2 } from "lucide-react";
+import { Typography } from "@/components/ui/typography";
+import { serviceCatalog } from "@/data/services/serviceCatalog";
 
 const contactFormSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  phone: z.string().min(10, 'Please enter a valid phone number'),
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Please enter a valid phone number"),
   company: z.string().optional(),
-  projectType: z.string().min(1, 'Please select a project type'),
+  projectType: z.string().min(1, "Please select a project type"),
   budget: z.string().optional(),
   timeline: z.string().optional(),
   domainHosting: z.boolean(),
   graphicWork: z.boolean(),
-  message: z.string().min(10, 'Please provide at least 10 characters'),
+  message: z.string().min(10, "Please provide at least 10 characters"),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -50,42 +51,42 @@ export function ContactForm() {
     defaultValues: {
       domainHosting: false,
       graphicWork: false,
-      projectType: '',
-      budget: '',
-      timeline: '',
+      projectType: "",
+      budget: "",
+      timeline: "",
     },
   });
 
-  const domainHosting = watch('domainHosting');
-  const graphicWork = watch('graphicWork');
-  const projectType = watch('projectType');
-  const budget = watch('budget');
-  const timeline = watch('timeline');
+  const domainHosting = watch("domainHosting");
+  const graphicWork = watch("graphicWork");
+  const projectType = watch("projectType");
+  const budget = watch("budget");
+  const timeline = watch("timeline");
 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
     setError(null);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
       const result = await response.json();
       if (!response.ok)
-        throw new Error(result.error || 'Failed to send message');
+        throw new Error(result.error || "Failed to send message");
 
       setIsSuccess(true);
       reset();
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error("Error submitting form:", error);
       setError(
         error instanceof Error
           ? error.message
-          : 'Failed to send message. Please try again later.'
+          : "Failed to send message. Please try again later."
       );
     } finally {
       setIsSubmitting(false);
@@ -127,7 +128,7 @@ export function ContactForm() {
           </label>
           <Input
             placeholder="John Doe"
-            {...register('name')}
+            {...register("name")}
             error={errors.name?.message}
           />
         </div>
@@ -138,7 +139,7 @@ export function ContactForm() {
           <Input
             type="email"
             placeholder="john@example.com"
-            {...register('email')}
+            {...register("email")}
             error={errors.email?.message}
           />
         </div>
@@ -151,8 +152,8 @@ export function ContactForm() {
           </label>
           <Input
             type="tel"
-            placeholder="+1 (555) 123-4567"
-            {...register('phone')}
+            placeholder="+92 312 4556789"
+            {...register("phone")}
             error={errors.phone?.message}
           />
         </div>
@@ -160,7 +161,7 @@ export function ContactForm() {
           <label className="block text-sm font-medium mb-2">Company Name</label>
           <Input
             placeholder="Your Company"
-            {...register('company')}
+            {...register("company")}
             error={errors.company?.message}
           />
         </div>
@@ -174,21 +175,19 @@ export function ContactForm() {
           <Select
             value={projectType || undefined}
             onValueChange={(value) =>
-              setValue('projectType', value, { shouldValidate: true })
+              setValue("projectType", value, { shouldValidate: true })
             }
           >
             <SelectTrigger error={errors.projectType?.message}>
               <SelectValue placeholder="Select project type" />
             </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="wordpress">WordPress Development</SelectItem>
-              <SelectItem value="nextjs">
-                Next.js / React Application
-              </SelectItem>
-              <SelectItem value="ecommerce">E-commerce Solution</SelectItem>
-              <SelectItem value="redesign">Website Redesign</SelectItem>
-              <SelectItem value="maintenance">Maintenance & Support</SelectItem>
-              <SelectItem value="other">Other</SelectItem>
+            <SelectContent className="max-h-[300px] overflow-y-auto">
+              {serviceCatalog.map((service, index) => (
+                <SelectItem key={index} value={service.title}>
+                  {service.title}
+                </SelectItem>
+              ))}
+              <SelectItem value="Other">Other</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -197,17 +196,17 @@ export function ContactForm() {
           <label className="block text-sm font-medium mb-2">Budget Range</label>
           <Select
             value={budget || undefined}
-            onValueChange={(value) => setValue('budget', value)}
+            onValueChange={(value) => setValue("budget", value)}
           >
             <SelectTrigger>
               <SelectValue placeholder="Select budget range" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="under-5k">Under $5,000</SelectItem>
-              <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
-              <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
-              <SelectItem value="25k-50k">$25,000 - $50,000</SelectItem>
-              <SelectItem value="50k-plus">$50,000+</SelectItem>
+              <SelectItem value="under-20k">Under PKR 20,000</SelectItem>
+              <SelectItem value="20k-50k">PKR 20,000 - 50,000</SelectItem>
+              <SelectItem value="50k-80k">PKR 50,000 - 80,000</SelectItem>
+              <SelectItem value="80k-1l">PKR 80,000 - 1,00,000</SelectItem>
+              <SelectItem value="1l-plus">PKR 1,00,000+</SelectItem>
               <SelectItem value="discuss">Prefer to discuss</SelectItem>
             </SelectContent>
           </Select>
@@ -218,17 +217,19 @@ export function ContactForm() {
         <label className="block text-sm font-medium mb-2">Timeline</label>
         <Select
           value={timeline || undefined}
-          onValueChange={(value) => setValue('timeline', value)}
+          onValueChange={(value) => setValue("timeline", value)}
         >
           <SelectTrigger>
             <SelectValue placeholder="Select timeline" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="asap">ASAP</SelectItem>
-            <SelectItem value="1-month">Within 1 month</SelectItem>
+            <SelectItem value="under-1-week">Under 1 week</SelectItem>
+            <SelectItem value="within-1-month">Within 1 month</SelectItem>
             <SelectItem value="2-3-months">2-3 months</SelectItem>
             <SelectItem value="3-6-months">3-6 months</SelectItem>
             <SelectItem value="flexible">Flexible</SelectItem>
+            <SelectItem value="other">Other</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -243,7 +244,7 @@ export function ContactForm() {
               id="domainHosting"
               checked={domainHosting}
               onCheckedChange={(checked) =>
-                setValue('domainHosting', checked === true)
+                setValue("domainHosting", checked === true)
               }
             />
             <label
@@ -258,7 +259,7 @@ export function ContactForm() {
               id="graphicWork"
               checked={graphicWork}
               onCheckedChange={(checked) =>
-                setValue('graphicWork', checked === true)
+                setValue("graphicWork", checked === true)
               }
             />
             <label
@@ -278,7 +279,7 @@ export function ContactForm() {
         <Textarea
           placeholder="Tell me about your project, goals, and any specific requirements..."
           rows={6}
-          {...register('message')}
+          {...register("message")}
           error={errors.message?.message}
         />
       </div>

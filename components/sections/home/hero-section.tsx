@@ -266,16 +266,18 @@
 //   );
 // }
 
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button-component';
-import { ArrowRight, Sparkles, MessageCircle } from 'lucide-react';
-import { TechStack } from '../shared/tech-stack';
-import { GreetingCard } from '@/components/ui/greeting-card';
-import { Typography } from '@/components/ui/typography';
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button-component";
+import { ArrowRight, Sparkles, MessageCircle } from "lucide-react";
+import { TechStack } from "../shared/tech-stack";
+import { GreetingCard } from "@/components/ui/greeting-card";
+import { Typography } from "@/components/ui/typography";
+import { BadgeHeading } from "@/components/ui/badge-heading";
+import { IconList } from "@/components/ui/icon-list";
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -291,8 +293,8 @@ export function HeroSection() {
       });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
@@ -307,55 +309,42 @@ export function HeroSection() {
         />
       </div>
 
+      <div
+        className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]"
+        style={{
+          backgroundImage: `linear-gradient(to right, currentColor 1px, transparent 1px),
+                      linear-gradient(to bottom, currentColor 1px, transparent 1px)`,
+          backgroundSize: "40px 40px",
+        }}
+      />
+
       {/* Content Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-9 sm:py-20">
         <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
           {/* Left Column - Content */}
-          <div className="space-y-6 sm:space-y-8 lg:space-y-10">
+          <div className="space-y-4 sm:space-y-4 lg:space-y-6">
             {/* Small Badge */}
-            <div
-              className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-card/50 border border-border/60 backdrop-blur-sm transition-all duration-700 ${
-                isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-4'
-              }`}
-            >
-              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-primary" />
-              <span className="text-[10px] sm:text-xs font-medium text-muted-foreground tracking-wide uppercase">
-                Trusted Worldwide
-              </span>
-            </div>
 
-            {/* Main Heading - Mix of Uppercase and Lowercase */}
-            {/* <div
-              className={`space-y-2 sm:space-y-3 transition-all duration-700 delay-100 ${
-                isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-4'
-              }`}
-            >
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-light tracking-tight text-foreground leading-[0.95]">
-                BUILD
-                <br />
-                <span className="font-normal">experiences</span>
-                <br />
-                <span className="text-muted-foreground">that convert.</span>
-              </h1>
-            </div> */}
+            <BadgeHeading
+              label="Trusted by 60+ businesses worldwide"
+              icon={<Sparkles className="w-4 h-4 text-primary-500" />}
+            />
 
             <div
               className={`space-y-2 sm:space-y-3 transition-all duration-700 delay-100 ${
                 isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-4'
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
               }`}
             >
-              <Typography variant="h1" className="text-foreground">
-                BUILD
-                <br />
-                <span className="font-normal">experiences</span>
-                <br />
-                <span className="text-muted-foreground">that convert.</span>
+              <Typography variant="h1" className="text-foreground leading-[1]">
+                <div className="font-bold text-zinc-600">Crafting</div>
+                <div className="font-extrabold text-primary-500  uppercase leading-[1.4] md:leading-[1.1]">
+                  High-Performing Websites
+                </div>
+                <div className="text-muted-foreground text-xl md:text-2xl lg:text-3xl">
+                  That drive results and delight users.
+                </div>
               </Typography>
             </div>
 
@@ -363,21 +352,22 @@ export function HeroSection() {
             <p
               className={`text-base sm:text-lg lg:text-xl text-muted-foreground font-light max-w-lg leading-relaxed transition-all duration-700 delay-200 ${
                 isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-4'
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
               }`}
             >
-              Fractional partner for modern web experiences.
-              <br />
-              WordPress + Next.js ecosystems.
+              Partnering with you to build fast, reliable, and user-focused
+              websites. <br />
+              Expert in WordPress, WooCommerce stores, and modern Next.js
+              applications that drive results.
             </p>
 
             {/* CTA Buttons */}
             <div
               className={`flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 transition-all duration-700 delay-300 ${
                 isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-4'
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
               }`}
             >
               <Link href="/contact" className="w-full sm:w-auto">
@@ -407,8 +397,8 @@ export function HeroSection() {
           <div
             className={`relative transition-all duration-1000 delay-400 ${
               isVisible
-                ? 'opacity-100 translate-x-0'
-                : 'opacity-0 translate-x-8'
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-8"
             }`}
           >
             <div className="relative">
@@ -430,7 +420,12 @@ export function HeroSection() {
               </div>
 
               {/* Premium Greeting Card Overlay */}
-              <GreetingCard />
+              <GreetingCard
+                title="Welcome Here"
+                message="Building websites that look great and perform flawlessly."
+                avatarText="Hi"
+                avatarSpin={true}
+              />
 
               {/* Professional Stats Card */}
               <div className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 rounded-2xl border border-border/60 bg-background/80 dark:bg-background/70 backdrop-blur-xl px-5 sm:px-6 py-3 sm:py-4 shadow-lg">
@@ -459,7 +454,7 @@ export function HeroSection() {
               <div className="absolute -top-6 sm:-top-8 -right-6 sm:-right-8 lg:-right-12 z-20">
                 <div
                   className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32"
-                  style={{ animation: 'spin 20s linear infinite' }}
+                  style={{ animation: "spin 20s linear infinite" }}
                 >
                   <Image
                     src="/images/exclusive.png"
@@ -478,8 +473,8 @@ export function HeroSection() {
 
         {/* Tech Stack Section */}
         <div
-          className={`mt-16 sm:mt-20 lg:mt-24 transition-all duration-700 delay-500 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          className={`mt-9 sm:mt-20 lg:mt-24 transition-all duration-700 delay-500 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
           <TechStack isVisible={isVisible} />
