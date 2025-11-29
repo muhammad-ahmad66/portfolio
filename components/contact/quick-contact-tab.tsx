@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { contactInfo } from '@/data/contact/contact-info';
-import { ArrowUpRight, Sparkles, FileText, Briefcase } from 'lucide-react';
-import { Typography } from '@/components/ui/typography';
-import { Button } from '@/components/ui/button-component';
+import { contactInfo } from "@/data/contact/contact-info";
+import { ArrowUpRight, Sparkles, FileText, Briefcase } from "lucide-react";
+import { Typography } from "@/components/ui/typography";
+import { Button } from "@/components/ui/button-component";
 
 export function QuickContactTab() {
   const handleContactClick = (method: (typeof contactInfo)[0]) => {
-    window.open(method.href, '_blank', 'noopener,noreferrer');
+    window.open(method.href, "_blank", "noopener,noreferrer");
   };
 
   // Filter out GitHub, LinkedIn, and Location (keep Fiverr visible)
   const filteredContactInfo = contactInfo.filter(
-    (method) => !['GitHub', 'LinkedIn', 'Location'].includes(method.label)
+    (method) => !["GitHub", "LinkedIn", "Location"].includes(method.label)
   );
 
   return (
@@ -92,7 +92,7 @@ export function QuickContactTab() {
           <span className="text-sm font-medium">Available Now</span>
         </div>
         <p className="text-xs text-muted-foreground">
-          I typically respond within 2-4 hours during business days
+          I typically respond within an hour during business days
         </p>
       </div>
     </div>

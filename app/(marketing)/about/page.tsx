@@ -6,6 +6,7 @@ import { Sparkles } from "lucide-react";
 import { ServicesSection } from "@/components/sections/shared/services-section";
 import { ProcessSection } from "@/components/sections/home/process-section";
 import { indicators } from "@/data/shared/indicators";
+import { TechAndPartnersSection } from "@/components/sections/shared/tech-and-partners-section";
 
 export default function AboutPage() {
   return (
@@ -20,7 +21,7 @@ export default function AboutPage() {
         // description="I'm Muhammad Ahmad - a full-stack developer specializing in fast, scalable, and user-focused web experiences. Over 3+ years, I've helped startups, agencies, and founders bring ideas to life with clean engineering and thoughtful design."
         indicators={indicators}
       />
-
+      <TechAndPartnersSection />
       <AboutSection />
       <ServicesSection />
       <ProcessSection />
