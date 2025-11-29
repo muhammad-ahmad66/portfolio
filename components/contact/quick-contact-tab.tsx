@@ -69,7 +69,7 @@ export function QuickContactTab() {
       </div>
 
       {/* Additional Actions */}
-      <div className="grid grid-cols-2 gap-3">
+      {/* <div className="grid grid-cols-2 gap-3">
         <a href="/cv" rel="noopener noreferrer">
           <Button variant="outline" size="md" className="w-full group">
             <FileText className="w-4 h-4 mr-2" />
@@ -83,7 +83,7 @@ export function QuickContactTab() {
             <span className="text-sm">Portfolio</span>
           </Button>
         </a>
-      </div>
+      </div> */}
 
       {/* Availability */}
       <div className="rounded-xl border border-border/60 bg-muted/30 p-4 space-y-2">

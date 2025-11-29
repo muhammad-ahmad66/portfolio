@@ -10,6 +10,7 @@ import { GreetingCard } from "@/components/ui/greeting-card";
 import { Typography } from "@/components/ui/typography";
 import { BadgeHeading } from "@/components/ui/badge-heading";
 import { TechAndPartnersSection } from "../shared/tech-and-partners-section";
+import { SpinningCircularBadge } from "@/components/ui/spinning-circular-badge";
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -73,7 +74,9 @@ export function HeroSection() {
                   variant="h1"
                   className="text-foreground leading-[1]"
                 >
-                  <div className="font-bold text-zinc-600 mb-1.5">Crafting</div>
+                  <div className="font-bold  text-secondary-500 mb-1.5">
+                    Crafting
+                  </div>
                   <div className="font-extrabold text-primary-500 uppercase leading-[1.4] md:leading-[1.1]">
                     High-Performing Websites
                   </div>
@@ -115,7 +118,7 @@ export function HeroSection() {
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
-                <Link href="/portfolio" className="w-full sm:w-auto">
+                <Link href="/work" className="w-full sm:w-auto">
                   <Button
                     variant="ghost"
                     size="lg"
@@ -186,7 +189,7 @@ export function HeroSection() {
                 </div>
 
                 {/* Spinning Circular Badge */}
-                <div className="absolute -top-6 sm:-top-8 -right-6 sm:-right-8 lg:-right-12 z-20">
+                {/* <div className="absolute -top-6 sm:-top-8 -right-6 sm:-right-8 lg:-right-12 z-20">
                   <div
                     className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32"
                     style={{ animation: "spin 20s linear infinite" }}
@@ -198,7 +201,8 @@ export function HeroSection() {
                       className="object-contain grayscale opacity-30 dark:opacity-20"
                     />
                   </div>
-                </div>
+                </div> */}
+                <SpinningCircularBadge />
 
                 {/* Minimal Decorative Element */}
                 <div className="absolute -bottom-6 -left-6 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-primary/20 to-secondary/20 dark:from-primary/10 dark:to-secondary/10 rounded-full blur-2xl -z-10" />

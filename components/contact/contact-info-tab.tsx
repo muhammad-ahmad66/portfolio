@@ -2,8 +2,9 @@
 "use client";
 
 import { contactInfo } from "@/data/contact/contact-info";
-import { Clock, MapPin, Briefcase } from "lucide-react";
+import { Clock, MapPin, Briefcase, FileText } from "lucide-react";
 import { Typography } from "@/components/ui/typography";
+import { Button } from "../ui/button-component";
 
 export function ContactInfoTab() {
   return (
@@ -40,6 +41,22 @@ export function ContactInfoTab() {
             </a>
           );
         })}
+      </div>
+
+      <div className="grid grid-cols-2 gap-3">
+        <a href="/cv" rel="noopener noreferrer">
+          <Button variant="outline" size="md" className="w-full group">
+            <FileText className="w-4 h-4 mr-2" />
+            <span className="text-sm">View CV</span>
+          </Button>
+        </a>
+
+        <a href="/portfolio" rel="noopener noreferrer">
+          <Button variant="outline" size="md" className="w-full group">
+            <Briefcase className="w-4 h-4 mr-2" />
+            <span className="text-sm">Portfolio</span>
+          </Button>
+        </a>
       </div>
 
       {/* Availability Info */}

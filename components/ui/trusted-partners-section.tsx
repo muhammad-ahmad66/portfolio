@@ -68,7 +68,7 @@ export function TrustedPartnersSection() {
                 strokeWidth={2}
               />
 
-              <Typography variant="small">Trusted Partners</Typography>
+              <Typography variant="small">Recent Clients</Typography>
             </div>
           </div>
 

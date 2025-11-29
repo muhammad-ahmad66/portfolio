@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button-component";
 import { ArrowRight, MessageCircle, Sparkles } from "lucide-react";
 import { highlights } from "@/data/about/highlights";
 import { GreetingCard } from "@/components/ui/greeting-card";
+import { SpinningCircularBadge } from "@/components/ui/spinning-circular-badge";
 
 export function AboutSection() {
   const [isVisible] = useState(true);
@@ -56,10 +57,10 @@ export function AboutSection() {
             <Typography variant="h2" className="leading-tight">
               Crafting fast, reliable, and high-performing digital experiences.
             </Typography>
-            <div className="flex items-center gap-3 rounded-2xl border border-border/60 bg-card/80 px-4 py-3 w-full sm:w-auto justify-center sm:justify-start">
-              <div className="w-12 h-12 rounded-full bg-primary-500/10 flex items-center justify-center">
+            {/* <div className="flex items-center gap-3 rounded-2xl border border-border/60 bg-card/80 px-4 py-3 w-full sm:w-auto justify-center sm:justify-start"> */}
+            {/* <div className="w-12 h-12 rounded-full bg-primary-500/10 flex items-center justify-center">
                 <span className="text-primary-500 font-semibold tracking-wide">
-                  5+
+                  3+
                 </span>
               </div>
               <div>
@@ -69,10 +70,11 @@ export function AboutSection() {
                 <p className="text-sm font-semibold text-foreground">
                   Crafting Websites & Web Apps
                 </p>
-              </div>
-            </div>
+              </div> */}
+            {/* <SpinningCircularBadge /> */}
+            {/* </div> */}
           </div>
-          <Typography variant="lead" className="max-w-3xl">
+          <Typography variant="lead" className="">
             I’m Muhammad Ahmad, a full-stack developer combining freelancing
             agility with professional-grade precision. I specialize in building
             fast, scalable, and user-focused websites and web applications using

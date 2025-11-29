@@ -104,7 +104,7 @@ export function PageHero({
             }`}
           >
             <Typography variant="h1" className="text-foreground leading-[1]">
-              <div className="font-bold text-zinc-600">{title}</div>
+              <div className="font-bold text-secondary-500">{title}</div>
               {titleHighlight && (
                 <div className="font-extrabold text-primary-500 uppercase leading-[1.4] md:leading-[1.1] relative inline-block">
                   {titleHighlight}
