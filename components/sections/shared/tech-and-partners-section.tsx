@@ -1,9 +1,9 @@
 // components/shared/tech-and-partners-section.tsx
 "use client";
 
+import { TechStack } from "@/components/ui/tech-stack";
+import { TrustedPartnersSection } from "@/components/ui/trusted-partners-section";
 import { useState, useEffect } from "react";
-import { TechStack } from "../../ui/tech-stack";
-import { TrustedPartnersSection } from "../../ui/trusted-partners-section";
 
 interface TechAndPartnersSectionProps {
   showTechStack?: boolean;
@@ -34,9 +34,9 @@ export function TechAndPartnersSection({
   }, []);
 
   return (
-    <section className={`relative overflow-hidden py-6 ${className}`}>
+    <section className={`relative overflow-hidden ${className}`}>
       {/* Background with Interactive Gradient */}
-      <div className="absolute inset-0 bg-background">
+      <div className="absolute inset-0 bg-background pointer-events-none">
         <div
           className="absolute inset-0 opacity-[0.15] dark:opacity-[0.08] transition-opacity duration-1000"
           style={{
@@ -54,8 +54,8 @@ export function TechAndPartnersSection({
         />
       </div>
 
-      {/* Content Container */}
-      <div className="relative z-10 space-y-4 lg:space-y-6">
+      {/* Content Container - Removed extra spacing */}
+      <div className="relative z-10">
         {showTechStack && (
           <div
             className={`transition-all duration-700 ${
@@ -81,7 +81,7 @@ export function TechAndPartnersSection({
         )}
       </div>
 
-      {/* Subtle Background Elements */}
+      {/* Subtle Background Elements - Made pointer-events-none */}
       <div className="absolute top-1/4 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-primary-500/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-secondary-500/5 rounded-full blur-3xl pointer-events-none" />
     </section>

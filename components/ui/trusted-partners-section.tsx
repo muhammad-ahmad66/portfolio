@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Sparkles } from "lucide-react";
+import { HeartHandshake } from "lucide-react";
+import { Typography } from "./typography";
 
 export function TrustedPartnersSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -61,11 +62,13 @@ export function TrustedPartnersSection() {
         >
           {/* Left: Label Box */}
           <div className="flex-shrink-0 flex items-center px-4 lg:px-8 py-4 lg:py-8 border-r border-border/60 bg-muted/30">
-            <div className="flex-col items-center gap-2 md:gap-2.5">
-              <Sparkles className="w-4 h-4 text-primary-500" strokeWidth={2} />
-              <span className="text-sm lg:text-base font-semibold text-foreground whitespace-nowrap">
-                Trusted Partners
-              </span>
+            <div className="flex flex-col lg:flex-row items-start lg:items-center gap-2 md:gap-2.5">
+              <HeartHandshake
+                className="w-4 h-4 text-primary-500"
+                strokeWidth={2}
+              />
+
+              <Typography variant="small">Trusted Partners</Typography>
             </div>
           </div>
 
