@@ -24,7 +24,7 @@ export default function TermsPage() {
                 1. Acceptance of Terms
               </Typography>
               <Typography variant="p" className="text-muted-foreground leading-relaxed">
-                By accessing and using the services of Muhammad Ahmad (hereinafter referred to as "the Developer", "we", "us", or "our"), you accept and agree to be bound by the terms and conditions set forth in this document. If you do not agree to these terms, please do not use our services.
+                By accessing and using the services of Muhammad Ahmad (hereinafter referred to as &ldquo;the Developer&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;), you accept and agree to be bound by the terms and conditions set forth in this document. If you do not agree to these terms, please do not use our services.
               </Typography>
             </section>
 
@@ -115,7 +115,7 @@ export default function TermsPage() {
                 9. Limitation of Liability
               </Typography>
               <Typography variant="p" className="text-muted-foreground leading-relaxed">
-                The Developer's liability is limited to the total project fee. We are not liable for indirect, incidental, or consequential damages arising from the use or inability to use the delivered services.
+                The Developer&apos;s liability is limited to the total project fee. We are not liable for indirect, incidental, or consequential damages arising from the use or inability to use the delivered services.
               </Typography>
             </section>
 
