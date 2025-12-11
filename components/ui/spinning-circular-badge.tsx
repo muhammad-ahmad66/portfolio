@@ -8,7 +8,7 @@ export function SpinningCircularBadge() {
         style={{ animation: "spin 20s linear infinite" }}
       >
         <Image
-          src="/images/exclusive.png"
+          src="/images/rotating-image.png"
           alt="Exclusive"
           fill
           className="object-contain grayscale opacity-30 dark:opacity-20"

@@ -1,10 +1,10 @@
 // ============================================
 // FILE: components/cv/cv-resume.tsx (FIXED MOBILE LAYOUT)
 // ============================================
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
+import { useState } from "react";
+import Link from "next/link";
 import {
   Mail,
   Phone,
@@ -17,9 +17,9 @@ import {
   Loader2,
   Award,
   Star,
-} from 'lucide-react';
-import { Typography } from '@/components/ui/typography';
-import { generateAndDownloadPDF } from '@/lib/pdf-helpers';
+} from "lucide-react";
+import { Typography } from "@/components/ui/typography";
+import { generateAndDownloadPDF } from "@/lib/pdf-helpers";
 
 export function CVResume() {
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
@@ -27,15 +27,15 @@ export function CVResume() {
   const handleDownloadPDF = async () => {
     setIsGeneratingPDF(true);
     try {
-      await generateAndDownloadPDF('cv-resume', 'Muhammad_Ahmad_CV', {
+      await generateAndDownloadPDF("cv-resume", "Muhammad_Ahmad_CV", {
         format: [210, 297], // A4
-        orientation: 'portrait',
+        orientation: "portrait",
         quality: 0.98,
         scale: 2,
       });
     } catch (error) {
-      console.error('Failed to generate PDF:', error);
-      alert('Failed to generate PDF. Please try again.');
+      console.error("Failed to generate PDF:", error);
+      alert("Failed to generate PDF. Please try again.");
     } finally {
       setIsGeneratingPDF(false);
     }
@@ -43,7 +43,7 @@ export function CVResume() {
 
   return (
     <div id="cv-resume" className="w-full max-w-4xl mx-auto">
-      <div className="bg-background rounded-[32px] border border-border/60 p-6 sm:p-8 lg:p-12 shadow-lg">
+      <div className="mt-6 bg-background rounded-[32px] border border-border/60 p-6 md:mt-12 sm:p-8 lg:p-12 shadow-lg">
         {/* Header */}
         <div className="mb-8 pb-8 border-b border-border/60">
           <div className="mb-6">

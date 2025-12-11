@@ -174,13 +174,77 @@ export function AboutSection() {
 
             <div className="relative col-span-2 lg:col-span-1 rounded-[32px] overflow-hidden border border-border shadow-2xl group">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <Image
-                src="/images/my-development-workspace-landscape.webp"
-                alt="Product design board"
-                width={600}
-                height={480}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
+
+              <div className="group relative w-full h-full overflow-hidden rounded-xl">
+                {/* Animated gradient border glow */}
+                <div
+                  className="absolute -inset-[2px] bg-gradient-to-r from-primary-500 via-secondary-500 to-primary-500 rounded-xl opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-700 animate-[shimmer_3s_linear_infinite]"
+                  style={{ backgroundSize: "200% 100%" }}
+                />
+
+                {/* Inner container with border */}
+                <div className="relative w-full h-full overflow-hidden rounded-xl border border-primary-500/20 group-hover:border-primary-500/40 transition-all duration-700">
+                  {/* Main Image with filters */}
+                  <Image
+                    src="/images/me-sq.jpg"
+                    alt="Professional portrait"
+                    width={600}
+                    height={480}
+                    className="w-full h-full object-cover transition-all duration-700 
+                 filter contrast-125 brightness-95 saturate-110
+                 group-hover:scale-110 group-hover:contrast-130"
+                  />
+
+                  {/* Radial spotlight mask - keeps face visible, darkens edges */}
+                  <div
+                    className="absolute inset-0 pointer-events-none 
+                    bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.4)_50%,rgba(0,0,0,0.9)_80%,black_100%)]"
+                  />
+
+                  {/* Deep black edge vignette */}
+                  <div
+                    className="absolute inset-0 pointer-events-none 
+                    bg-gradient-to-b from-black/60 via-transparent to-black/80"
+                  />
+
+                  {/* Corner shadows for depth */}
+                  <div
+                    className="absolute inset-0 pointer-events-none 
+                    bg-gradient-to-br from-black/40 via-transparent to-black/60"
+                  />
+
+                  {/* Volumetric bottom-left to top-right light sweep */}
+                  <div
+                    className="absolute inset-0 pointer-events-none opacity-0 
+                    group-hover:opacity-100 transition-opacity duration-1000
+                    bg-gradient-to-tr from-primary-500/20 via-transparent to-transparent
+                    group-hover:animate-[light-sweep_1.5s_ease-out]"
+                  />
+
+                  {/* Glass-like frosted overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none 
+                    bg-gradient-to-t from-black/30 via-transparent to-transparent 
+                    backdrop-blur-[0.5px]"
+                  />
+
+                  {/* Animated color pulse border */}
+                  <div
+                    className="absolute inset-0 pointer-events-none rounded-xl
+                    ring-1 ring-primary-500/0 group-hover:ring-primary-500/50 
+                    transition-all duration-700
+                    group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3),0_0_40px_rgba(168,85,247,0.2)]"
+                  />
+
+                  {/* Subtle shimmer effect on hover */}
+                  <div
+                    className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 
+                    bg-gradient-to-r from-transparent via-white/5 to-transparent 
+                    translate-x-[-100%] group-hover:translate-x-[100%] 
+                    transition-all duration-1500 ease-out"
+                  />
+                </div>
+              </div>
             </div>
 
             <Link
