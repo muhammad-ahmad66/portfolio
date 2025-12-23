@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
+import { useState } from "react";
+import Link from "next/link";
 import {
   ArrowUpRight,
   Download,
   Sparkles,
   ArrowRight,
   Loader2,
-} from 'lucide-react';
+} from "lucide-react";
 
-import { Typography } from '@/components/ui/typography';
-import { cn } from '@/lib/utils';
-import { generateAndDownloadPDF } from '@/lib/pdf-helpers';
+import { Typography } from "@/components/ui/typography";
+import { cn } from "@/lib/utils";
+import { generateAndDownloadPDF } from "@/lib/pdf-helpers";
 import {
   portfolioItems,
   categoryColors,
   type PortfolioCategory,
-} from '@/data/work/portfolio';
+} from "@/data/work/portfolio";
 
 export function PortfolioWindow() {
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
@@ -25,15 +25,15 @@ export function PortfolioWindow() {
   const handleDownloadPDF = async () => {
     setIsGeneratingPDF(true);
     try {
-      await generateAndDownloadPDF('portfolio-window', 'portfolio', {
+      await generateAndDownloadPDF("portfolio-window", "portfolio", {
         format: [210, 297], // A4
-        orientation: 'portrait',
+        orientation: "portrait",
         quality: 0.98,
         scale: 2,
       });
     } catch (error) {
-      console.error('Failed to generate PDF:', error);
-      alert('Failed to generate PDF. Please try again.');
+      console.error("Failed to generate PDF:", error);
+      alert("Failed to generate PDF. Please try again.");
     } finally {
       setIsGeneratingPDF(false);
     }
@@ -43,7 +43,7 @@ export function PortfolioWindow() {
     <section className="w-full">
       <div
         id="portfolio-window"
-        className="relative overflow-hidden rounded-[32px] border border-border/60 dark:border-white/10 bg-gradient-to-br from-background via-background/90 to-background/60 dark:from-background dark:via-background/90 dark:to-background/60 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_60px_rgba(12,12,14,0.35)] sm:p-10"
+        className="relative overflow-hidden rounded-[32px] border border-border/60 dark:border-white/10 bg-gradient-to-br from-background via-background/90 to-background/60 dark:from-background dark:via-background/90 dark:to-background/60 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_60px_rgba(12,12,14,0.35)] sm:p-10 mt-6 md:mt-12"
       >
         <div className="pointer-events-none absolute inset-0 opacity-[0.85]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.25),_transparent_55%)]" />
@@ -187,17 +187,17 @@ function PortfolioLinkCard({
       rel="noopener noreferrer"
       prefetch={false}
       className={cn(
-        'group relative flex flex-col gap-4 overflow-hidden rounded-2xl border px-5 py-4 transition-all duration-300 sm:px-6 sm:py-5',
+        "group relative flex flex-col gap-4 overflow-hidden rounded-2xl border px-5 py-4 transition-all duration-300 sm:px-6 sm:py-5",
         inProgress
-          ? 'border-border/40 dark:border-white/5 bg-card/30 dark:bg-white/2 hover:border-foreground/30 dark:hover:border-white/20 hover:bg-accent/30 dark:hover:bg-white/8'
-          : 'border-border/60 dark:border-white/15 bg-card/50 dark:bg-white/5 hover:border-foreground/40 dark:hover:border-white/40 hover:bg-accent/50 dark:hover:bg-white/10'
+          ? "border-border/40 dark:border-white/5 bg-card/30 dark:bg-white/2 hover:border-foreground/30 dark:hover:border-white/20 hover:bg-accent/30 dark:hover:bg-white/8"
+          : "border-border/60 dark:border-white/15 bg-card/50 dark:bg-white/5 hover:border-foreground/40 dark:hover:border-white/40 hover:bg-accent/50 dark:hover:bg-white/10"
       )}
       aria-label={`Open ${url}`}
     >
       <div className="flex items-center justify-between">
         <div className="text-xs font-semibold uppercase tracking-[0.4em] text-muted-foreground/70">
-          {inProgress ? 'In Progress' : 'Live'} •{' '}
-          {String(index).padStart(2, '0')}
+          {inProgress ? "In Progress" : "Live"} •{" "}
+          {String(index).padStart(2, "0")}
         </div>
         <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-border/60 dark:border-white/10 bg-background/50 dark:bg-white/5 text-foreground/70 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:text-foreground">
           <ArrowUpRight className="h-4 w-4" />
@@ -216,7 +216,7 @@ function PortfolioLinkCard({
             <span
               key={category}
               className={cn(
-                'px-2 py-0.5 text-[10px] font-medium rounded-full border',
+                "px-2 py-0.5 text-[10px] font-medium rounded-full border",
                 categoryColors[category]
               )}
             >
@@ -232,11 +232,11 @@ function PortfolioLinkCard({
 function formatLinkLabel(url: string) {
   try {
     const parsed = new URL(url);
-    const domain = parsed.hostname.replace(/^www\./, '');
+    const domain = parsed.hostname.replace(/^www\./, "");
     const path =
-      parsed.pathname === '/' ? '' : parsed.pathname.replace(/\/$/, '');
+      parsed.pathname === "/" ? "" : parsed.pathname.replace(/\/$/, "");
     return `${domain}${path}`;
   } catch {
-    return url.replace(/^https?:\/\//, '');
+    return url.replace(/^https?:\/\//, "");
   }
 }

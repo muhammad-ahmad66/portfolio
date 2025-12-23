@@ -74,6 +74,25 @@ export const featuredProjects: FeaturedProject[] = [
     categories: ["Non-profit", "Education"],
   },
   {
+    id: "31",
+    name: "Prescribing Care Direct",
+    liveUrl: "https://pcd-dev.31g.co.uk/",
+    imageUrl: "/images/projects/wordpress-development-project35.webp",
+    imageAlt:
+      "Prescribing Care Direct website for medicines optimisation and clinical pharmacy services",
+    categories: ["Healthcare", "Pharmacy Services", "Medical"],
+  },
+
+  {
+    id: "32",
+    name: "Lone Star Loaners",
+    liveUrl: "https://lonestarloaners.com/",
+    imageUrl: "/images/projects/wordpress-development-project37.webp",
+    imageAlt:
+      "Lone Star Loaners affordable car rental service with weekly rentals and roadside assistance",
+    categories: ["Automotive", "Car Rental"],
+  },
+  {
     id: "8",
     name: "Maxgrow LATAM",
     liveUrl: "https://maxgrow-latam.com/",
@@ -81,6 +100,15 @@ export const featuredProjects: FeaturedProject[] = [
     imageAlt:
       "Maxgrow LATAM WordPress website development for electronic water treatment company",
     categories: ["Tech", "Sustainable Water", "Agriculture"],
+  },
+  {
+    id: "33",
+    name: "Local Help My Way",
+    liveUrl: "https://localhelpmyway.simplyconnect.uk/",
+    imageUrl: "/images/projects/wordpress-development-project36.webp",
+    imageAlt:
+      "Local Help My Way Staffordshire micro providers network connecting local care and support services",
+    categories: ["Community Support", "Healthcare"],
   },
   {
     id: "9",
@@ -278,5 +306,25 @@ export const featuredProjects: FeaturedProject[] = [
     imageAlt:
       "EcoGivers WordPress website development for sustainable materials and carbon credit trading platform",
     categories: ["Sustainable", "Green Business", "Climate"],
+  },
+
+  {
+    id: "34",
+    name: "My Specialist Appinion",
+    liveUrl: "https://www.myspecialistappinion.com/",
+    imageUrl: "/images/projects/wordpress-development-project38.webp",
+    imageAlt:
+      "My Specialist Appinion telemedicine platform offering expert healthcare guidance and specialist consultations",
+    categories: ["Healthcare", "Medical"],
+  },
+
+  {
+    id: "35",
+    name: "Setup My Business Now",
+    liveUrl: "https://setupmybusinessnow.com/",
+    imageUrl: "/images/projects/wordpress-development-project39.webp",
+    imageAlt:
+      "Setup My Business Now business services platform offering digital brand development and business setup support",
+    categories: ["Business", "Tech", "Training"],
   },
 ];
