@@ -431,4 +431,12 @@ export const categoryColors: Record<PortfolioCategory, string> = {
   "Landing Page": "bg-pink-400/10 text-pink-900 border-pink-400/20",
   Web3: "bg-purple-500/10 text-purple-900 border-purple-500/20",
   Nature: "bg-green-500/10 text-green-900 border-green-500/20",
+
+  // MISSING KEYS ADDED:
+  Business: "bg-gray-500/10 text-gray-700 border-gray-500/20",
+  "Pharmacy Services": "bg-red-300/10 text-red-700 border-red-300/20",
+  Medical: "bg-red-400/10 text-red-900 border-red-400/20",
+  Automotive: "bg-blue-300/10 text-blue-700 border-blue-300/20",
+  "Car Rental": "bg-blue-400/10 text-blue-900 border-blue-400/20",
+  "Community Support": "bg-teal-300/10 text-teal-700 border-teal-300/20",
 };
