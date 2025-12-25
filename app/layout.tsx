@@ -16,14 +16,39 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mdotahmad.vercel.app"),
+
   title: "M. Ahmad - Full Stack Developer",
   description:
     "Building modern web applications with cutting-edge technologies",
-  icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      // { url: "/favicon.ico", sizes: "any" },
+
+  openGraph: {
+    title: "M. Ahmad - Full Stack Developer",
+    description:
+      "Building modern web applications with cutting-edge technologies",
+    url: "https://mdotahmad.vercel.app/",
+    siteName: "M. Ahmad Portfolio",
+    images: [
+      {
+        url: "/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "M. Ahmad – Full Stack Developer",
+      },
     ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "M. Ahmad - Full Stack Developer",
+    description:
+      "Building modern web applications with cutting-edge technologies",
+    images: ["/og-image.jpeg"],
+  },
+
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     apple: "/apple-touch-icon.png",
   },
 };
