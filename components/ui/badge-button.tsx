@@ -27,7 +27,7 @@ export function BadgeButton({
           <div className="text-muted-foreground group-hover:text-primary-500 transition-colors duration-300">
             {icon}
           </div>
-          <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+          <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
             {label}
           </span>
         </div>

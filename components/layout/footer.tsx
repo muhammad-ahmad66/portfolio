@@ -1,15 +1,19 @@
 "use client";
 
+import { useState } from "react";
+import { Share2 } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import { TextButton } from "@/components/ui/text-button";
 import { BadgeButton } from "@/components/ui/badge-button";
 import { Typography } from "@/components/ui/typography";
+import { ShareMenu } from "@/components/ui/share-menu";
 import { navLinks } from "@/data/links/nav-links";
 import { socialLinks } from "@/data/links/social-links";
 import { legalLinks } from "@/data/links/legal-links";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const [showShareMenu, setShowShareMenu] = useState(false);
 
   return (
     <footer className="relative border-t border-border/50">
@@ -38,7 +42,7 @@ export function Footer() {
             >
               Navigation
             </Typography>
-            <ul className="space-y-3">
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-3">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <TextButton href={link.href} variant="default">
@@ -49,7 +53,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Social Links */}
+          {/* Social Links + Share */}
           <div className="lg:col-span-4">
             <Typography
               variant="h4"
@@ -67,6 +71,21 @@ export function Footer() {
                   variant="card"
                 />
               ))}
+
+              {/* Share Button */}
+              <div className="relative">
+                <BadgeButton
+                  icon={<Share2 className="w-4 h-4" />}
+                  label="Share Me"
+                  variant="minimal"
+                  onClick={() => setShowShareMenu(!showShareMenu)}
+                />
+
+                <ShareMenu
+                  isOpen={showShareMenu}
+                  onClose={() => setShowShareMenu(false)}
+                />
+              </div>
             </div>
           </div>
         </div>
