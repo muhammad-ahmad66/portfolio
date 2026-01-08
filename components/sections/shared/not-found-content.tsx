@@ -329,7 +329,7 @@ export function NotFoundContent() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               {[
-                { label: "Portfolio", href: "/portfolio" },
+                { label: "Portfolio", href: "/work" },
                 { label: "Services", href: "/services" },
                 { label: "About", href: "/about" },
                 { label: "Contact", href: "/contact" },
