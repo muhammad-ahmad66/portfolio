@@ -27,6 +27,15 @@ export const featuredProjects: FeaturedProject[] = [
       "Marjorie Jean WordPress website development for wedding and memorial floral preservation epoxy art",
     categories: ["Art", "Memorial", "Crafts"],
   },
+  {
+    id: "31",
+    name: "Prescribing Care Direct",
+    liveUrl: "https://prescribingcaredirect.co.uk/",
+    imageUrl: "/images/projects/wordpress-development-project35.webp",
+    imageAlt:
+      "Prescribing Care Direct website for medicines optimisation and clinical pharmacy services",
+    categories: ["Healthcare", "Pharmacy Services", "Medical"],
+  },
 
   {
     id: "3",
@@ -54,6 +63,15 @@ export const featuredProjects: FeaturedProject[] = [
       "Soft Water Experts WordPress website development for water filtration services",
     categories: ["Home Services", "Healthcare", "Lifestyle"],
   },
+  {
+    id: "___", // you can assign an internal ID
+    name: "Mohsin Ali Aziz Personal Brand",
+    liveUrl: "https://www.mohsinaliaziz.com/",
+    imageUrl: "/images/projects/wordpress-development-project40.jpg",
+    imageAlt:
+      "Mohsin Ali Aziz personal brand website for AI engineering, automation, and scalable systems",
+    categories: ["SaaS", "portfolio"],
+  },
 
   {
     id: "6",
@@ -72,15 +90,6 @@ export const featuredProjects: FeaturedProject[] = [
     imageAlt:
       "Lifeline Foundation WordPress website development for women skill-training NGO",
     categories: ["Non-profit", "Education"],
-  },
-  {
-    id: "31",
-    name: "Prescribing Care Direct",
-    liveUrl: "https://pcd-dev.31g.co.uk/",
-    imageUrl: "/images/projects/wordpress-development-project35.webp",
-    imageAlt:
-      "Prescribing Care Direct website for medicines optimisation and clinical pharmacy services",
-    categories: ["Healthcare", "Pharmacy Services", "Medical"],
   },
 
   {

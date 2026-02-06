@@ -46,6 +46,7 @@ export type PortfolioCategory =
   | "Web3"
   | "Pharmacy Services"
   | "Medical"
+  | "portfolio"
   | "Automotive"
   | "Car Rental"
   | "Community Support"
@@ -111,7 +112,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
 
   {
-    url: "https://pcd-dev.31g.co.uk/",
+    url: "https://prescribingcaredirect.co.uk/",
     categories: ["Healthcare", "Pharmacy Services", "Medical"],
     inProgress: true,
   },

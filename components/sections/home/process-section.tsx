@@ -27,14 +27,14 @@ export function ProcessSection() {
   useEffect(() => {
     const interval = setInterval(
       () => setActiveStep((prev) => (prev + 1) % processSteps.length),
-      6000
+      6000,
     );
     return () => clearInterval(interval);
   }, []);
 
   const activeArtifacts = useMemo(
     () => processSteps[activeStep]?.artifacts ?? [],
-    [activeStep]
+    [activeStep],
   );
 
   return (
