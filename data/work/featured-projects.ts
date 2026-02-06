@@ -64,7 +64,7 @@ export const featuredProjects: FeaturedProject[] = [
     categories: ["Home Services", "Healthcare", "Lifestyle"],
   },
   {
-    id: "___", // you can assign an internal ID
+    id: "36",
     name: "Mohsin Ali Aziz Personal Brand",
     liveUrl: "https://www.mohsinaliaziz.com/",
     imageUrl: "/images/projects/wordpress-development-project40.jpg",
