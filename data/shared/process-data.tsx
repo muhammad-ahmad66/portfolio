@@ -3,64 +3,64 @@ import { Compass, Layers, Brain, Rocket } from "lucide-react";
 const processSteps = [
   {
     phase: "01",
-    title: "Discover & Plan",
+    title: "Discovery and Strategy",
     description:
-      "We clarify project goals, user needs, and scope to ensure a smooth, focused development process.",
+      "We define your goals, target audience and project scope so every decision from day one is focused on results.",
     artifacts: [
-      "Quick stakeholder alignment",
-      "Mini experience audit",
-      "Success metrics summary",
+      "Project brief and goal alignment",
+      "Competitor and UX audit",
+      "SEO and conversion strategy",
     ],
     icon: <Compass className="w-5 h-5" />,
   },
   {
     phase: "02",
-    title: "Design & Prototype",
+    title: "Design and Wireframes",
     description:
-      "We create clean layouts, simple component structures, and basic content flows for a cohesive user experience.",
+      "Clean, conversion-focused layouts built in Figma before a single line of code is written — saving time and revisions.",
     artifacts: [
-      "Wireframes & clickable prototypes",
-      "Component sketch library",
-      "Content structure outline",
+      "Figma wireframes and mockups",
+      "Mobile-first responsive design",
+      "Brand-aligned UI components",
     ],
     icon: <Layers className="w-5 h-5" />,
   },
   {
     phase: "03",
-    title: "Build & Integrate",
+    title: "Development and Integration",
     description:
-      "We develop the website or web app using reliable tools and integrate any required systems efficiently.",
+      "Your website is built with clean, fast WordPress or Next.js code and integrated with the tools your business relies on.",
     artifacts: [
-      "Clean, maintainable code",
-      "Basic CMS or API integration",
-      "Performance check",
+      "WordPress, WooCommerce or Next.js build",
+      "CMS, API and payment integration",
+      "Core Web Vitals and speed optimization",
     ],
     icon: <Brain className="w-5 h-5" />,
   },
   {
     phase: "04",
-    title: "Launch & Iterate",
+    title: "Launch and Handover",
     description:
-      "We launch the site, ensure everything works smoothly, and make small tweaks to optimize user experience.",
+      "We test everything, launch on your schedule and hand over full ownership so your team can manage the site with confidence.",
     artifacts: [
-      "Launch checklist",
-      "Basic analytics setup",
-      "Iteration notes for future updates",
+      "Pre-launch QA and cross-browser testing",
+      "Google Analytics and Search Console setup",
+      "Training and full source file handover",
     ],
     icon: <Rocket className="w-5 h-5" />,
   },
 ];
 
 const operatingPrinciples = [
-  { text: "Regular short updates to keep clients informed" },
-  { text: "Clients own all source files and content" },
-  { text: "Performance and design standards set upfront" },
+  { text: "Progress updates twice a week, no chasing needed" },
+  { text: "You own all code, files and content from day one" },
+  { text: "Performance, SEO and mobile standards built in" },
 ];
 
 const valueProps = [
-  { label: "Average phase length", value: "1–2 weeks" },
-  { label: "Client touchpoints", value: "2–3 short updates per week" },
-  { label: "Launch reliability", value: "Stable, smooth delivery" },
+  { label: "Avg. project delivery", value: "2–4 weeks" },
+  { label: "Client updates", value: "Twice a week" },
+  { label: "Projects delivered", value: "60+ websites" },
 ];
 
 // named export

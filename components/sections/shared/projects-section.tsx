@@ -17,7 +17,12 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export function ProjectsSection() {
+interface ProjectsSectionProps {
+  showLoadMore?: boolean;
+  showHeader?: boolean;
+}
+
+export function ProjectsSection({ showLoadMore = true, showHeader = true }: ProjectsSectionProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [visibleProjects, setVisibleProjects] = useState(6);
 
@@ -25,9 +30,8 @@ export function ProjectsSection() {
     setIsVisible(true);
   }, []);
 
-  // Get projects to display (initially 6, then more on load more)
-  const displayedProjects = featuredProjects.slice(0, visibleProjects);
-  const hasMore = visibleProjects < featuredProjects.length;
+  const displayedProjects = featuredProjects.slice(0, showLoadMore ? visibleProjects : 6);
+  const hasMore = showLoadMore && visibleProjects < featuredProjects.length;
 
   const loadMore = () => {
     setVisibleProjects((prev) => Math.min(prev + 6, featuredProjects.length));
@@ -58,28 +62,24 @@ export function ProjectsSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
-        <div
-          className={`text-center mb-9 md:mb-16 space-y-3 md:space-y-6 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-        >
-          {/* Badge */}
-          <BadgeHeading
-            label="Recent Work"
-            icon={<Sparkles className="w-4 h-4 text-primary-500" />}
-          />
-
-          {/* Title */}
-          <Typography variant="h2" className="font-semibold leading-tight">
-            Featured Projects
-          </Typography>
-
-          <Typography variant="lead" className="max-w-2xl mx-auto">
-            A curated showcase of websites and web applications I&apos;ve
-            crafted for clients, demonstrating design quality, technical
-            excellence, and measurable results across multiple industries.
-          </Typography>
-        </div>
+        {showHeader && (
+          <div
+            className={`text-center mb-9 md:mb-16 space-y-3 md:space-y-6 transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
+            <BadgeHeading
+              label="Recent Work"
+              icon={<Sparkles className="w-4 h-4 text-primary-500" />}
+            />
+            <Typography variant="h2" className="font-semibold leading-tight">
+              Real Projects. Real Results.
+            </Typography>
+            <Typography variant="lead" className="max-w-2xl mx-auto font-light">
+              60+ websites built across e-commerce, healthcare, hospitality, real estate and more. Every project is fast, mobile-first and built to rank on Google and convert visitors into customers.
+            </Typography>
+          </div>
+        )}
 
         {/* 4:2 Column Layout */}
         <div
@@ -95,20 +95,24 @@ export function ProjectsSection() {
               ))}
             </div>
 
-            {/* Load More Button */}
-            {hasMore && (
+            {/* Load More or See All */}
+            {hasMore ? (
               <div className="flex justify-center">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  onClick={loadMore}
-                  className="group"
-                >
+                <Button variant="outline" size="lg" onClick={loadMore} className="group">
                   <span>Load More Projects</span>
                   <ChevronsDown className="w-5 h-5 ml-2 transition-transform group-hover:translate-y-1" />
                 </Button>
               </div>
-            )}
+            ) : !showLoadMore ? (
+              <div className="flex justify-center">
+                <Link href="/work">
+                  <Button variant="outline" size="lg" className="group">
+                    <span>See All Projects</span>
+                    <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+              </div>
+            ) : null}
           </div>
 
           {/* Right Column: CTA Box */}
@@ -120,18 +124,16 @@ export function ProjectsSection() {
                 </div>
                 <div>
                   <Typography variant="h3" className="text-xl">
-                    Ready to Start?
+                    Start Your Project
                   </Typography>
                   <p className="text-sm text-muted-foreground">
-                    Let&apos;s build something amazing together
+                    WordPress, WooCommerce and Next.js developer
                   </p>
                 </div>
               </div>
 
               <Typography variant="p" className="text-sm text-muted-foreground">
-                Whether you need a custom WordPress site, a modern web
-                application, or a complete digital transformation, I'm here to
-                help bring your vision to life.
+                Need a fast, professional website that ranks on Google and turns visitors into paying clients? Let&apos;s talk about your project.
               </Typography>
             </div>
 
@@ -141,15 +143,15 @@ export function ProjectsSection() {
                 className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-xl bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 shadow-lg shadow-primary/40 group"
               >
                 <Mail className="mr-2 h-4 w-4" />
-                <span>Contact Us</span>
+                <span>Get a Free Quote</span>
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
-                href="/portfolio"
+                href="/work"
                 className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-xl border-2 border-border/60 hover:border-foreground/50 hover:bg-accent transition-all duration-300 bg-background/50 text-foreground group"
               >
                 <Briefcase className="mr-2 h-4 w-4" />
-                <span>View Full Portfolio</span>
+                <span>View All Projects</span>
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>

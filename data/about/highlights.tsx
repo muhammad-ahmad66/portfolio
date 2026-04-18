@@ -3,14 +3,14 @@ import { BriefcaseBusiness, Globe } from "lucide-react";
 export const highlights = [
   {
     icon: <BriefcaseBusiness className="w-4 h-4" />,
-    label: "Freelance & Professional",
+    label: "WordPress and Next.js Expert",
     description:
-      "3+ years delivering high-quality web solutions for clients and companies alike.",
+      "5+ years building fast, scalable websites for startups, agencies and businesses worldwide.",
   },
   {
     icon: <Globe className="w-4 h-4" />,
-    label: "Global Collaboration",
+    label: "Global Clients, Local Care",
     description:
-      "Worked with founders and teams across 6+ time zones to deliver seamless projects.",
+      "Delivered 60+ projects for clients across the UK, US, Europe, Australia and the Middle East.",
   },
 ];

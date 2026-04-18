@@ -65,19 +65,17 @@ export function ProcessSection() {
               icon={<ClipboardCheck className="w-4 h-4 text-primary-500" />}
             />
             <Typography variant="h2" className="leading-tight">
-              A simple workflow built around clarity and quality.
+              How I Build Websites That Deliver Real Business Results.
             </Typography>
 
             <Typography variant="lead" className="text-muted-foreground">
-              From first idea to final delivery, I keep the process transparent,
-              structured, and lightweight, so you always know what's happening
-              and what's next.
+              From strategy and Figma design to WordPress or Next.js development and launch, every step is structured, transparent and focused on your growth.
             </Typography>
 
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/70">
               <Sparkles className="w-4 h-4 text-primary-500" />
               <span className="text-sm font-medium text-muted-foreground">
-                Clear communication. Smooth progress. No confusion.
+                On time. On budget. No surprises.
               </span>
             </div>
           </div>
@@ -180,12 +178,10 @@ export function ProcessSection() {
                 variant="small"
                 className="uppercase tracking-[0.3em] text-primary-500"
               >
-                Project Communication
+                Clear Communication Throughout
               </Typography>
               <p className="text-sm text-muted-foreground pb-4">
-                I provide clear, regular updates via Loom, Figma, WhatsApp,
-                Slack, or Google Meet-typically twice a week-so you always know
-                the progress and next steps.
+                You get twice-weekly updates via WhatsApp, Slack or Google Meet so you always know exactly where your project stands and what is coming next.
               </p>
               <Link href="/contact">
                 <Button variant="ghost" size="sm" className="gap-2">

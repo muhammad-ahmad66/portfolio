@@ -9,6 +9,7 @@ import { Footer } from "@/components/layout/footer";
 import { ContactWindowProvider } from "./contexts/contact-window-context";
 import { ContactWindowButton } from "@/components/contact/contact-window-button";
 import { ClientLayout } from "@/components/layout/client-layout";
+import { CurrencyProvider } from "@/contexts/currency-context";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -61,6 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
+        <CurrencyProvider>
         <ContactWindowProvider>
           <ThemeProvider
             attribute="class"
@@ -77,6 +79,7 @@ export default function RootLayout({
             </ClientLayout>
           </ThemeProvider>
         </ContactWindowProvider>
+        </CurrencyProvider>
       </body>
     </html>
   );

@@ -1,11 +1,13 @@
 "use client";
+
 export const processHighlights = [
-  { text: "Kickoff & requirement analysis" },
-  { text: "Regular progress updates and reviews" },
-  { text: "Final launch, QA, and optimization reports" },
+  { text: "Free discovery call and project scoping" },
+  { text: "Design review and milestone approvals" },
+  { text: "Development, QA testing and launch" },
 ];
+
 export const valueProps = [
-  { label: "Avg. delivery time", value: "3 - 4 weeks" },
-  { label: "Client retention", value: "92% return for updates" },
-  { label: "Launch confidence", value: "Zero surprises, fully tested" },
+  { label: "Average delivery time", value: "3 to 4 weeks" },
+  { label: "Client retention rate", value: "92% come back" },
+  { label: "Projects delivered", value: "50 and counting" },
 ];

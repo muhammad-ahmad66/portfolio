@@ -55,7 +55,7 @@ export function AboutSection() {
           />
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <Typography variant="h2" className="leading-tight">
-              Crafting fast, reliable, and high-performing digital experiences.
+              WordPress and Next.js Developer Who Builds Websites That Rank and Convert.
             </Typography>
             {/* <div className="flex items-center gap-3 rounded-2xl border border-border/60 bg-card/80 px-4 py-3 w-full sm:w-auto justify-center sm:justify-start"> */}
             {/* <div className="w-12 h-12 rounded-full bg-primary-500/10 flex items-center justify-center">
@@ -75,11 +75,7 @@ export function AboutSection() {
             {/* </div> */}
           </div>
           <Typography variant="lead" className="">
-            I’m Muhammad Ahmad, a full-stack developer combining freelancing
-            agility with professional-grade precision. I specialize in building
-            fast, scalable, and user-focused websites and web applications using
-            WordPress, React, and Next.js - delivered with clear communication,
-            structured updates, and a calm, reliable process.
+            I’m Muhammad Ahmad, a full-stack web developer specializing in WordPress, WooCommerce and Next.js. I help businesses get online with websites that load fast, rank on Google and turn visitors into paying customers.
           </Typography>
         </div>
 
@@ -116,16 +112,10 @@ export function AboutSection() {
 
             <div className="space-y-4">
               <Typography variant="p" className="text-base">
-                Whether it’s a freelance MVP sprint or collaborating with an
-                in-house team, I deliver with a consistent approach-clear
-                roadmaps, reusable component-driven designs, and measurable
-                results.
+                Whether you need a custom WordPress website, a WooCommerce store or a Next.js web application, I deliver clean code, pixel-perfect design and on-time results. Every project comes with structured updates so you always know where things stand.
               </Typography>
               <Typography variant="p" className="text-base">
-                I focus on the details that elevate a product: smooth
-                micro-interactions, intentional typography, and optimized
-                performance. The outcome is calm, high-quality digital
-                experiences that are intuitive to use and easy to scale.
+                I have worked with startups, agencies and established businesses across e-commerce, healthcare, hospitality, real estate and more. My focus is simple: build websites that look great, perform fast and help your business grow.
               </Typography>
             </div>
 
@@ -251,24 +241,31 @@ export function AboutSection() {
               href="/contact"
               className="col-span-2 rounded-[32px] border border-border/70 bg-background/70 backdrop-blur-lg p-6 flex flex-col sm:flex-row items-center gap-4 hover:border-primary-500/50 transition-all duration-300 group"
             >
-              <div className="relative">
+              <div className="relative flex-shrink-0 w-16 h-16">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-400/20 to-secondary-400/20 blur-md" />
                 <div
-                  className="w-16 h-16 rounded-full border-2 border-primary-500 flex items-center justify-center animate-spin"
-                  style={{ animationDuration: "6s" }}
+                  className="absolute inset-0 rounded-full border-2 border-dashed border-primary-500/50"
+                  style={{ animation: "rotate-slow 8s linear infinite" }}
+                />
+                <div
+                  className="absolute inset-[5px] rounded-full overflow-hidden"
+                  style={{ background: "linear-gradient(135deg, #3b82f6 0%, #818cf8 50%, #a855f7 100%)" }}
                 >
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-white text-sm font-semibold">
-                    Hi
-                  </div>
+                  <Image
+                    src="/images/me-sq.png"
+                    alt="Muhammad Ahmad"
+                    width={56}
+                    height={56}
+                    className="w-full h-full object-cover rounded-full"
+                  />
                 </div>
               </div>
               <div className="flex-1 text-center sm:text-left">
                 <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
-                  Always Connected
+                  Always Available
                 </p>
                 <p className="text-sm text-foreground">
-                  Clear updates via Loom, Slack, Microsoft Teams, WhatsApp, and
-                  Google Meet-delivered twice a week to keep your project on
-                  track.
+                  Regular progress updates via Slack, WhatsApp or Google Meet so your project stays on time and on budget.
                 </p>
               </div>
               <div className="w-14 h-14 rounded-full border border-border flex items-center justify-center group-hover:border-primary-500 transition-colors">

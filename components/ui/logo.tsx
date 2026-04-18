@@ -28,7 +28,7 @@ export function Logo({ className = "" }: LogoProps) {
           <div className="absolute -left-1 top-1/2 -translate-y-1/2 w-8 h-8 rotate-45 bg-gradient-to-br from-primary-600 to-secondary-600 opacity-10 group-hover:opacity-20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[50deg]" />
 
           {/* The M letter */}
-          <span className="relative text-3xl font-black tracking-tighter transition-all duration-500">
+          <span className="relative text-2xl sm:text-3xl font-black tracking-tighter transition-all duration-500">
             <span className="relative bg-gradient-to-br from-primary-600 via-primary-500 to-secondary-600 bg-clip-text text-transparent group-hover:from-primary-500 group-hover:to-secondary-500">
               M
             </span>
@@ -59,7 +59,7 @@ export function Logo({ className = "" }: LogoProps) {
 
         {/* "ahmad" text with staggered reveal effect */}
         <div className="relative flex items-center overflow-hidden">
-          <span className="text-2xl font-bold tracking-tight transition-all duration-500">
+          <span className="text-lg sm:text-2xl font-bold tracking-tight transition-all duration-500">
             {["a", "h", "m", "a", "d"].map((letter, i) => (
               <span
                 key={i}

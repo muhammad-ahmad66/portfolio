@@ -4,31 +4,15 @@ import Image from "next/image";
 import { PageHero } from "@/components/sections/shared/page-hero";
 import { ContactForm } from "@/components/forms/contact-form";
 import { ContactInfoSection } from "@/components/sections/shared/contact-info-section";
-import { MessageCircle } from "lucide-react";
 
 export default function ContactPage() {
   return (
     <>
       <PageHero
-        badge={{
-          label: "Get in Touch",
-          icon: <MessageCircle className="w-4 h-4 text-primary-500" />,
-        }}
-        title="Let’s build something"
-        titleHighlight="worth launching"
-        description="Have a website in mind, a feature to refine, or an idea waiting to take shape? Reach out and I'll get back to you with clarity, timelines, and next steps."
-        primaryAction={{
-          label: "Send a Message",
-          onClick: () => {
-            window.location.href = "mailto:muhammadugv66@gmail.com";
-          },
-        }}
-        secondaryAction={{
-          label: "WhatsApp Me",
-          onClick: () => {
-            window.open("https://wa.me/923129818199", "_blank");
-          },
-        }}
+        eyebrow="Get in Touch"
+        title="Let’s Start Your"
+        titleHighlight="Next Project"
+        description="Tell me what you need and I will get back to you within a few hours."
       />
 
       <section className="relative overflow-hidden py-10 sm:py-12 lg:py-20">
@@ -73,10 +57,7 @@ export default function ContactPage() {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="100vw"
                   />
-
-                  {/* Hover overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
                   <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <p className="text-white text-sm sm:text-base font-medium">
                       Available for new projects and collaborations

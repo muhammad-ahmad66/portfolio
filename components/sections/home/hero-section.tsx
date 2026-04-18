@@ -5,10 +5,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button-component";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Star, BadgeCheck, Users } from "lucide-react";
 import { GreetingCard } from "@/components/ui/greeting-card";
 import { Typography } from "@/components/ui/typography";
-import { BadgeHeading } from "@/components/ui/badge-heading";
 import { TechAndPartnersSection } from "../shared/tech-and-partners-section";
 import { SpinningCircularBadge } from "@/components/ui/spinning-circular-badge";
 
@@ -57,47 +56,57 @@ export function HeroSection() {
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
             {/* Left Column - Content */}
             <div className="space-y-4 sm:space-y-4 lg:space-y-6">
-              {/* Small Badge */}
-              <BadgeHeading
-                label="Trusted by 60+ businesses worldwide"
-                icon={<Sparkles className="w-4 h-4 text-primary-500" />}
-              />
 
               <div
-                className={`space-y-2 sm:space-y-3 transition-all duration-700 delay-100 ${
+                className={`space-y-3 sm:space-y-4 transition-all duration-700 delay-100 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
                 }`}
               >
-                <Typography
-                  variant="h1"
-                  className="text-foreground leading-[1]"
-                >
-                  <div className="font-bold  text-secondary-500 mb-1.5">
-                    Crafting
-                  </div>
-                  <div className="font-extrabold text-primary-500 uppercase leading-[1.4] md:leading-[1.1]">
-                    High-Performing Websites
-                  </div>
-                  <div className="text-muted-foreground text-xl md:text-2xl lg:text-3xl">
-                    that drive results and delight users.
-                  </div>
-                </Typography>
+                {/* Name line */}
+                <p className="text-sm sm:text-base font-medium text-muted-foreground tracking-[0.18em] uppercase">
+                  Hi, I am Muhammad Ahmad
+                </p>
+
+                {/* H1 */}
+                <h1 className="text-foreground leading-[1.05] tracking-tight">
+                  <span className="block font-light text-2xl sm:text-3xl lg:text-4xl text-muted-foreground mb-1">
+                    I help businesses build
+                  </span>
+                  <span className="block font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
+                    Websites That{" "}
+                    <span
+                      className="bg-clip-text text-transparent"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(135deg, #3b82f6 0%, #818cf8 50%, #a855f7 100%)",
+                      }}
+                    >
+                      Grow.
+                    </span>
+                  </span>
+                </h1>
+
+                {/* Accent line */}
+                <div className="flex items-center gap-2 pt-1">
+                  <div
+                    className="h-[2px] w-12 rounded-full"
+                    style={{ backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7)" }}
+                  />
+                  <div className="h-[2px] w-4 rounded-full bg-border" />
+                </div>
               </div>
 
               {/* Minimal Description */}
               <p
-                className={`text-base sm:text-lg lg:text-xl text-muted-foreground font-light max-w-lg leading-relaxed transition-all duration-700 delay-200 ${
+                className={`text-base sm:text-lg text-muted-foreground font-light max-w-md leading-relaxed transition-all duration-700 delay-200 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
                 }`}
               >
-                Partnering with you to build fast, reliable, and user-focused
-                websites. <br />
-                Expert in WordPress, WooCommerce stores, and modern Next.js
-                applications that drive results.
+                Full stack developer specializing in WordPress, WooCommerce and Next.js. I build sites that load fast, rank on Google and turn visitors into paying clients.
               </p>
 
               {/* CTA Buttons */}
@@ -129,6 +138,46 @@ export function HeroSection() {
                   </Button>
                 </Link>
               </div>
+
+              {/* Social Proof Bar */}
+              <div
+                className={`transition-all duration-700 delay-[400ms] ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
+              >
+                <div
+                  className="inline-flex flex-wrap items-center gap-3 px-4 py-3 rounded-2xl border backdrop-blur-md"
+                  style={{
+                    background: "rgba(255,255,255,0.04)",
+                    borderColor: "rgba(255,255,255,0.1)",
+                    boxShadow: "0 4px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.08)",
+                  }}
+                >
+                  {/* Fiverr */}
+                  <div className="flex items-center gap-1.5">
+                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                    <span className="text-xs font-medium text-foreground">Top Rated Seller</span>
+                    <span className="text-xs text-muted-foreground">on Fiverr</span>
+                  </div>
+
+                  <div className="h-4 w-px bg-border/60" />
+
+                  {/* Clients */}
+                  <div className="flex items-center gap-1.5">
+                    <Users className="w-3.5 h-3.5 text-primary-500" />
+                    <span className="text-xs font-medium text-foreground">60+</span>
+                    <span className="text-xs text-muted-foreground">Happy Clients</span>
+                  </div>
+
+                  <div className="h-4 w-px bg-border/60" />
+
+                  {/* Corporate Experience */}
+                  <div className="flex items-center gap-1.5">
+                    <BadgeCheck className="w-3.5 h-3.5 text-primary-500" />
+                    <span className="text-xs text-muted-foreground">Worked with global businesses</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Right Column - Image with Overlay Cards */}
@@ -148,7 +197,7 @@ export function HeroSection() {
                   <div className="relative h-[400px] sm:h-[500px] lg:h-[600px]">
                     <Image
                       src="/images/my-development-workspace-potrait.webp"
-                      alt="Modern workspace"
+                      alt="Muhammad Ahmad, Full Stack WordPress and Next.js Developer"
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                       priority
@@ -159,9 +208,9 @@ export function HeroSection() {
 
                 {/* Premium Greeting Card Overlay */}
                 <GreetingCard
-                  title="Welcome Here"
-                  message="Building websites that look great and perform flawlessly."
-                  avatarText="Hi"
+                  title="Open to new projects"
+                  message="WordPress, WooCommerce and Next.js developer helping businesses grow online."
+                  avatarImage="/images/me-sq.png"
                   avatarSpin={true}
                 />
 
@@ -173,7 +222,7 @@ export function HeroSection() {
                         50+
                       </span>
                       <span className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-wider">
-                        Projects
+                        Sites Delivered
                       </span>
                     </div>
                     <div className="h-10 sm:h-12 w-px bg-border/60" />
@@ -182,7 +231,7 @@ export function HeroSection() {
                         5+
                       </span>
                       <span className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-wider">
-                        Years
+                        Yrs Experience
                       </span>
                     </div>
                   </div>

@@ -13,27 +13,20 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <div className="w-16 h-8 rounded-full bg-muted/50" />;
+    return <div className="w-9 h-9 rounded-xl bg-muted/50" />;
   }
 
   return (
     <button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="group relative w-16 h-8 rounded-full bg-muted/50 border border-border transition-all duration-300 hover:border-foreground/20"
+      className="w-9 h-9 rounded-xl border border-border/50 bg-background/60 hover:bg-muted/70 hover:border-primary-500/30 flex items-center justify-center transition-all duration-200"
       aria-label="Toggle theme"
     >
-      {/* Sliding Circle */}
-      <div
-        className={`absolute top-1 w-6 h-6 rounded-full bg-background border border-border shadow-sm transition-all duration-300 flex items-center justify-center ${
-          theme === 'dark' ? 'left-9' : 'left-1'
-        }`}
-      >
-        {theme === 'dark' ? (
-          <Moon className="w-3.5 h-3.5 text-foreground" />
-        ) : (
-          <Sun className="w-3.5 h-3.5 text-foreground" />
-        )}
-      </div>
+      {theme === 'dark' ? (
+        <Moon className="w-4 h-4 text-foreground" />
+      ) : (
+        <Sun className="w-4 h-4 text-foreground" />
+      )}
     </button>
   );
 }

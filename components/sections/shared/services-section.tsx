@@ -57,38 +57,36 @@ export function ServicesSection({
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
         {variant !== "expanded" && (
-          <>
-            <div
-              className={`text-center space-y-4 transition-all duration-700 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-              }`}
-            >
-              <BadgeHeading
-                label="Services"
-                icon={<Sparkles className="w-4 h-4 text-primary-500" />}
-              />
-              <Typography variant="h2" className="leading-tight font-semibold">
-                Services For Modern Websites
-              </Typography>
-              <Typography variant="lead" className="max-w-3xl mx-auto">
-                I build fast, reliable websites with clean, modern designs,
-                scalable architecture, and ongoing support to help your business
-                grow and perform at its best.
-              </Typography>
-            </div>
-          </>
+          <div
+            className={`text-center space-y-3 transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+              What I Do
+            </p>
+            <h2 className="font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-tight">
+              <span className="text-foreground">Services Built to </span>
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(135deg, #3b82f6 0%, #818cf8 50%, #a855f7 100%)" }}
+              >
+                Grow Your Business
+              </span>
+            </h2>
+            <p className="text-base text-muted-foreground font-light max-w-xl mx-auto">
+              Fast, clean and scalable websites — WordPress, WooCommerce and Next.js.
+            </p>
+          </div>
         )}
 
         {variant === "default" ? (
           <>
-            <div className="grid lg:grid-cols-[3fr_2fr] gap-10 items-start">
+            <div className="grid lg:grid-cols-[3fr_2fr] gap-8 items-start">
+              {/* Service Cards */}
               <div
                 className={`grid sm:grid-cols-2 gap-4 transition-all duration-700 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-6"
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 }`}
               >
                 {servicesToRender.map((service) => (
@@ -97,94 +95,73 @@ export function ServicesSection({
                     icon={service.icon}
                     title={service.title}
                     description={service.description}
-                    className="min-h-[190px]"
                   />
                 ))}
               </div>
 
+              {/* Sidebar */}
               <div
-                className={`p-8 rounded-3xl border border-border bg-card/80 backdrop-blur-xl shadow-2xl space-y-6 transition-all duration-700 delay-150 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-6"
+                className={`rounded-3xl border border-border/60 bg-card/80 backdrop-blur-xl p-7 space-y-6 transition-all duration-700 delay-150 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 }`}
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-500/20 to-secondary-500/20 flex items-center justify-center">
-                    <LineChart className="w-6 h-6 text-primary-500" />
+                {/* Header */}
+                <div>
+                  <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-primary-500/20 to-secondary-500/15 flex items-center justify-center mb-4">
+                    <LineChart className="w-5 h-5 text-primary-500" />
                   </div>
-                  <div>
-                    <Typography variant="h4" className="mb-0">
-                      Partnership-Driven Workflow
-                    </Typography>
-                    <Typography variant="small">
-                      Structured process from kickoff to ongoing improvements.
-                    </Typography>
-                  </div>
+                  <h3 className="font-bold text-base text-foreground leading-snug">
+                    How I Work With You
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    A clear, structured process from day one to launch.
+                  </p>
                 </div>
 
-                <IconList
-                  items={processHighlights}
-                  variant="custom"
-                  className="flex-col items-start gap-4"
-                />
-
-                <div className="rounded-2xl border border-border/60 bg-background/70 p-5 space-y-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-primary-500/10 flex items-center justify-center">
-                      <ArrowRight className="w-5 h-5 text-primary-500" />
+                {/* Process steps */}
+                <div className="space-y-3">
+                  {processHighlights.map((item, i) => (
+                    <div key={item.text} className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-primary-500/10 text-primary-500 flex items-center justify-center flex-shrink-0 mt-0.5 text-[11px] font-bold">
+                        {i + 1}
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-snug">{item.text}</p>
                     </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground">
-                        Start Your Project Today
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        Limited availability for new builds each quarter.
-                      </p>
-                    </div>
-                  </div>
+                  ))}
+                </div>
 
+                {/* Stats */}
+                <div className="grid grid-cols-3 gap-3 py-4 border-y border-border/50">
+                  {valueProps.map((item) => (
+                    <div key={item.label} className="text-center">
+                      <p className="font-bold text-base text-foreground leading-none">{item.value.split(" ")[0]}</p>
+                      <p className="text-[10px] text-muted-foreground mt-1 leading-tight">{item.label}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTAs */}
+                <div className="space-y-2.5">
                   <a href="/contact" className="w-full block">
-                    <Button
-                      variant="primary"
-                      size="lg"
-                      className="w-full group"
+                    <button
+                      className="group w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-white font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5"
+                      style={{
+                        backgroundImage: "linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)",
+                        boxShadow: "0 6px 20px rgba(59,130,246,0.2)",
+                      }}
                     >
-                      <span>Contact Us</span>
-                      <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                    </Button>
+                      Start Your Project
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </button>
+                  </a>
+                  <a href="/services" className="w-full block">
+                    <button className="group w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-border/70 hover:border-primary-500/40 bg-transparent hover:bg-primary-500/5 text-foreground font-semibold text-sm transition-all duration-200">
+                      View All Services
+                      <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary-500 transition-all group-hover:translate-x-1" />
+                    </button>
                   </a>
                 </div>
-
-                <a href="/services" className="w-full block">
-                  <Button variant="outline" size="lg" className="w-full group">
-                    <span>View All Our Services</span>
-                    <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </a>
               </div>
-            </div>
-
-            <div
-              className={`rounded-3xl border border-border/60 bg-card/70 px-6 py-6 flex flex-wrap gap-6 justify-between transition-all duration-700 delay-200 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
-              }`}
-            >
-              {valueProps.map((item) => (
-                <div key={item.label} className="space-y-1">
-                  <Typography
-                    variant="small"
-                    className="uppercase tracking-wide"
-                  >
-                    {item.label}
-                  </Typography>
-                  <Typography variant="h4" className="text-foreground">
-                    {item.value}
-                  </Typography>
-                </div>
-              ))}
             </div>
           </>
         ) : (
@@ -199,17 +176,22 @@ export function ServicesSection({
               {servicesToRender.map((service) => (
                 <div
                   key={service.title}
-                  className="relative h-full rounded-3xl border border-border bg-card/80 backdrop-blur-xl p-6 hover:border-primary-500/40 transition-all duration-300 flex flex-col"
+                  className="relative h-full rounded-3xl border border-border/70 bg-card/80 backdrop-blur-xl p-6 hover:border-primary-500/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 flex flex-col group/card overflow-hidden"
                 >
+                  {/* Top gradient accent line on hover */}
+                  <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-3xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"
+                    style={{ backgroundImage: "linear-gradient(90deg, #3b82f6, #818cf8, #a855f7)" }}
+                  />
+
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-primary-500/10 text-primary-500 flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-500/15 to-secondary-500/10 text-primary-500 flex items-center justify-center shrink-0 group-hover/card:from-primary-500/25 group-hover/card:to-secondary-500/20 transition-all duration-300">
                       {service.icon}
                     </div>
                     <div>
                       <Typography variant="h4" className="mb-1">
                         {service.title}
                       </Typography>
-                      <Typography variant="p" className="text-muted-foreground">
+                      <Typography variant="p" className="text-sm text-muted-foreground leading-relaxed">
                         {service.description}
                       </Typography>
                     </div>
@@ -220,7 +202,7 @@ export function ServicesSection({
                       {service.features.map((feature) => (
                         <span
                           key={feature}
-                          className="px-3 py-1 text-xs font-medium rounded-full border border-border/80 bg-background/60"
+                          className="px-3 py-1 text-xs font-medium rounded-full border border-border/60 bg-background/60 text-muted-foreground group-hover/card:border-primary-500/20 group-hover/card:text-foreground transition-colors duration-200"
                         >
                           {feature}
                         </span>
@@ -228,16 +210,12 @@ export function ServicesSection({
                     </div>
                   )}
 
-                  <div className="mt-auto pt-6">
+                  <div className="mt-auto pt-5">
                     <a href="/contact" className="block">
-                      <Button
-                        variant="outline"
-                        size="md"
-                        className="w-full group"
-                      >
-                        <span>Get Quote</span>
-                        <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                      </Button>
+                      <button className="w-full group/btn inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-border/70 hover:border-primary-500/40 bg-background/50 hover:bg-primary-500/5 text-sm font-medium text-foreground transition-all duration-200">
+                        <span>Get a Free Quote</span>
+                        <ArrowRight className="w-4 h-4 text-muted-foreground group-hover/btn:text-primary-500 transition-all duration-200 group-hover/btn:translate-x-1" />
+                      </button>
                     </a>
                   </div>
                 </div>
@@ -293,18 +271,15 @@ export function ServicesSection({
                 <div className="space-y-3">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/60 bg-background/60 text-xs uppercase tracking-[0.2em]">
                     <Sparkles className="w-3.5 h-3.5 text-primary-500" />
-                    Limited Spots
+                    Limited Spots Open
                   </div>
 
                   <Typography variant="h4" className="leading-tight">
-                    Ready to collaborate on your next website or feature?
+                    Got a project in mind? Let us build it together.
                   </Typography>
 
                   <Typography variant="p" className="text-muted-foreground">
-                    I take on a select number of small-to-medium builds at a
-                    time to ensure quality and smooth delivery. Share your idea,
-                    I'll help turn it into a polished, production-ready
-                    experience.
+                    I work with a small number of clients at a time so every project gets my full attention. Tell me what you need and I will help you turn it into a fast, professional website that works.
                   </Typography>
                 </div>
 

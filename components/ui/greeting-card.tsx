@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { MessageCircle } from 'lucide-react';
 
 export function GreetingCard({
@@ -11,6 +12,7 @@ export function GreetingCard({
   rounded = 'rounded-2xl sm:rounded-3xl',
   containerClass = '',
   avatarText = 'Hi',
+  avatarImage = '',
   avatarSpin = true,
 }) {
   const Icon = icon;
@@ -24,14 +26,36 @@ export function GreetingCard({
         containerClass,
       ].join(' ')}
     >
-      <div className="relative flex-shrink-0">
+      <div className="relative flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16">
+        {/* Outer glow */}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-400/20 to-secondary-400/20 blur-md" />
+
+        {/* Dashed rotating ring — matches logo dot style */}
         <div
-          className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-primary flex items-center justify-center"
-          style={avatarSpin ? { animation: 'spin 6s linear infinite' } : {}}
+          className="absolute inset-0 rounded-full border-2 border-dashed border-primary-500/50"
+          style={avatarSpin ? { animation: "rotate-slow 8s linear infinite" } : {}}
+        />
+
+        {/* Image with gradient background, static */}
+        <div
+          className="absolute inset-[5px] rounded-full overflow-hidden"
+          style={{
+            background: "linear-gradient(135deg, #3b82f6 0%, #818cf8 50%, #a855f7 100%)",
+          }}
         >
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-xs sm:text-sm font-semibold">
-            {avatarText}
-          </div>
+          {avatarImage ? (
+            <Image
+              src={avatarImage}
+              alt="Muhammad Ahmad"
+              width={56}
+              height={56}
+              className="w-full h-full object-cover rounded-full"
+            />
+          ) : (
+            <div className="w-full h-full rounded-full flex items-center justify-center text-white text-xs sm:text-sm font-semibold">
+              {avatarText}
+            </div>
+          )}
         </div>
       </div>
 

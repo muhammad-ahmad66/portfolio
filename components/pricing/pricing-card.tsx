@@ -200,6 +200,9 @@ import { PricingPlan } from "@/types/pricing";
 import { Check, X, Clock, Package, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button-component";
 import { useState } from "react";
+import { PlanInquiryModal } from "@/components/ui/plan-inquiry-modal";
+import { useCurrency } from "@/contexts/currency-context";
+import { formatNumber } from "@/lib/currencies";
 
 interface PricingCardProps {
   plan: PricingPlan;
@@ -209,6 +212,8 @@ interface PricingCardProps {
 export function PricingCard({ plan, index }: PricingCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isDeliverablesOpen, setIsDeliverablesOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { currency } = useCurrency();
 
   return (
     <div
@@ -265,9 +270,14 @@ export function PricingCard({ plan, index }: PricingCardProps) {
             <div className="flex items-end gap-2">
               {plan.price > 0 ? (
                 <>
-                  <span className="text-3xl lg:text-4xl font-bold text-foreground">
-                    {plan.price.toLocaleString()}
-                  </span>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-xs font-medium text-muted-foreground tracking-widest uppercase mb-0.5">
+                      {currency.code}
+                    </span>
+                    <span className="text-3xl lg:text-4xl font-bold text-foreground transition-all duration-300">
+                      {formatNumber(plan.price, currency)}
+                    </span>
+                  </div>
                   <span className="text-muted-foreground text-sm mb-1.5 lg:mb-2">
                     {plan.duration}
                   </span>
@@ -373,8 +383,8 @@ export function PricingCard({ plan, index }: PricingCardProps) {
             variant={plan.popular || plan.recommended ? "primary" : "outline"}
             size="lg"
             className="w-full group/cta relative overflow-hidden"
+            onClick={() => setIsModalOpen(true)}
           >
-            {/* Button gradient overlay for premium effect */}
             {(plan.popular || plan.recommended) && (
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover/cta:translate-x-[100%] transition-transform duration-1000" />
             )}
@@ -386,13 +396,15 @@ export function PricingCard({ plan, index }: PricingCardProps) {
               stroke="currentColor"
               strokeWidth={2.5}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9 5l7 7-7 7"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </Button>
+
+          <PlanInquiryModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            planName={plan.name}
+          />
         </div>
 
         {/* Bottom gradient accent */}

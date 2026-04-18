@@ -141,7 +141,7 @@ export const featuredProjects: FeaturedProject[] = [
     name: "Master Solutions",
     liveUrl: "https://www.master-solutions.nl/",
     imageUrl: "/images/projects/wordpress-development-project9.webp",
-    imageAlt: "IT-solutions & software company",
+    imageAlt: "Master Solutions WordPress website development for IT solutions and AI-powered software company in the Netherlands",
     categories: ["Tech", "SaaS", "AI"],
   },
 

@@ -15,7 +15,7 @@ export function TechStack({ isVisible }: TechStackProps) {
     >
       <div className="space-y-4">
         <Typography variant="small" className="text-center">
-          WordPress Expertise
+          WordPress Skills and Tools
         </Typography>
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
           {wordpressTech.map((tech) => (
@@ -31,7 +31,7 @@ export function TechStack({ isVisible }: TechStackProps) {
 
       <div className="space-y-4">
         <Typography variant="small" className="text-center">
-          Modern Tech and Tools
+          Full Stack Dev Tools I Use Daily
         </Typography>
         <div className="flex flex-wrap items-center justify-center gap-2">
           {devTech.map((tech) => (

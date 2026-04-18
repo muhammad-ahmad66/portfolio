@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { PhoneInput } from "@/components/ui/phone-input";
 import {
   Select,
   SelectContent,
@@ -56,6 +57,7 @@ export function ContactFormTab() {
   });
 
   const projectType = watch("projectType");
+  const phone = watch("phone");
 
   const onSubmit = async (data: QuickFormValues) => {
     setIsSubmitting(true);
@@ -147,10 +149,9 @@ export function ContactFormTab() {
 
         <div>
           <label className="block text-sm font-medium mb-2">Phone</label>
-          <Input
-            type="tel"
-            placeholder="+92 312 9818199"
-            {...register("phone")}
+          <PhoneInput
+            value={phone ?? ""}
+            onChange={(val) => setValue("phone", val, { shouldValidate: true })}
             error={errors.phone?.message}
           />
           <p className="text-xs text-muted-foreground mt-1">

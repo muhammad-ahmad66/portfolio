@@ -13,7 +13,7 @@ export function Typography({
 }: TypographyProps) {
   const styles = {
     h1: "text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light tracking-tight leading-[1]",
-    h2: "text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight leading-tight",
+    h2: "text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tight leading-tight",
     h3: "text-xl sm:text-3xl font-semibold tracking-tight",
     h4: "text-xl sm:text-2xl font-semibold",
     p: "text-base text-muted-foreground leading-relaxed",

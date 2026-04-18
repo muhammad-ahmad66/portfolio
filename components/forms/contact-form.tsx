@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { PhoneInput } from "@/components/ui/phone-input";
 import {
   Select,
   SelectContent,
@@ -18,6 +19,8 @@ import { Button } from "@/components/ui/button-component";
 import { Loader2, Send, CheckCircle2 } from "lucide-react";
 import { Typography } from "@/components/ui/typography";
 import { serviceCatalog } from "@/data/services/serviceCatalog";
+import { useCurrency } from "@/contexts/currency-context";
+import { formatNumber } from "@/lib/currencies";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -35,6 +38,7 @@ const contactFormSchema = z.object({
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export function ContactForm() {
+  const { currency } = useCurrency();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -62,6 +66,7 @@ export function ContactForm() {
   const projectType = watch("projectType");
   const budget = watch("budget");
   const timeline = watch("timeline");
+  const phone = watch("phone");
 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
@@ -145,18 +150,18 @@ export function ContactForm() {
         </div>
       </div>
 
+      <div>
+        <label className="block text-sm font-medium mb-2">
+          Phone Number <span className="text-red-500">*</span>
+        </label>
+        <PhoneInput
+          value={phone ?? ""}
+          onChange={(val) => setValue("phone", val, { shouldValidate: true })}
+          error={errors.phone?.message}
+        />
+      </div>
+
       <div className="grid sm:grid-cols-2 gap-6">
-        <div>
-          <label className="block text-sm font-medium mb-2">
-            Phone Number <span className="text-red-500">*</span>
-          </label>
-          <Input
-            type="tel"
-            placeholder="+92 312 4556789"
-            {...register("phone")}
-            error={errors.phone?.message}
-          />
-        </div>
         <div>
           <label className="block text-sm font-medium mb-2">Company Name</label>
           <Input
@@ -165,9 +170,7 @@ export function ContactForm() {
             error={errors.company?.message}
           />
         </div>
-      </div>
 
-      <div className="grid sm:grid-cols-2 gap-6">
         <div>
           <label className="block text-sm font-medium mb-2">
             Project Type <span className="text-red-500">*</span>
@@ -191,7 +194,9 @@ export function ContactForm() {
             </SelectContent>
           </Select>
         </div>
+      </div>
 
+      <div className="grid sm:grid-cols-2 gap-6">
         <div>
           <label className="block text-sm font-medium mb-2">Budget Range</label>
           <Select
@@ -202,36 +207,36 @@ export function ContactForm() {
               <SelectValue placeholder="Select budget range" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="under-20k">Under PKR 20,000</SelectItem>
-              <SelectItem value="20k-50k">PKR 20,000 - 50,000</SelectItem>
-              <SelectItem value="50k-80k">PKR 50,000 - 80,000</SelectItem>
-              <SelectItem value="80k-1l">PKR 80,000 - 1,00,000</SelectItem>
-              <SelectItem value="1l-plus">PKR 1,00,000+</SelectItem>
+              <SelectItem value="under-20k">Under {currency.code} {formatNumber(20000, currency)}</SelectItem>
+              <SelectItem value="20k-50k">{currency.code} {formatNumber(20000, currency)} – {formatNumber(50000, currency)}</SelectItem>
+              <SelectItem value="50k-80k">{currency.code} {formatNumber(50000, currency)} – {formatNumber(80000, currency)}</SelectItem>
+              <SelectItem value="80k-1l">{currency.code} {formatNumber(80000, currency)} – {formatNumber(100000, currency)}</SelectItem>
+              <SelectItem value="1l-plus">{currency.code} {formatNumber(100000, currency)}+</SelectItem>
               <SelectItem value="discuss">Prefer to discuss</SelectItem>
             </SelectContent>
           </Select>
         </div>
-      </div>
 
-      <div>
-        <label className="block text-sm font-medium mb-2">Timeline</label>
-        <Select
-          value={timeline || undefined}
-          onValueChange={(value) => setValue("timeline", value)}
-        >
-          <SelectTrigger>
-            <SelectValue placeholder="Select timeline" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="asap">ASAP</SelectItem>
-            <SelectItem value="under-1-week">Under 1 week</SelectItem>
-            <SelectItem value="within-1-month">Within 1 month</SelectItem>
-            <SelectItem value="2-3-months">2-3 months</SelectItem>
-            <SelectItem value="3-6-months">3-6 months</SelectItem>
-            <SelectItem value="flexible">Flexible</SelectItem>
-            <SelectItem value="other">Other</SelectItem>
-          </SelectContent>
-        </Select>
+        <div>
+          <label className="block text-sm font-medium mb-2">Timeline</label>
+          <Select
+            value={timeline || undefined}
+            onValueChange={(value) => setValue("timeline", value)}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Select timeline" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="asap">ASAP</SelectItem>
+              <SelectItem value="under-1-week">Under 1 week</SelectItem>
+              <SelectItem value="within-1-month">Within 1 month</SelectItem>
+              <SelectItem value="2-3-months">2-3 months</SelectItem>
+              <SelectItem value="3-6-months">3-6 months</SelectItem>
+              <SelectItem value="flexible">Flexible</SelectItem>
+              <SelectItem value="other">Other</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
       <div className="space-y-4">
