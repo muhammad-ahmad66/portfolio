@@ -2,16 +2,12 @@
 
 import { PageHero } from '@/components/sections/shared/page-hero';
 import { Typography } from '@/components/ui/typography';
-import { FileText } from 'lucide-react';
 
 export default function TermsPage() {
   return (
     <>
       <PageHero
-        badge={{
-          label: 'Legal',
-          icon: <FileText className="w-4 h-4 text-primary-500" />,
-        }}
+        eyebrow="Legal"
         title="Terms and"
         titleHighlight="Conditions"
         description="Please read these terms and conditions carefully before using our services."

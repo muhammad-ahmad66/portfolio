@@ -2,16 +2,12 @@
 
 import { PageHero } from '@/components/sections/shared/page-hero';
 import { Typography } from '@/components/ui/typography';
-import { Shield } from 'lucide-react';
 
 export default function PrivacyPage() {
   return (
     <>
       <PageHero
-        badge={{
-          label: 'Privacy',
-          icon: <Shield className="w-4 h-4 text-primary-500" />,
-        }}
+        eyebrow="Privacy"
         title="Privacy"
         titleHighlight="Policy"
         description="Your privacy is important to us. This policy explains how we collect, use, and protect your information."
