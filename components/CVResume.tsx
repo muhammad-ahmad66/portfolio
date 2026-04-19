@@ -3,7 +3,6 @@
 // ============================================
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import {
   Mail,
@@ -13,34 +12,12 @@ import {
   Linkedin,
   MessageCircle,
   ExternalLink,
-  Download,
-  Loader2,
   Award,
   Star,
 } from "lucide-react";
 import { Typography } from "@/components/ui/typography";
-import { generateAndDownloadPDF } from "@/lib/pdf-helpers";
 
 export function CVResume() {
-  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
-
-  const handleDownloadPDF = async () => {
-    setIsGeneratingPDF(true);
-    try {
-      await generateAndDownloadPDF("cv-resume", "Muhammad_Ahmad_CV", {
-        format: [210, 297], // A4
-        orientation: "portrait",
-        quality: 0.98,
-        scale: 2,
-      });
-    } catch (error) {
-      console.error("Failed to generate PDF:", error);
-      alert("Failed to generate PDF. Please try again.");
-    } finally {
-      setIsGeneratingPDF(false);
-    }
-  };
-
   return (
     <div id="cv-resume" className="w-full max-w-4xl mx-auto">
       <div className="mt-6 bg-background rounded-[32px] border border-border/60 p-6 md:mt-12 sm:p-8 lg:p-12 shadow-lg">
@@ -471,26 +448,6 @@ export function CVResume() {
           </div>
         </section>
 
-        {/* Download CV Button at Bottom */}
-        <div className="pt-6 border-t border-border/60 flex justify-center">
-          <button
-            onClick={handleDownloadPDF}
-            disabled={isGeneratingPDF}
-            className="inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium rounded-xl border-2 border-border/60 hover:border-foreground/50 hover:bg-accent transition-all duration-300 bg-background/50 text-foreground disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {isGeneratingPDF ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 sm:h-5 sm:w-5 animate-spin" />
-                <span className="text-sm sm:text-base">Generating PDF...</span>
-              </>
-            ) : (
-              <>
-                <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                <span className="text-sm sm:text-base">Download CV</span>
-              </>
-            )}
-          </button>
-        </div>
       </div>
     </div>
   );

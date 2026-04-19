@@ -63,7 +63,7 @@ export function CtaSection() {
                 size="lg"
                 className="group w-full shadow-lg hover:shadow-xl"
               >
-                <span>Contact Us</span>
+                <span>Contact Me</span>
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>

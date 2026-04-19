@@ -1,18 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  Download,
-  Sparkles,
-  ArrowRight,
-  Loader2,
-} from "lucide-react";
-
+import { ArrowUpRight, Sparkles, ArrowRight } from "lucide-react";
 import { Typography } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
-import { generateAndDownloadPDF } from "@/lib/pdf-helpers";
 import {
   portfolioItems,
   categoryColors,
@@ -20,39 +11,27 @@ import {
 } from "@/data/work/portfolio";
 
 export function PortfolioWindow() {
-  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
-
-  const handleDownloadPDF = async () => {
-    setIsGeneratingPDF(true);
-    try {
-      await generateAndDownloadPDF("portfolio-window", "portfolio", {
-        format: [210, 297], // A4
-        orientation: "portrait",
-        quality: 0.98,
-        scale: 2,
-      });
-    } catch (error) {
-      console.error("Failed to generate PDF:", error);
-      alert("Failed to generate PDF. Please try again.");
-    } finally {
-      setIsGeneratingPDF(false);
-    }
-  };
-
   return (
     <section className="w-full">
       <div
         id="portfolio-window"
-        className="relative overflow-hidden rounded-[32px] border border-border/60 dark:border-white/10 bg-gradient-to-br from-background via-background/90 to-background/60 dark:from-background dark:via-background/90 dark:to-background/60 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_60px_rgba(12,12,14,0.35)] sm:p-10 mt-6 md:mt-12"
+        className="relative overflow-hidden rounded-[32px] border border-border/50 dark:border-white/8 bg-card/40 dark:bg-[#0d0d10] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.08)] dark:shadow-[0_24px_80px_rgba(0,0,0,0.6)] sm:p-10 mt-6 md:mt-12"
       >
-        <div className="pointer-events-none absolute inset-0 opacity-[0.85]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.25),_transparent_55%)]" />
-          <div className="absolute inset-y-0 left-1/4 w-1/2 bg-gradient-to-b from-primary/10 via-transparent to-secondary/10 blur-3xl" />
+        {/* Light mode top sheen */}
+        <div className="pointer-events-none absolute inset-0 dark:hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.55),_transparent_60%)]" />
+          <div className="absolute inset-y-0 left-1/4 w-1/2 bg-gradient-to-b from-primary/8 via-transparent to-secondary/8 blur-3xl" />
+        </div>
+        {/* Dark mode ambient glows */}
+        <div className="pointer-events-none absolute inset-0 hidden dark:block">
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[60%] h-48 bg-primary-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-72 h-72 bg-secondary-500/8 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary-500/6 rounded-full blur-3xl" />
         </div>
 
         <div className="relative flex flex-col gap-10">
           <header className="space-y-4">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border/60 dark:border-white/20 bg-background/50 dark:bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-foreground/70 backdrop-blur">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border/60 dark:border-primary-500/30 bg-background/60 dark:bg-primary-500/8 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-foreground/70 dark:text-primary-400 backdrop-blur">
               <Sparkles className="h-3.5 w-3.5 text-primary-400" />
               Portfolio
             </div>
@@ -124,7 +103,7 @@ export function PortfolioWindow() {
             )}
           </div>
 
-          <div className="flex flex-col gap-4 border-t border-border/60 dark:border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-4 border-t border-border/50 dark:border-white/8 pt-6 sm:flex-row sm:items-center sm:justify-between">
             <div className="space-y-1">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground/80">
                 Ready to collaborate?
@@ -134,32 +113,13 @@ export function PortfolioWindow() {
                 remarkable together.
               </p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-xl bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 shadow-lg shadow-primary/40 group"
-              >
-                <span>Contact Us</span>
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <button
-                onClick={handleDownloadPDF}
-                disabled={isGeneratingPDF}
-                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-xl border-2 border-border/60 hover:border-foreground/50 hover:bg-accent transition-all duration-300 bg-background/50 text-foreground disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isGeneratingPDF ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Generating PDF...
-                  </>
-                ) : (
-                  <>
-                    <Download className="mr-2 h-4 w-4" />
-                    Download Portfolio as PDF
-                  </>
-                )}
-              </button>
-            </div>
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-xl bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 shadow-lg shadow-primary/40 group"
+            >
+              <span>Contact Me</span>
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
         </div>
       </div>
@@ -189,8 +149,8 @@ function PortfolioLinkCard({
       className={cn(
         "group relative flex flex-col gap-4 overflow-hidden rounded-2xl border px-5 py-4 transition-all duration-300 sm:px-6 sm:py-5",
         inProgress
-          ? "border-border/40 dark:border-white/5 bg-card/30 dark:bg-white/2 hover:border-foreground/30 dark:hover:border-white/20 hover:bg-accent/30 dark:hover:bg-white/8"
-          : "border-border/60 dark:border-white/15 bg-card/50 dark:bg-white/5 hover:border-foreground/40 dark:hover:border-white/40 hover:bg-accent/50 dark:hover:bg-white/10"
+          ? "border-border/40 dark:border-white/6 bg-muted/20 dark:bg-white/[0.02] hover:border-border dark:hover:border-white/15 hover:bg-muted/40 dark:hover:bg-white/[0.05]"
+          : "border-border/60 dark:border-white/10 bg-card/60 dark:bg-white/[0.04] hover:border-foreground/30 dark:hover:border-primary-500/40 hover:bg-card dark:hover:bg-white/[0.07] dark:hover:shadow-[0_0_20px_rgba(61,94,255,0.08)]"
       )}
       aria-label={`Open ${url}`}
     >
@@ -199,7 +159,7 @@ function PortfolioLinkCard({
           {inProgress ? "In Progress" : "Live"} •{" "}
           {String(index).padStart(2, "0")}
         </div>
-        <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-border/60 dark:border-white/10 bg-background/50 dark:bg-white/5 text-foreground/70 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:text-foreground">
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-border/60 dark:border-white/8 bg-background/50 dark:bg-white/[0.04] text-muted-foreground transition-all duration-300 group-hover:-translate-y-0.5 group-hover:text-foreground dark:group-hover:border-primary-500/40 dark:group-hover:text-primary-400">
           <ArrowUpRight className="h-4 w-4" />
         </span>
       </div>

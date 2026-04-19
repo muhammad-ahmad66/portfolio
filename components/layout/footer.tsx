@@ -54,6 +54,27 @@ export function Footer() {
             </div>
           </div>
 
+          {/* Resources */}
+          <div className="shrink-0 space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+              Resources
+            </p>
+            <div className="flex flex-col gap-3">
+              <Link
+                href="/portfolio"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                All Portfolio Websites
+              </Link>
+              <Link
+                href="/cv"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Resume / CV
+              </Link>
+            </div>
+          </div>
+
           {/* Social */}
           <div className="shrink-0 space-y-4">
             <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">

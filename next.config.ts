@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      {
+        source: "/resume",
+        destination: "/cv",
+        permanent: true, // 301 — tells search engines /cv is canonical
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -101,7 +101,7 @@ export function ProjectsCtaSidebar() {
               className="w-full inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-xl bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 shadow-lg group"
             >
               <Mail className="mr-2 h-4 w-4" />
-              <span>Contact Us</span>
+              <span>Contact Me</span>
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
 
