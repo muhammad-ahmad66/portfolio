@@ -51,7 +51,7 @@ export default function ContactPage() {
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-border/60 bg-card/80 backdrop-blur-xl shadow-xl sm:shadow-2xl group">
                 <div className="relative h-[220px] sm:h-[280px] md:h-[320px] lg:h-[360px]">
                   <Image
-                    src="/images/project-design-visual-landscape.webp"
+                    src="/images/wordpress-website-development-service-muhammad-ahmad.jpg"
                     alt="Muhammad Ahmad - Senior WordPress Developer and MERN Stack Developer available for freelance projects"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"

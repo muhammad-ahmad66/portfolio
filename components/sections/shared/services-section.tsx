@@ -258,7 +258,7 @@ export function ServicesSection({
 
                 <div className="relative mt-auto rounded-2xl overflow-hidden border border-border/60 min-h-[220px]">
                   <Image
-                    src="/images/project-design-visual-landscape.webp"
+                    src="/images/wordpress-website-development-service-muhammad-ahmad.jpg"
                     alt="Creative workspace moodboard showcasing premium website projects"
                     fill
                     className="object-cover"

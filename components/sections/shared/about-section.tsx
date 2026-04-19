@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { BadgeHeading } from "@/components/ui/badge-heading";
-import { Typography } from "@/components/ui/typography";
-import { Button } from "@/components/ui/button-component";
-import { ArrowRight, MessageCircle, Sparkles } from "lucide-react";
-import { highlights } from "@/data/about/highlights";
-import { GreetingCard } from "@/components/ui/greeting-card";
-import { SpinningCircularBadge } from "@/components/ui/spinning-circular-badge";
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { BadgeHeading } from '@/components/ui/badge-heading';
+import { Typography } from '@/components/ui/typography';
+import { Button } from '@/components/ui/button-component';
+import { ArrowRight, MessageCircle, Sparkles } from 'lucide-react';
+import { highlights } from '@/data/about/highlights';
+import { GreetingCard } from '@/components/ui/greeting-card';
+import { SpinningCircularBadge } from '@/components/ui/spinning-circular-badge';
 
 export function AboutSection() {
   const [isVisible] = useState(true);
@@ -30,15 +30,15 @@ export function AboutSection() {
           className="absolute inset-0 opacity-[0.1]"
           style={{
             background:
-              "radial-gradient(circle at 70% 30%, rgba(236,72,153,0.18), transparent 60%)",
+              'radial-gradient(circle at 70% 30%, rgba(236,72,153,0.18), transparent 60%)',
           }}
         />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage:
-              "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
-            backgroundSize: "44px 44px",
+              'linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)',
+            backgroundSize: '44px 44px',
           }}
         />
       </div>
@@ -46,7 +46,7 @@ export function AboutSection() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 space-y-12">
         <div
           className={`space-y-4 text-center sm:text-left transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
           }`}
         >
           <BadgeHeading
@@ -55,7 +55,8 @@ export function AboutSection() {
           />
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <Typography variant="h2" className="leading-tight">
-              WordPress and Next.js Developer Who Builds Websites That Rank and Convert.
+              WordPress and Next.js Developer Who Builds Websites That Rank and
+              Convert.
             </Typography>
             {/* <div className="flex items-center gap-3 rounded-2xl border border-border/60 bg-card/80 px-4 py-3 w-full sm:w-auto justify-center sm:justify-start"> */}
             {/* <div className="w-12 h-12 rounded-full bg-primary-500/10 flex items-center justify-center">
@@ -75,7 +76,10 @@ export function AboutSection() {
             {/* </div> */}
           </div>
           <Typography variant="lead" className="">
-            I’m Muhammad Ahmad, a full-stack web developer specializing in WordPress, WooCommerce and Next.js. I help businesses get online with websites that load fast, rank on Google and turn visitors into paying customers.
+            I’m Muhammad Ahmad, a full-stack web developer specializing in
+            WordPress, WooCommerce and Next.js. I help businesses get online
+            with websites that load fast, rank on Google and turn visitors into
+            paying customers.
           </Typography>
         </div>
 
@@ -83,8 +87,8 @@ export function AboutSection() {
           <div
             className={`space-y-8 transition-all duration-700 delay-100 ${
               isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-4'
             }`}
           >
             <div className="grid sm:grid-cols-2 gap-4">
@@ -93,8 +97,8 @@ export function AboutSection() {
                   key={item.label}
                   className={`rounded-2xl border px-5 py-4 bg-card/70 backdrop-blur-sm transition-all duration-300 ${
                     activeHighlight === index
-                      ? "border-primary-500/50 shadow-lg shadow-primary-500/10"
-                      : "border-border/70"
+                      ? 'border-primary-500/50 shadow-lg shadow-primary-500/10'
+                      : 'border-border/70'
                   }`}
                 >
                   <div className="flex items-center gap-3 text-sm font-semibold text-foreground">
@@ -112,10 +116,16 @@ export function AboutSection() {
 
             <div className="space-y-4">
               <Typography variant="p" className="text-base">
-                Whether you need a custom WordPress website, a WooCommerce store or a Next.js web application, I deliver clean code, pixel-perfect design and on-time results. Every project comes with structured updates so you always know where things stand.
+                Whether you need a custom WordPress website, a WooCommerce store
+                or a Next.js web application, I deliver clean code,
+                pixel-perfect design and on-time results. Every project comes
+                with structured updates so you always know where things stand.
               </Typography>
               <Typography variant="p" className="text-base">
-                I have worked with startups, agencies and established businesses across e-commerce, healthcare, hospitality, real estate and more. My focus is simple: build websites that look great, perform fast and help your business grow.
+                I have worked with startups, agencies and established businesses
+                across e-commerce, healthcare, hospitality, real estate and
+                more. My focus is simple: build websites that look great,
+                perform fast and help your business grow.
               </Typography>
             </div>
 
@@ -146,8 +156,8 @@ export function AboutSection() {
           <div
             className={`relative grid grid-cols-2 gap-4 transition-all duration-700 delay-150 ${
               isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-4'
             }`}
           >
             <div className="relative col-span-2 lg:col-span-1 rounded-[32px] overflow-hidden border border-border shadow-2xl group">
@@ -164,77 +174,13 @@ export function AboutSection() {
 
             <div className="relative col-span-2 lg:col-span-1 rounded-[32px] overflow-hidden border border-border shadow-2xl group">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              <div className="group relative w-full h-full overflow-hidden rounded-xl">
-                {/* Animated gradient border glow */}
-                <div
-                  className="absolute -inset-[2px] bg-gradient-to-r from-primary-500 via-secondary-500 to-primary-500 rounded-xl opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-700 animate-[shimmer_3s_linear_infinite]"
-                  style={{ backgroundSize: "200% 100%" }}
-                />
-
-                {/* Inner container with border */}
-                <div className="relative w-full h-full overflow-hidden rounded-xl border border-primary-500/20 group-hover:border-primary-500/40 transition-all duration-700">
-                  {/* Main Image with filters */}
-                  <Image
-                    src="/images/me-sq.jpg"
-                    alt="Professional portrait"
-                    width={600}
-                    height={480}
-                    className="w-full h-full object-cover transition-all duration-700 
-                 filter contrast-125 brightness-95 saturate-110
-                 group-hover:scale-110 group-hover:contrast-130"
-                  />
-
-                  {/* Radial spotlight mask - keeps face visible, darkens edges */}
-                  <div
-                    className="absolute inset-0 pointer-events-none 
-                    bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.4)_50%,rgba(0,0,0,0.9)_80%,black_100%)]"
-                  />
-
-                  {/* Deep black edge vignette */}
-                  <div
-                    className="absolute inset-0 pointer-events-none 
-                    bg-gradient-to-b from-black/60 via-transparent to-black/80"
-                  />
-
-                  {/* Corner shadows for depth */}
-                  <div
-                    className="absolute inset-0 pointer-events-none 
-                    bg-gradient-to-br from-black/40 via-transparent to-black/60"
-                  />
-
-                  {/* Volumetric bottom-left to top-right light sweep */}
-                  <div
-                    className="absolute inset-0 pointer-events-none opacity-0 
-                    group-hover:opacity-100 transition-opacity duration-1000
-                    bg-gradient-to-tr from-primary-500/20 via-transparent to-transparent
-                    group-hover:animate-[light-sweep_1.5s_ease-out]"
-                  />
-
-                  {/* Glass-like frosted overlay */}
-                  <div
-                    className="absolute inset-0 pointer-events-none 
-                    bg-gradient-to-t from-black/30 via-transparent to-transparent 
-                    backdrop-blur-[0.5px]"
-                  />
-
-                  {/* Animated color pulse border */}
-                  <div
-                    className="absolute inset-0 pointer-events-none rounded-xl
-                    ring-1 ring-primary-500/0 group-hover:ring-primary-500/50 
-                    transition-all duration-700
-                    group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3),0_0_40px_rgba(168,85,247,0.2)]"
-                  />
-
-                  {/* Subtle shimmer effect on hover */}
-                  <div
-                    className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 
-                    bg-gradient-to-r from-transparent via-white/5 to-transparent 
-                    translate-x-[-100%] group-hover:translate-x-[100%] 
-                    transition-all duration-1500 ease-out"
-                  />
-                </div>
-              </div>
+              <Image
+                src="/images/website-development-responsive-layout.jpg"
+                alt="WordPress UI/UX design and development work"
+                width={600}
+                height={800}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
             </div>
 
             <Link
@@ -245,14 +191,17 @@ export function AboutSection() {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-400/20 to-secondary-400/20 blur-md" />
                 <div
                   className="absolute inset-0 rounded-full border-2 border-dashed border-primary-500/50"
-                  style={{ animation: "rotate-slow 8s linear infinite" }}
+                  style={{ animation: 'rotate-slow 8s linear infinite' }}
                 />
                 <div
                   className="absolute inset-[5px] rounded-full overflow-hidden"
-                  style={{ background: "linear-gradient(135deg, #3b82f6 0%, #818cf8 50%, #a855f7 100%)" }}
+                  style={{
+                    background:
+                      'linear-gradient(135deg, #3b82f6 0%, #818cf8 50%, #a855f7 100%)',
+                  }}
                 >
                   <Image
-                    src="/images/me-sq.png"
+                    src="/images/muhammad-ahmad-wordpress-developer.png"
                     alt="Muhammad Ahmad"
                     width={56}
                     height={56}
@@ -265,7 +214,8 @@ export function AboutSection() {
                   Always Available
                 </p>
                 <p className="text-sm text-foreground">
-                  Regular progress updates via Slack, WhatsApp or Google Meet so your project stays on time and on budget.
+                  Regular progress updates via Slack, WhatsApp or Google Meet so
+                  your project stays on time and on budget.
                 </p>
               </div>
               <div className="w-14 h-14 rounded-full border border-border flex items-center justify-center group-hover:border-primary-500 transition-colors">

@@ -28,7 +28,7 @@ export function ProjectsCtaSidebar() {
         {/* Premium Image */}
         <div className="relative h-56 overflow-hidden">
           <Image
-            src="/images/project-design-visual-landscape.webp"
+            src="/images/wordpress-website-development-service-muhammad-ahmad.jpg"
             alt="Premium web design showcase"
             fill
             className="object-cover"
