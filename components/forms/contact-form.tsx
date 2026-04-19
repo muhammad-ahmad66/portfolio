@@ -176,7 +176,7 @@ export function ContactForm() {
             Project Type <span className="text-red-500">*</span>
           </label>
           <Select
-            value={projectType || undefined}
+            value={projectType}
             onValueChange={(value) =>
               setValue("projectType", value, { shouldValidate: true })
             }
@@ -200,7 +200,7 @@ export function ContactForm() {
         <div>
           <label className="block text-sm font-medium mb-2">Budget Range</label>
           <Select
-            value={budget || undefined}
+            value={budget}
             onValueChange={(value) => setValue("budget", value)}
           >
             <SelectTrigger>
@@ -220,7 +220,7 @@ export function ContactForm() {
         <div>
           <label className="block text-sm font-medium mb-2">Timeline</label>
           <Select
-            value={timeline || undefined}
+            value={timeline}
             onValueChange={(value) => setValue("timeline", value)}
           >
             <SelectTrigger>
