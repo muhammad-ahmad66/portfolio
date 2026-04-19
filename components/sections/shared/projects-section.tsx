@@ -176,6 +176,7 @@ interface FeaturedProjectCardProps {
 import { Eye } from "lucide-react";
 import { Tooltip } from "@/components/ui/tooltip";
 import { BadgeHeading } from "@/components/ui/badge-heading";
+import { ShimmerImage } from "@/components/ui/shimmer-image";
 
 function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
@@ -191,11 +192,11 @@ function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
     >
       {/* Image Section */}
       <div className="relative h-[170px] md:h-[300px] overflow-hidden">
-        <Image
+        <ShimmerImage
           src={project.imageUrl}
           alt={project.imageAlt}
           fill
-          className={`object-cover transition-transform duration-700 ${
+          className={`object-cover transition-all duration-700 ${
             isHovered ? "scale-105" : "scale-100"
           }`}
         />

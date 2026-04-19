@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-import { ExternalLink, Eye } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button-component";
+import { ShimmerImage } from "@/components/ui/shimmer-image";
 
 interface ProjectCardProps {
   title: string;
@@ -20,7 +20,6 @@ export function ProjectCard({
   liveUrl,
   className = "",
 }: ProjectCardProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [imageHeight, setImageHeight] = useState(0);
 
@@ -31,29 +30,14 @@ export function ProjectCard({
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative w-full overflow-hidden rounded-2xl">
-        {!isLoaded && (
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-secondary-500/10 animate-pulse">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 rounded-2xl bg-primary-500/20 flex items-center justify-center">
-                <Eye className="w-8 h-8 text-primary-500/50 animate-pulse" />
-              </div>
-            </div>
-          </div>
-        )}
-
         <div className="relative h-[300px] overflow-hidden rounded-2xl">
-          <Image
+          <ShimmerImage
             src={imageSrc}
             alt={title}
             width={800}
             height={1200}
-            className={`w-full object-cover transition-transform duration-700 ${
-              isLoaded ? "opacity-100" : "opacity-0"
-            } ${isHovered ? "scale-105" : "scale-100"}`}
-            onLoadingComplete={({ naturalHeight }) => {
-              setIsLoaded(true);
-              setImageHeight(naturalHeight);
-            }}
+            className="w-full object-cover transition-opacity duration-500"
+            onLoad={(e) => setImageHeight((e.target as HTMLImageElement).naturalHeight)}
             style={{
               transform: isHovered
                 ? `translateY(-${Math.max(imageHeight - 300, 0)}px)`

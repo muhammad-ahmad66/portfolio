@@ -9,10 +9,10 @@ import {
   ExternalLink,
   MessageCircle,
   ArrowRight,
-  Sparkles,
   ChevronsDown,
   Rocket,
 } from "lucide-react";
+import { ShimmerImage } from "@/components/ui/shimmer-image";
 import {
   testimonials,
   fiverrProfileLink,
@@ -23,7 +23,6 @@ export function TestimonialsSection() {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
   const [visibleCount, setVisibleCount] = useState(6);
 
   useEffect(() => {
@@ -39,10 +38,6 @@ export function TestimonialsSection() {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
-
-  const handleImageLoad = (id: number) => {
-    setLoadedImages((prev) => new Set([...prev, id]));
-  };
 
   const openLightbox = (imagePath: string) => {
     setLightboxImage(imagePath);
@@ -109,28 +104,15 @@ export function TestimonialsSection() {
 
                     {/* Review Image */}
                     <div
-                      className="relative cursor-pointer"
+                      className="relative cursor-pointer min-h-[300px]"
                       onClick={() => openLightbox(testimonial.imagePath)}
                     >
-                      {/* Loading Indicator */}
-                      {!loadedImages.has(testimonial.id) && (
-                        <div className="absolute inset-0 flex items-center justify-center bg-muted/50 backdrop-blur-sm z-10 min-h-[300px]">
-                          <div className="flex flex-col items-center gap-3">
-                            <div className="w-10 h-10 border-3 border-primary-500/30 border-t-primary-500 rounded-full animate-spin" />
-                            <span className="text-xs text-muted-foreground font-medium">
-                              Loading...
-                            </span>
-                          </div>
-                        </div>
-                      )}
-
-                      <Image
+                      <ShimmerImage
                         src={testimonial.imagePath}
                         alt={`Client review ${testimonial.id}`}
                         width={1200}
                         height={800}
-                        className="w-full h-auto"
-                        onLoad={() => handleImageLoad(testimonial.id)}
+                        className="w-full h-auto transition-opacity duration-500"
                         loading="lazy"
                       />
 
