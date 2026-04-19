@@ -14,11 +14,20 @@ import {
   SiMongodb,
   SiSass,
   SiGithub,
+  SiFigma,
 } from 'react-icons/si';
 import { FaGitAlt } from 'react-icons/fa';
 import { SiPostman } from 'react-icons/si';
 import { VscCode } from 'react-icons/vsc';
-import { LayoutGrid, Zap, Puzzle, Database } from 'lucide-react';
+import {
+  LayoutGrid,
+  Zap,
+  Puzzle,
+  Database,
+  TrendingUp,
+  Globe,
+  Paintbrush,
+} from 'lucide-react';
 
 export interface TechItem {
   label: string;
@@ -30,9 +39,12 @@ export const wordpressTech: TechItem[] = [
   { label: 'WooCommerce', icon: <SiWoocommerce className="w-5 h-5" /> },
   { label: 'Elementor', icon: <SiElementor className="w-5 h-5" /> },
   { label: 'Gutenberg', icon: <LayoutGrid className="w-5 h-5" /> },
-  { label: 'ACF Pro', icon: <Database className="w-5 h-5" /> },
+  { label: 'ACF - Directories - Dynamic', icon: <Database className="w-5 h-5" /> },
   { label: 'Performance', icon: <Zap className="w-5 h-5" /> },
   { label: 'Custom Plugins', icon: <Puzzle className="w-5 h-5" /> },
+  { label: 'Figma → WP', icon: <SiFigma className="w-5 h-5" /> },
+  { label: 'Custom Themes', icon: <Paintbrush className="w-5 h-5" /> },
+  { label: 'WP SEO', icon: <TrendingUp className="w-5 h-5" /> },
 ];
 
 export const devTech: TechItem[] = [

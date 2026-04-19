@@ -1,5 +1,6 @@
 import { Typography } from "@/components/ui/typography";
 import { BadgeButton } from "@/components/ui/badge-button";
+import { TechCarousel } from "@/components/ui/tech-carousel";
 import { wordpressTech, devTech } from "@/data/home/tech-stack";
 
 interface TechStackProps {
@@ -17,16 +18,7 @@ export function TechStack({ isVisible }: TechStackProps) {
         <Typography variant="small" className="text-center">
           WordPress Skills and Tools
         </Typography>
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
-          {wordpressTech.map((tech) => (
-            <BadgeButton
-              key={tech.label}
-              icon={tech.icon}
-              label={tech.label}
-              variant="card"
-            />
-          ))}
-        </div>
+        <TechCarousel items={wordpressTech} direction="left" duration={32} />
       </div>
 
       <div className="space-y-4">
