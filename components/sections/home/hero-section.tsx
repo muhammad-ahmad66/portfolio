@@ -1,15 +1,15 @@
 // components/home/hero-section.tsx
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button-component";
-import { ArrowRight, Star, BadgeCheck, Users } from "lucide-react";
-import { GreetingCard } from "@/components/ui/greeting-card";
-import { Typography } from "@/components/ui/typography";
-import { TechAndPartnersSection } from "../shared/tech-and-partners-section";
-import { SpinningCircularBadge } from "@/components/ui/spinning-circular-badge";
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button-component';
+import { ArrowRight, Star, BadgeCheck, Users } from 'lucide-react';
+import { GreetingCard } from '@/components/ui/greeting-card';
+import { Typography } from '@/components/ui/typography';
+import { TechAndPartnersSection } from '../shared/tech-and-partners-section';
+import { SpinningCircularBadge } from '@/components/ui/spinning-circular-badge';
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -25,8 +25,8 @@ export function HeroSection() {
       });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   return (
@@ -47,7 +47,7 @@ export function HeroSection() {
           style={{
             backgroundImage: `linear-gradient(to right, currentColor 1px, transparent 1px),
                       linear-gradient(to bottom, currentColor 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
+            backgroundSize: '40px 40px',
           }}
         />
 
@@ -56,12 +56,11 @@ export function HeroSection() {
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
             {/* Left Column - Content */}
             <div className="space-y-4 sm:space-y-4 lg:space-y-6">
-
               <div
                 className={`space-y-3 sm:space-y-4 transition-all duration-700 delay-100 ${
                   isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4"
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-4'
                 }`}
               >
                 {/* Name line */}
@@ -75,12 +74,12 @@ export function HeroSection() {
                     I help businesses build
                   </span>
                   <span className="block font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
-                    Websites That{" "}
+                    Websites That{' '}
                     <span
                       className="bg-clip-text text-transparent"
                       style={{
                         backgroundImage:
-                          "linear-gradient(135deg, #3b82f6 0%, #818cf8 50%, #a855f7 100%)",
+                          'linear-gradient(135deg, #3b82f6 0%, #818cf8 50%, #a855f7 100%)',
                       }}
                     >
                       Grow.
@@ -92,7 +91,10 @@ export function HeroSection() {
                 <div className="flex items-center gap-2 pt-1">
                   <div
                     className="h-[2px] w-12 rounded-full"
-                    style={{ backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7)" }}
+                    style={{
+                      backgroundImage:
+                        'linear-gradient(90deg, #3b82f6, #a855f7)',
+                    }}
                   />
                   <div className="h-[2px] w-4 rounded-full bg-border" />
                 </div>
@@ -102,19 +104,21 @@ export function HeroSection() {
               <p
                 className={`text-base sm:text-lg text-muted-foreground font-light max-w-md leading-relaxed transition-all duration-700 delay-200 ${
                   isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4"
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-4'
                 }`}
               >
-                Full stack developer specializing in WordPress, WooCommerce and Next.js. I build sites that load fast, rank on Google and turn visitors into paying clients.
+                Full stack developer specializing in WordPress, WooCommerce and
+                Next.js. I build sites that load fast, rank on Google and turn
+                visitors into paying clients.
               </p>
 
               {/* CTA Buttons */}
               <div
                 className={`flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 transition-all duration-700 delay-300 ${
                   isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4"
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-4'
                 }`}
               >
                 <Link href="/contact" className="w-full sm:w-auto">
@@ -142,22 +146,29 @@ export function HeroSection() {
               {/* Social Proof Bar */}
               <div
                 className={`transition-all duration-700 delay-[400ms] ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  isVisible
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-4'
                 }`}
               >
                 <div
                   className="inline-flex flex-wrap items-center gap-3 px-4 py-3 rounded-2xl border backdrop-blur-md"
                   style={{
-                    background: "rgba(255,255,255,0.04)",
-                    borderColor: "rgba(255,255,255,0.1)",
-                    boxShadow: "0 4px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.08)",
+                    background: 'rgba(255,255,255,0.04)',
+                    borderColor: 'rgba(255,255,255,0.1)',
+                    boxShadow:
+                      '0 4px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.08)',
                   }}
                 >
                   {/* Fiverr */}
                   <div className="flex items-center gap-1.5">
                     <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                    <span className="text-xs font-medium text-foreground">Top Rated Seller</span>
-                    <span className="text-xs text-muted-foreground">on Fiverr</span>
+                    <span className="text-xs font-medium text-foreground">
+                      Top Rated Seller
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      on Fiverr
+                    </span>
                   </div>
 
                   <div className="h-4 w-px bg-border/60" />
@@ -165,8 +176,12 @@ export function HeroSection() {
                   {/* Clients */}
                   <div className="flex items-center gap-1.5">
                     <Users className="w-3.5 h-3.5 text-primary-500" />
-                    <span className="text-xs font-medium text-foreground">60+</span>
-                    <span className="text-xs text-muted-foreground">Happy Clients</span>
+                    <span className="text-xs font-medium text-foreground">
+                      60+
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      Happy Clients
+                    </span>
                   </div>
 
                   <div className="h-4 w-px bg-border/60" />
@@ -174,7 +189,9 @@ export function HeroSection() {
                   {/* Corporate Experience */}
                   <div className="flex items-center gap-1.5">
                     <BadgeCheck className="w-3.5 h-3.5 text-primary-500" />
-                    <span className="text-xs text-muted-foreground">Worked with global businesses</span>
+                    <span className="text-xs text-muted-foreground">
+                      Worked with global businesses
+                    </span>
                   </div>
                 </div>
               </div>
@@ -184,8 +201,8 @@ export function HeroSection() {
             <div
               className={`relative transition-all duration-1000 delay-400 ${
                 isVisible
-                  ? "opacity-100 translate-x-0"
-                  : "opacity-0 translate-x-8"
+                  ? 'opacity-100 translate-x-0'
+                  : 'opacity-0 translate-x-8'
               }`}
             >
               <div className="relative">
@@ -210,7 +227,7 @@ export function HeroSection() {
                 <GreetingCard
                   title="Open to new projects"
                   message="WordPress, WooCommerce and Next.js developer helping businesses grow online."
-                  avatarImage="/images/me-sq.png"
+                  avatarImage="/images/muhammad-ahmad-wordpress-developer.png"
                   avatarSpin={true}
                 />
 
