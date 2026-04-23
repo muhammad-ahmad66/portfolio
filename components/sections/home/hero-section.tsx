@@ -228,7 +228,6 @@ export function HeroSection() {
                   title="Open to new projects"
                   message="WordPress, WooCommerce and Next.js developer helping businesses grow online."
                   avatarImage="/images/muhammad-ahmad-wordpress-developer.png"
-                  avatarSpin={true}
                 />
 
                 {/* Professional Stats Card */}
