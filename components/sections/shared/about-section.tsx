@@ -188,17 +188,17 @@ export function AboutSection() {
               className="col-span-2 rounded-[32px] border border-border/70 bg-background/70 backdrop-blur-lg p-6 flex flex-col sm:flex-row items-center gap-4 hover:border-primary-500/50 transition-all duration-300 group"
             >
               <div className="relative flex-shrink-0 w-16 h-16">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-400/20 to-secondary-400/20 blur-md" />
-                <div
-                  className="absolute inset-0 rounded-full border-2 border-dashed border-primary-500/50"
-                  style={{ animation: 'rotate-slow 8s linear infinite' }}
-                />
+                <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary-500/15 to-secondary-500/15 blur-lg" />
+                <div className="absolute -inset-[2px] border border-dashed border-primary-400/35 animate-blob" />
+                <div className="absolute -inset-[2px] animate-[rotate-slow_10s_linear_infinite]">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-[3px] w-[5px] h-[5px] rounded-full bg-primary-400 shadow-[0_0_6px_2px_rgba(59,130,246,0.7)]" />
+                </div>
+                <div className="absolute -inset-[2px] animate-[rotate-slow_14s_linear_reverse_infinite]">
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[3px] w-[4px] h-[4px] rounded-full bg-secondary-400 shadow-[0_0_5px_2px_rgba(168,85,247,0.7)]" />
+                </div>
                 <div
                   className="absolute inset-[5px] rounded-full overflow-hidden"
-                  style={{
-                    background:
-                      'linear-gradient(135deg, #3b82f6 0%, #818cf8 50%, #a855f7 100%)',
-                  }}
+                  style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #818cf8 50%, #a855f7 100%)' }}
                 >
                   <Image
                     src="/images/muhammad-ahmad-wordpress-developer.png"

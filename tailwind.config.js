@@ -213,6 +213,13 @@ module.exports = {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
+        blob: {
+          '0%':   { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' },
+          '25%':  { borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%' },
+          '50%':  { borderRadius: '50% 60% 30% 40% / 40% 50% 60% 50%' },
+          '75%':  { borderRadius: '40% 60% 70% 30% / 60% 40% 30% 70%' },
+          '100%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -225,6 +232,7 @@ module.exports = {
         'rotate-slow': 'rotate-slow 20s linear infinite',
         'bounce-slow': 'bounce-slow 3s infinite',
         shimmer: 'shimmer 3s linear infinite',
+        blob: 'blob 8s ease-in-out infinite',
         scroll: 'scroll 30s linear infinite',
         'scroll-reverse': 'scroll 35s linear infinite reverse',
       },

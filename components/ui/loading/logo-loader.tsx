@@ -1,136 +1,96 @@
-// components/loading/logo-loader.tsx
 "use client";
 
 import { useEffect, useState } from "react";
-
-// Fixed particle positions to avoid hydration mismatch
-const particlePositions = [
-  { left: 15, top: 20, delay: 0, duration: 3.5 },
-  { left: 85, top: 15, delay: 0.2, duration: 4 },
-  { left: 25, top: 80, delay: 0.4, duration: 3.2 },
-  { left: 70, top: 70, delay: 0.6, duration: 3.8 },
-  { left: 10, top: 50, delay: 0.8, duration: 4.2 },
-  { left: 90, top: 40, delay: 1, duration: 3.6 },
-  { left: 40, top: 10, delay: 1.2, duration: 4.5 },
-  { left: 60, top: 85, delay: 1.4, duration: 3.9 },
-];
+import { LogoIcon } from "@/components/ui/logo-icon";
 
 export function LogoLoader() {
+  const [isExiting, setIsExiting] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    // Hide loader after animation completes
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, 2500);
-
-    return () => clearTimeout(timer);
+    const exitTimer = setTimeout(() => setIsExiting(true), 2000);
+    const hideTimer = setTimeout(() => setIsVisible(false), 2500);
+    return () => {
+      clearTimeout(exitTimer);
+      clearTimeout(hideTimer);
+    };
   }, []);
 
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-background/95 backdrop-blur-sm animate-[fade-out_0.5s_ease-out_2s_forwards]">
-      <div className="relative">
-        {/* Outer rotating ring */}
-        <div className="absolute inset-0 -m-20">
-          <div className="w-full h-full rounded-full border-2 border-dashed border-primary-500/30 animate-[rotate-slow_3s_linear_infinite]" />
+    <div
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-background transition-opacity duration-500 ${
+        isExiting ? "opacity-0" : "opacity-100"
+      }`}
+    >
+      {/* Ambient background glows */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-32 right-1/4 w-[500px] h-[500px] rounded-full bg-primary-500/8 blur-[100px]" />
+        <div className="absolute -bottom-32 left-1/4 w-[400px] h-[400px] rounded-full bg-secondary-500/8 blur-[100px]" />
+      </div>
+
+      {/* Center content */}
+      <div className="relative flex flex-col items-center gap-8">
+
+        {/* ── Large Icon Mark ── */}
+        <div style={{ animation: "fade-up 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.1s both" }}>
+          <LogoIcon size={80} animated />
         </div>
 
-        {/* Middle pulsing ring */}
-        <div className="absolute inset-0 -m-12">
-          <div className="w-full h-full rounded-full border border-secondary-500/20 animate-pulse" />
-        </div>
-
-        {/* Main logo container */}
-        <div className="relative flex items-center gap-2 animate-[scale-in_0.6s_ease-out]">
-          {/* Geometric square with reveal animation */}
-          <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-16 h-16 rotate-45 bg-gradient-to-br from-primary-600 to-secondary-600 opacity-20 animate-[spin_2s_ease-in-out]" />
-
-          {/* The M with gradient */}
-          <div className="relative">
+        {/* ── Wordmark ── */}
+        <div className="flex flex-col items-center gap-2">
+          <div className="flex items-baseline gap-1">
+            {/* M */}
             <span
-              className="text-6xl sm:text-6xl font-black tracking-tighter animate-[fade-in_0.8s_ease-out_0.3s_both]"
-              style={{
-                fontFamily:
-                  'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-                background:
-                  "linear-gradient(to bottom right, #2563eb, #3b82f6, #9333ea)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
+              className="text-4xl font-bold tracking-widest uppercase bg-gradient-to-br from-primary-500 to-secondary-500 bg-clip-text text-transparent"
+              style={{ animation: "fade-up 0.4s ease-out 0.4s both" }}
             >
               M
             </span>
-            {/* Glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary-500/30 to-secondary-500/30 blur-2xl animate-pulse" />
-
-            {/* Accent line through M */}
-            <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent animate-[slide-in_0.6s_ease-out_0.8s_both]" />
-          </div>
-
-          {/* Sophisticated dot separator with particles */}
-          <div className="relative mx-2 flex items-center justify-center animate-[fade-in_0.8s_ease-out_0.5s_both]">
-            {/* Outer glow ring */}
-            <div className="absolute w-12 h-12 rounded-full bg-gradient-to-br from-primary-400/30 to-secondary-400/30 blur-xl animate-pulse" />
-
-            {/* Rotating ring */}
-            <div className="absolute w-8 h-8">
-              <div className="w-full h-full rounded-full border-2 border-dashed border-primary-500/40 animate-[rotate-slow_4s_linear_infinite]" />
-            </div>
-
-            {/* Orbiting particles */}
-            <div className="absolute w-6 h-6 animate-[rotate-slow_2s_linear_reverse_infinite]">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-primary-500" />
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-secondary-500" />
-            </div>
-
-            {/* Center dot with pulse */}
-            <div className="relative w-4 h-4 rounded-full bg-gradient-to-br from-primary-500 via-secondary-500 to-primary-600 shadow-lg shadow-primary-500/50 animate-pulse" />
-          </div>
-
-          {/* "ahmad" text with staggered animation */}
-          <div className="relative flex items-center">
-            {["a", "h", "m", "a", "d"].map((letter, i) => (
+            {/* dot */}
+            <span
+              className="mx-1 text-2xl font-bold bg-gradient-to-br from-primary-400 to-secondary-400 bg-clip-text text-transparent animate-pulse"
+              style={{ animationDuration: "2.5s", animation: "fade-up 0.4s ease-out 0.5s both" }}
+            >
+              ·
+            </span>
+            {/* AHMAD letters */}
+            {["A", "H", "M", "A", "D"].map((letter, i) => (
               <span
                 key={i}
-                className="text-5xl font-bold tracking-tight bg-gradient-to-br from-foreground via-primary-600 to-secondary-600 bg-clip-text text-transparent"
-                style={{
-                  animation: `fade-up 0.5s ease-out ${0.6 + i * 0.1}s both`,
-                }}
+                className="text-3xl font-medium tracking-widest uppercase text-foreground/80"
+                style={{ animation: `fade-up 0.4s ease-out ${0.55 + i * 0.07}s both` }}
               >
                 {letter}
               </span>
             ))}
+          </div>
 
-            {/* Animated underline */}
-            <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-primary-500 via-secondary-500 to-primary-600 animate-[expand-width_0.8s_ease-out_1.2s_both]" />
+          {/* Shimmer underline — growing business indicator */}
+          <div
+            className="relative w-full h-[2px] rounded-full overflow-hidden"
+            style={{ animation: "fade-in 0.5s ease-out 1.1s both" }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-500/15 via-secondary-500/25 to-primary-500/15" />
+            <div
+              className="absolute inset-0 animate-shimmer bg-gradient-to-r from-transparent via-primary-400 to-transparent"
+              style={{ backgroundSize: "55% 100%" }}
+            />
+            <div
+              className="absolute inset-0 animate-shimmer bg-gradient-to-r from-transparent via-secondary-400/60 to-transparent"
+              style={{ backgroundSize: "40% 100%", animationDelay: "1.4s" }}
+            />
           </div>
         </div>
 
-        {/* Floating particles with fixed positions */}
-        <div className="absolute inset-0 pointer-events-none">
-          {particlePositions.map((particle, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-primary-400/40 rounded-full animate-float"
-              style={{
-                left: `${particle.left}%`,
-                top: `${particle.top}%`,
-                animationDelay: `${particle.delay}s`,
-                animationDuration: `${particle.duration}s`,
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Loading text */}
-        <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 whitespace-nowrap">
-          <p className="text-sm font-medium text-muted-foreground animate-pulse">
-            Loading Experience...
-          </p>
-        </div>
+        {/* ── Tagline ── */}
+        <p
+          className="text-[11px] font-medium uppercase tracking-[0.4em] text-muted-foreground/50"
+          style={{ animation: "fade-in 0.5s ease-out 1.3s both" }}
+        >
+          WordPress · WooCommerce · Next.js
+        </p>
       </div>
     </div>
   );

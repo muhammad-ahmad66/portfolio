@@ -13,7 +13,6 @@ export function GreetingCard({
   containerClass = '',
   avatarText = 'Hi',
   avatarImage = '',
-  avatarSpin = true,
 }) {
   const Icon = icon;
 
@@ -27,21 +26,26 @@ export function GreetingCard({
       ].join(' ')}
     >
       <div className="relative flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16">
-        {/* Outer glow */}
-        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-400/20 to-secondary-400/20 blur-md" />
+        {/* Ambient glow */}
+        <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary-500/15 to-secondary-500/15 blur-lg" />
 
-        {/* Dashed rotating ring — matches logo dot style */}
-        <div
-          className="absolute inset-0 rounded-full border-2 border-dashed border-primary-500/50"
-          style={avatarSpin ? { animation: "rotate-slow 8s linear infinite" } : {}}
-        />
+        {/* Outer dashed orbit ring */}
+        <div className="absolute -inset-[2px] border border-dashed border-primary-400/35 animate-blob" />
 
-        {/* Image with gradient background, static */}
+        {/* Blue orbiting dot (co-rotates with ring) */}
+        <div className="absolute -inset-[3px] rounded-full animate-[rotate-slow_10s_linear_infinite]">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-[3px] w-[5px] h-[5px] rounded-full bg-primary-400 shadow-[0_0_6px_2px_rgba(59,130,246,0.7)]" />
+        </div>
+
+        {/* Purple orbiting dot (counter-rotates, slower) */}
+        <div className="absolute -inset-[3px] rounded-full animate-[rotate-slow_14s_linear_reverse_infinite]">
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[3px] w-[4px] h-[4px] rounded-full bg-secondary-400 shadow-[0_0_5px_2px_rgba(168,85,247,0.7)]" />
+        </div>
+
+        {/* Image */}
         <div
-          className="absolute inset-[5px] rounded-full overflow-hidden"
-          style={{
-            background: "linear-gradient(135deg, #3b82f6 0%, #818cf8 50%, #a855f7 100%)",
-          }}
+          className="absolute inset-[5px] rounded-xl overflow-hidden"
+          style={{ background: "linear-gradient(135deg, #3b82f6 0%, #818cf8 50%, #a855f7 100%)" }}
         >
           {avatarImage ? (
             <Image
@@ -49,10 +53,10 @@ export function GreetingCard({
               alt="Muhammad Ahmad"
               width={56}
               height={56}
-              className="w-full h-full object-cover rounded-full"
+              className="w-full h-full object-cover"
             />
           ) : (
-            <div className="w-full h-full rounded-full flex items-center justify-center text-white text-xs sm:text-sm font-semibold">
+            <div className="w-full h-full flex items-center justify-center text-white text-xs sm:text-sm font-semibold">
               {avatarText}
             </div>
           )}
