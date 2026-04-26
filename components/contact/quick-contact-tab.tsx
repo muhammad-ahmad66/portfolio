@@ -957,7 +957,7 @@ export function QuickContactTab() {
       </div>
 
       {/* Input area */}
-      <div className="shrink-0 border-t border-border bg-background/60">
+      <div className="border-t border-border bg-background/60 overflow-y-auto" style={{ maxHeight: "55%" }}>
         <AnimatePresence mode="wait">
           {/* ── Done state ── */}
           {isSubmitted && step?.inputType === "done" && (
