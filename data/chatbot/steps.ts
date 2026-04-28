@@ -5,14 +5,30 @@ export const STEPS: Record<string, Step> = {
   start: {
     id: "start",
     botMessage:
-      "Hey there. I'm Ahmad's assistant. I can help figure out exactly what you need — just answer a few quick questions and we'll set everything up. By the way, this conversation gets sent to Ahmad by email so he can follow up properly.",
+      "Hey there. I'm Muhammad's assistant. I can help figure out exactly what you need. Just answer a few quick questions and we'll get everything set up. This conversation gets sent to Muhammad by email so he can follow up properly.",
     inputType: "single-select",
     key: "intent",
     options: [
       { label: "I need a website built from scratch", goTo: "a1-purpose" },
       { label: "I need help with my existing website", goTo: "b1-platform" },
+      { label: "Figma to WordPress", goTo: "figma-wp" },
       { label: "I'm looking for a long-term dev partner", goTo: "c1-type" },
       { label: "I just have a quick question", goTo: "d1-topic" },
+    ],
+  },
+
+  "figma-wp": {
+    id: "figma-wp",
+    botMessage:
+      "You have a Figma design and need it built as a WordPress site. A few quick things to confirm.",
+    inputType: "single-select",
+    key: "figma_details",
+    defaultNext: "a5-budget",
+    options: [
+      { label: "Complete Figma file, pixel-perfect build" },
+      { label: "Figma file plus some design adjustments" },
+      { label: "Design is partially done, needs completion" },
+      { label: "I have image mockups, not Figma" },
     ],
   },
 
@@ -270,7 +286,7 @@ export const STEPS: Record<string, Step> = {
 
   "a-unsure-inspo-url": {
     id: "a-unsure-inspo-url",
-    botMessage: "Paste the URL of a site you like and Ahmad will take note.",
+    botMessage: "Paste the URL of a site you like and Muhammad will take note.",
     inputType: "url",
     key: "inspo_url",
     placeholder: "https://example.com",
@@ -374,7 +390,7 @@ export const STEPS: Record<string, Step> = {
   "a5-budget": {
     id: "a5-budget",
     botMessage:
-      "Almost there. What's your approximate budget? No wrong answers here, this just helps Ahmad recommend the right package.",
+      "Almost there. What's your approximate budget? No wrong answers here, this just helps Muhammad recommend the right package.",
     inputType: "single-select",
     key: "budget",
     defaultNext: "a6-timeline",
@@ -393,7 +409,7 @@ export const STEPS: Record<string, Step> = {
       },
       {
         label: "PKR 100,000 and above",
-        note: "Ahmad will scope a custom package for you",
+        note: "Muhammad will scope a custom package for you",
       },
       { label: "I'd rather discuss it" },
     ],
@@ -408,7 +424,7 @@ export const STEPS: Record<string, Step> = {
     options: [
       {
         label: "Within 2 weeks",
-        note: "Rush projects may have a priority fee. Ahmad will confirm on the call.",
+        note: "Rush projects may have a priority fee. Muhammad will confirm on the call.",
       },
       { label: "Within a month" },
       { label: "1 to 3 months from now" },
@@ -420,7 +436,7 @@ export const STEPS: Record<string, Step> = {
   "a7-contact": {
     id: "a7-contact",
     botMessage:
-      "You're all set. Just leave your details and Ahmad will get back to you. He typically replies within 2 hours during business hours.",
+      "You're all set. Just leave your details and Muhammad will get back to you. He typically replies within 2 hours during business hours.",
     inputType: "contact-fields",
     key: "contact",
     defaultNext: "a-done",
@@ -430,7 +446,7 @@ export const STEPS: Record<string, Step> = {
   "a-done": {
     id: "a-done",
     botMessage: (ans) =>
-      `Ahmad has your brief${ans.name ? `, ${ans.name.split(" ")[0]}` : ""}. He will review everything and reach out on WhatsApp shortly.`,
+      `Muhammad has your brief${ans.name ? `, ${ans.name.split(" ")[0]}` : ""}. He will review everything and reach out on WhatsApp shortly.`,
     inputType: "done",
   },
 
@@ -448,11 +464,11 @@ export const STEPS: Record<string, Step> = {
       { label: "Next.js or React" },
       {
         label: "Webflow, Wix or Squarespace",
-        note: "Ahmad specialises in WordPress and Next.js. He can advise but may refer you to a specialist for this platform.",
+        note: "Muhammad specialises in WordPress and Next.js. He can advise but may refer you to a specialist for this platform.",
       },
       {
         label: "Shopify",
-        note: "Ahmad specialises in WordPress and Next.js. He can advise but may refer you to a specialist for this platform.",
+        note: "Muhammad specialises in WordPress and Next.js. He can advise but may refer you to a specialist for this platform.",
       },
       { label: "Not sure, I'll share the URL" },
     ],
@@ -495,13 +511,13 @@ export const STEPS: Record<string, Step> = {
   "b-emergency": {
     id: "b-emergency",
     botMessage:
-      "This is urgent. Tap below to reach Ahmad directly on WhatsApp right now. He handles emergency fixes and will respond as fast as possible.",
+      "This is urgent. Tap below to reach Muhammad directly on WhatsApp right now. He handles emergency fixes and will respond as fast as possible.",
     inputType: "info",
     infoType: "general",
     infoLinks: [
       {
-        label: "Contact Ahmad on WhatsApp",
-        href: "https://wa.me/923129819819?text=Hi%20Ahmad%2C%20my%20website%20is%20completely%20down%20and%20I%20need%20urgent%20help.",
+        label: "Contact Muhammad on WhatsApp",
+        href: "https://wa.me/923129819819?text=Hi%20Muhammad%2C%20my%20website%20is%20completely%20down%20and%20I%20need%20urgent%20help.",
         external: true,
       },
     ],
@@ -510,7 +526,7 @@ export const STEPS: Record<string, Step> = {
   "b3-url": {
     id: "b3-url",
     botMessage:
-      "Can you share your website URL? It helps Ahmad see the issue in context.",
+      "Can you share your website URL? It helps Muhammad see the issue in context.",
     inputType: "url",
     key: "site_url",
     placeholder: "https://yoursite.com",
@@ -540,7 +556,7 @@ export const STEPS: Record<string, Step> = {
     options: [
       {
         label: "Critical, I am losing business every hour",
-        note: "Ahmad will try to respond within 1 to 2 hours for urgent requests.",
+        note: "Muhammad will try to respond within 1 to 2 hours for urgent requests.",
       },
       { label: "Important, needs fixing this week" },
       { label: "Low priority, whenever you are available" },
@@ -565,7 +581,7 @@ export const STEPS: Record<string, Step> = {
   "c1-type": {
     id: "c1-type",
     botMessage:
-      "Ahmad genuinely enjoys working with people long-term. What kind of arrangement are you thinking?",
+      "Muhammad genuinely enjoys working with people long-term. What kind of arrangement are you thinking?",
     inputType: "single-select",
     key: "partnership_type",
     defaultNext: "c2-volume",
@@ -573,7 +589,7 @@ export const STEPS: Record<string, Step> = {
       { label: "Monthly retainer for ongoing development and maintenance" },
       {
         label:
-          "White-label work — you're an agency and Ahmad works behind the scenes",
+          "White-label work, you are an agency and Muhammad works behind the scenes",
       },
       { label: "Multiple projects over time" },
       { label: "Not sure, let's discuss" },
@@ -615,7 +631,7 @@ export const STEPS: Record<string, Step> = {
   "c4-who": {
     id: "c4-who",
     botMessage:
-      "Just so Ahmad can tailor his reply — who are you?",
+      "Just so Muhammad can tailor his reply who are you?",
     inputType: "single-select",
     key: "client_type",
     defaultNext: "a7-contact",
@@ -634,10 +650,12 @@ export const STEPS: Record<string, Step> = {
     inputType: "single-select",
     key: "question_topic",
     options: [
-      { label: "Pricing and packages", goTo: "d-pricing" },
-      { label: "Past work and portfolio", goTo: "d-portfolio" },
+      { label: "Pricing and packages", navigateTo: "/pricing" },
+      { label: "Past work and portfolio", navigateTo: "/work" },
+      { label: "Testimonials", navigateTo: "/testimonials" },
+      { label: "Contact me", navigateTo: "/contact" },
       { label: "Timeline and availability", goTo: "d-availability" },
-      { label: "Technologies Ahmad works with", goTo: "d-tech" },
+      { label: "Technologies Muhammad works with", goTo: "d-tech" },
       { label: "Location and remote work", goTo: "d-location" },
       { label: "Something else", goTo: "d-other" },
     ],
@@ -646,7 +664,7 @@ export const STEPS: Record<string, Step> = {
   "d-pricing": {
     id: "d-pricing",
     botMessage:
-      "Here is a quick summary of Ahmad's packages. Prices are in PKR and may vary for custom work.",
+      "Here is a quick summary of Muhammad's packages. Prices are in PKR and may vary for custom work.",
     inputType: "info",
     infoType: "pricing-cards",
     defaultNext: "d-done",
@@ -655,7 +673,7 @@ export const STEPS: Record<string, Step> = {
   "d-portfolio": {
     id: "d-portfolio",
     botMessage:
-      "Ahmad has delivered over 50 websites across eCommerce, healthcare, hospitality, real estate and more. Here are a few recent ones.",
+      "Muhammad has delivered over 50 websites across eCommerce, healthcare, hospitality, real estate and more. Here are a few recent ones.",
     inputType: "info",
     infoType: "portfolio-cards",
     defaultNext: "d-done",
@@ -664,7 +682,7 @@ export const STEPS: Record<string, Step> = {
   "d-availability": {
     id: "d-availability",
     botMessage:
-      "Ahmad typically keeps a limited number of slots open each month. Here is the current picture.",
+      "Muhammad typically keeps a limited number of slots open each month. Here is the current picture.",
     inputType: "info",
     infoType: "availability",
     defaultNext: "d-done",
@@ -672,7 +690,7 @@ export const STEPS: Record<string, Step> = {
 
   "d-tech": {
     id: "d-tech",
-    botMessage: "Here is what Ahmad works with day to day.",
+    botMessage: "Here is what Muhammad works with day to day.",
     inputType: "info",
     infoType: "tech-stack",
     defaultNext: "d-done",
@@ -681,7 +699,7 @@ export const STEPS: Record<string, Step> = {
   "d-location": {
     id: "d-location",
     botMessage:
-      "Ahmad is based in Pakistan and works fully remote with clients worldwide, including the UK, US, Europe, Australia and the Middle East. Communication happens over WhatsApp, Slack or Google Meet.",
+      "Muhammad is based in Pakistan and works fully remote with clients worldwide, including the UK, US, Europe, Australia and the Middle East. Communication happens over WhatsApp, Slack or Google Meet.",
     inputType: "info",
     infoType: "location",
     infoLinks: [
@@ -697,7 +715,7 @@ export const STEPS: Record<string, Step> = {
   "d-other": {
     id: "d-other",
     botMessage:
-      "Go ahead. Type your question below and leave a way to reach you. Ahmad will reply personally.",
+      "Go ahead. Type your question below and leave a way to reach you. Muhammad will reply personally.",
     inputType: "contact-fields",
     key: "question",
     defaultNext: "d-done",
@@ -707,7 +725,7 @@ export const STEPS: Record<string, Step> = {
   "d-done": {
     id: "d-done",
     botMessage:
-      "Thanks for reaching out. Ahmad has your message and will reply soon, usually within 2 hours.",
+      "Thanks for reaching out. Muhammad has your message and will reply soon, usually within 2 hours.",
     inputType: "done",
   },
 };

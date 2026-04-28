@@ -40,7 +40,7 @@ export function estimateTotalSteps(historyStack: string[]): number {
 
 export function buildWhatsAppLink(answers: ChatAnswers): string {
   const lines = [
-    `Hi Ahmad, I just filled out your project form.`,
+    `Hi Muhammad, I just filled out your project form.`,
     answers.intent && `Enquiry type: ${answers.intent}`,
     answers.purpose && `Purpose: ${answers.purpose}`,
     answers.business_type && `Business type: ${answers.business_type}`,

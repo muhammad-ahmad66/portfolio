@@ -22,6 +22,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { LogoIcon } from "@/components/ui/logo-icon";
 import { STEPS } from "@/data/chatbot/steps";
 import {
@@ -38,6 +39,9 @@ import type {
   Step,
 } from "@/data/chatbot/types";
 import { SESSION_KEY, SESSION_TTL } from "@/data/chatbot/types";
+import { useCurrency } from "@/contexts/currency-context";
+import { formatPrice } from "@/lib/currencies";
+import { useContactWindowContext } from "@/app/contexts/contact-window-context";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Session helpers
@@ -174,6 +178,7 @@ function ProgressBar({
 // ─────────────────────────────────────────────────────────────────────────────
 
 function InfoPricingCards({ onContinue }: { onContinue: () => void }) {
+  const { currency } = useCurrency();
   return (
     <div className="space-y-2.5 p-3 sm:p-4">
       <div className="space-y-2">
@@ -185,7 +190,7 @@ function InfoPricingCards({ onContinue }: { onContinue: () => void }) {
             <div>
               <p className="text-xs font-semibold text-foreground">{p.name}</p>
               <p className="text-[10px] text-muted-foreground mt-0.5">
-                PKR {p.price.toLocaleString()} · {p.timeline}
+                {formatPrice(p.price, currency)} · {p.timeline}
               </p>
             </div>
             <Link
@@ -200,7 +205,7 @@ function InfoPricingCards({ onContinue }: { onContinue: () => void }) {
       </div>
       <div className="grid grid-cols-2 gap-2 pt-1">
         <a
-          href="https://wa.me/923129819819?text=Hi%20Ahmad%2C%20I%27d%20like%20a%20custom%20quote."
+          href="https://wa.me/923129819819?text=Hi%20Muhammad%2C%20I%27d%20like%20a%20custom%20quote."
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-green-500 hover:bg-green-600 text-white text-[11px] font-semibold transition-all"
@@ -287,7 +292,7 @@ function InfoAvailability({ onContinue }: { onContinue: () => void }) {
         </div>
       ))}
       <a
-        href="https://wa.me/923129819819?text=Hi%20Ahmad%2C%20I%20wanted%20to%20check%20your%20availability."
+        href="https://wa.me/923129819819?text=Hi%20Muhammad%2C%20I%20wanted%20to%20check%20your%20availability."
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center gap-1.5 w-full mt-2 px-3 py-2 rounded-xl bg-green-500 hover:bg-green-600 text-white text-[11px] font-semibold transition-all"
@@ -518,7 +523,7 @@ function ContactFields({
         className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-600 text-white text-sm font-semibold hover:shadow-lg hover:shadow-primary-500/25 transition-all active:scale-95"
       >
         <Send className="w-3.5 h-3.5" />
-        Send to Ahmad
+        Send to Muhammad
       </button>
     </form>
   );
@@ -582,6 +587,8 @@ function DoneScreen({ answers }: { answers: ChatAnswers }) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export function QuickContactTab() {
+  const router = useRouter();
+  const { closeWindow } = useContactWindowContext();
   const [currentStepId, setCurrentStepId] = useState<string>("start");
   const [answers, setAnswers] = useState<ChatAnswers>({});
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -700,7 +707,14 @@ export function QuickContactTab() {
   // ─────────────────────────────────────────────────────────────────────────
 
   const handleAnswer = useCallback(
-    (value: string, displayText?: string) => {
+    (value: string, displayText?: string, navigateTo?: string) => {
+      // Navigate + close modal for direct-link options
+      if (navigateTo) {
+        closeWindow();
+        router.push(navigateTo);
+        return;
+      }
+
       const step = STEPS[currentStepId];
       if (!step) return;
 
@@ -718,7 +732,7 @@ export function QuickContactTab() {
       const nextId = getNextStep(currentStepId, value, newAnswers);
       advanceTo(nextId, value, newAnswers);
     },
-    [answers, currentStepId, advanceTo]
+    [answers, currentStepId, advanceTo, closeWindow, router]
   );
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -981,12 +995,18 @@ export function QuickContactTab() {
             >
               {/* Single select */}
               {step.inputType === "single-select" && (
-                <div className="p-3 sm:p-4 flex flex-wrap gap-1.5">
+                <div className="p-3 sm:p-4 grid grid-cols-2 gap-1.5">
                   {step.options?.map((opt) => (
                     <div key={opt.label} className="flex flex-col gap-0.5">
                       <button
-                        onClick={() => handleAnswer(opt.value ?? opt.label)}
-                        className="flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-xl text-xs font-medium border border-border/70 bg-background hover:border-primary-500/60 hover:bg-primary-500/6 hover:text-primary-500 transition-all duration-150 active:scale-95 text-left"
+                        onClick={() =>
+                          handleAnswer(
+                            opt.value ?? opt.label,
+                            undefined,
+                            opt.navigateTo
+                          )
+                        }
+                        className="flex items-center gap-1 px-2.5 py-2 min-h-[44px] rounded-xl text-[11px] font-medium border border-border/70 bg-background hover:border-primary-500/60 hover:bg-primary-500/6 hover:text-primary-500 transition-all duration-150 active:scale-95 text-left w-full leading-tight"
                       >
                         {opt.label}
                       </button>

@@ -23,6 +23,7 @@ export interface StepOption {
   value?: string;
   goTo?: string;
   note?: string;
+  navigateTo?: string; // internal route: navigate + close modal
 }
 
 export interface InfoLink {
