@@ -995,7 +995,7 @@ export function QuickContactTab() {
             >
               {/* Single select */}
               {step.inputType === "single-select" && (
-                <div className="p-3 sm:p-4 grid grid-cols-2 gap-1.5">
+                <div className="p-3 sm:p-4 flex flex-wrap gap-1.5">
                   {step.options?.map((opt) => (
                     <div key={opt.label} className="flex flex-col gap-0.5">
                       <button
@@ -1006,12 +1006,12 @@ export function QuickContactTab() {
                             opt.navigateTo
                           )
                         }
-                        className="flex items-center gap-1 px-2.5 py-2 min-h-[44px] rounded-xl text-[11px] font-medium border border-border/70 bg-background hover:border-primary-500/60 hover:bg-primary-500/6 hover:text-primary-500 transition-all duration-150 active:scale-95 text-left w-full leading-tight"
+                        className="flex items-center gap-1 px-2.5 py-2 min-h-[44px] rounded-xl text-[11px] font-medium border border-border/70 bg-background hover:border-primary-500/60 hover:bg-primary-500/6 hover:text-primary-500 transition-all duration-150 active:scale-95 text-left leading-tight"
                       >
                         {opt.label}
                       </button>
                       {opt.note && (
-                        <p className="text-[9px] text-muted-foreground/50 px-1">
+                        <p className="text-[9px] text-muted-foreground/50 px-1 whitespace-nowrap">
                           {opt.note}
                         </p>
                       )}
